@@ -1,0 +1,2 @@
+ 1. Dateien migrieren mit einer neuen OrdneStruktur
+ 2. Aupassen auf Links. Relative Pfad anwenden. 1. Dateien migrieren mit einer
