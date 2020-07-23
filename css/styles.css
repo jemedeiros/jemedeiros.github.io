@@ -167,7 +167,7 @@ html {
    color: #ffffff;
 }
 .menu li:hover {
-   background-color: #003243;
+   background-color: #0099cc;
 }
 #menu1 {
     list-style-image: url("data:text/plain;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAwMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERABEREQARERERERERERERAREQEBERAREAAAAQAAABEQAAABAAAAERAAAAEAAAAREBERAQEREBEQEAABAQAAERABAAEBEQAREAAQAQEAABEQEREBAREQERAAAAEAAAAREAAAAQABABEQAAAREAAAEQEAARARAAEQABERAAEREQAYGAAAAAAAAEKEAAB+/AAAfvwAAH78AABChAAAXrwAAG6MAAB2vAAAQoQAAH78AAB+7AAAfHwAALk5AADDgwAA");
@@ -248,11 +248,12 @@ em {
 a {
     color: black;
     font: 14px/16px Corbel, Arial, Helvetica, sans-serif;
+	text-decoration: none;
 }
     /*a:visited { border-bottom: 1px, solid; color: #940033 }*/
     a:hover {
         border-bottom: 1px, solid;
-        color: #00ffff;
+        color: #003243;
     }
 
     a:active {
