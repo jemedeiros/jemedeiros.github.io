@@ -135,8 +135,22 @@ html {
 
 #PAS_BA_EA_Map {
     height: 450px;
-    width: 500px;
+    width: 50%;
     float: right;
+}
+.map_and_summary_bound {
+	height: 500px;
+}
+
+.map_divs {
+	box-shadow: 5px 5px 5px #969696;
+}
+
+.summary_divs {
+	box-shadow: 5px 5px 5px #969696;
+	width: 47%;
+	outline-style: outset;
+	box-shadow: 5px 5px 5px #969696;
 }
 
 .column {
