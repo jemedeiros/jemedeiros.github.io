@@ -147,6 +147,7 @@ html {
 }
 
 .summary_divs {
+	box-shadow: 5px 5px 5px #969696;
 	width: 47%;
 	outline-style: outset;
 	box-shadow: 5px 5px 5px #969696;
