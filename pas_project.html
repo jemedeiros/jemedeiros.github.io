@@ -56,8 +56,8 @@
                 <a href="archaeosweeper/game.html"> Archaeosweeper </a>
 
             </h3>
-            <h2> A brief introduction to this page: </h2>
-            <h3> <a href="#begin_summary"> Click here </a>for the statistic summary and the maps. <!-- The maps need time to load. --> </h3>
+            <h2> A brief introduction to this page:</h2>
+            <h3> <a href="#begin_summary"> Click here </a>for the statistic summary and the maps. The maps need time to load. </h3>
             <div class="intro_txt">
                 <p>
                     The scientific discovery of the past is not usually associated with great numbers of people.
@@ -136,17 +136,13 @@
             <hr />
 
             <h2 id="begin_summary"> Short summary for finds registered with Dates after 1300BC and before 700BC</h2>
-			<div class="map_and_summary_bound">
-            <div id="PAS_BA_EA_Map" class="map_divs"> </div>
-			<div class="summary_divs">
+            <div id="PAS_BA_EA_Map"></div>
             <p> # Records (search for time span of 1300BC to 700BC): <span id="total_ba_ea"> </span></p>
             <p> Records classified in the Bronze Age: <span id="ba_nr"> </span></p>
             <p> Records classified in the Iron Age: <span id="ea_nr"></span> </p>
             <p> Published finds: <span id="published_ba_ia"> </span> </p>
             <p> Awating validation: <span id="validation_ba_ia"> </span> </p>
-			</div>
-			</div>
-            <!-- <p> <button onClick="create_Map(); shadow_bz();" class="addMore" title="Please, wait for the density poligons to load"> Density Map PAS </button></p> />
+            <p> <button onClick="create_Map()" class="addMore" title="Please, wait for the density poligons to load"> Density Map PAS </button></p>
             <br />
             <br />
             <br />
@@ -191,21 +187,16 @@
 
     
     <script type="text/javascript" src="pas_project.js"></script>
-	<script type="text/javascript" src="map.js"></script>
     <!--<script type="text/javascript" src="pan_project.js"></script>-->
     <script>
-	/*
         function create_Map() {
-            var htmlFooter = document.getElementsByTagName("footer")[0];         
-            var myScript = document.createElement('script');
-                myScript.type = 'text/javascript';
-                myScript.src = 'map.js';
-                htmlFooter.appendChild(myScript);
+        var htmlFooter = document.getElementsByTagName("footer")[0];         
+        var myScript = document.createElement('script');
+            myScript.type = 'text/javascript';
+            myScript.src = 'map.js';
+            htmlFooter.appendChild(myScript);
         }
-		function shadow_bz() {
-		    document.getElementById("PAS_BA_EA_Map").style.boxShadow = "5px 5px 5px #969696";
-		}
-	*/
+
         function readmore() {
             var dots = document.getElementById("dots");
             var moreText = document.getElementById("more");
