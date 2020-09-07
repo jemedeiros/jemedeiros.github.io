@@ -38,7 +38,88 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-        <div class="content"> 
+        <div class="content">
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Open Modal</button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>
+                        The scientific discovery of the past is not usually associated with great numbers of people.
+                        Some people would understand it even as an elitist activity. Yet, there are a number of people looking
+                        for reliques of the past on their own, either in their free time or as a side effect of their occupations. In this context, there is an ongoing discussion about how to deal with amateur archaeologists
+                        specially those using metal detectors. It used to be problematic to gather data about these activities. Consequently the discussions about the role played by amatuers
+                        and metal detectorists lacked precise data. However, the British Museum had an innovative idea that offered numbers to the work
+                        with amateur archaeologists. Other countries now followed and started their own projects. I want to compare them here. <span id="dots">...</span>
+                    </p>
+                <button onclick="readmore()"  id="readmoreBtn">Read more about this page </button>
+                <div id="more">
+                    <p>
+                        A lot of these finding do not appear in the scientific radar of professional or academic archaeology.
+                        However, the internet has made possible to harness some of the potentially lost information.
+                        The <i>Portable Antiquities Scheme</i> (a.k.a <abbr>PAS</abbr>) is a public programme for the voluntary registration of archaeological finds made by the public
+                        in England, Wales and Northern Ireland.
+                        It uses this capacity to crowdsource information in the network of computers to support and
+                        orient hobby archeologists and cautiously safeguard information that would otherwise remain unregistered.
+                        In addition to community and educational work, PAS provides a database for research.
+                        PAS is, above all, a pedagogical program, making available a database and information on how to deal with archaeological finds.
+                        While this is an intelligent strategy, it is certainly not free from discussions.
+                        You can read more about this subject in their website (e.g. the <a href="https://finds.org.uk/publications/reports/2017">Annual Reports</a>)
+                        and in the following literature:
+                        <ul>
+                            <li>
+                                Thomas, S. and Stone, P.G. (eds.) 2009, Metal Detecting and Archaeology. Woodbridge: Boydell Press.
+                            </li>
+                            <li>
+                                Worrell, S., Egan, G., Naylor, J., Leahy, K. & Lewis, M. 2010,
+                                A Decade of Discovery. Proceedings of the Portable Antiquities Scheme Conference 2007. BAR Brit. Ser., 520.
+                                Oxford: Archaeopress.
+                            </li>
+                            <li>
+                                Gill, D.W.J. 2010, The Portable Antiquities Scheme and the Treasure Act: Protecting the Archaeology
+                                of England and Wales? Papers from the Institute of Archaeology, 20, 1-11.
+                            </li>
+                            <li>
+                                Compagnon, G. (Hrsg.). 2010, Halte au pillage!. Arles: Errance.
+                            </li>
+                            <li>
+                                <a href="https://journals.ub.uni-heidelberg.de/index.php/arch-inf/article/view/15327">
+                                    Huth, C. 2013, Vom rechten Umgang mit Sondengänger: Das „Portable Antiquities Scheme“
+                                    in England und Wales und seine Folgen, in: Archäologische Informationen 36, p.129-137.
+                                </a>
+                            </li>
+    
+                        </ul>
+                    </p>
+                    <p>
+                        Nowadays the Netherlands started their own program called the <a href="https://portable-antiquities.nl/pan/#/public">
+                            Portable Antiquities of the Netherlands
+                        </a>
+                        (a.k.a <abbr>PAN</abbr>). Now, Danemark too with the <a href="https://www.metaldetektorfund.dk/"> DIME </a>.
+                        And Finnland <a href="https://blogs.helsinki.fi/sualt-project/"> SuALT / Find Sampo </a>
+                    </p>
+    
+                    <p>
+                        While I am waiting to see what happens with all these projects and much more to come, I thought about buiding
+                        a program that would gahter their data, respecting any copyright and sensitive data they do not wish to publish,
+                        and display them side by side so that we can get an idea of the comparison between their projects.
+                    </p>
+                    <p>
+                        I just started with the data from the PAS website. And I am going to start with some data for the Late bronze Age and the Early Iron Age,
+                        because that is the data I worked with in my M.A. Thesis. Naturally, I want to make relevant comparisons and, thus, display here how the projects
+                        are doing in regard to their own regions, and in regard to the archaeological potentials in their regions.
+                        But the idea is to compare with data from the other projects too, once I get all the proportions from each project.
+                    </p>
+                    <p>
+                        This project just stared, so please be patient. But you will find here, distribution and density maps, and a summary of the data
+                        I am retrieving for their websites in real time. I only deal with data open to the public, so as a rule the finds will not be pointing to their exact locations
+                    </p>
+                    <p> Also, the maps take a while to load, specially with firefox. So please be patient. </p> </span>
+                </div>
+                </div>
+            </div> 
             <div id="Map"></div>
             <br>
             <hr>
@@ -64,4 +145,46 @@
         <script src="js/map.js"></script>
         <script src="js/pas_project.js" async defer></script>
     </body>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function readmore() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("readmoreBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more about this page"; 
+                moreText.style.display = "none";
+                 } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Read less"; 
+                    moreText.style.display = "inline";
+                    }
+        } 
+    </script>
 </html>
