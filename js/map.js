@@ -26,7 +26,7 @@ async function get_shapes() {
 get_shapes();
 
 async function get_shapes_dnk() {
-    const response = await fetch("gpkg_data/gadm36_DNK.gpkg");
+    const response = await fetch("./gpkg_data/gadm36_DNK.gpkg");
     const data = await response.json();
     var counties_shp = L.geoJson(data);
     counties_shp.addTo(mymap);
