@@ -9,6 +9,11 @@ const tileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
 
+L.geoPackageTileLayer({
+    geoPackageUrl: 'https://jemedeiros.github.io/gpkg_data/gadm36_DNK.gpkg',
+    layerName: 'denmark'
+}).addTo(mymap);
+
 
 async function get_shapes() {
     const response = await fetch("Counties_shp_1.geojson");
