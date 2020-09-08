@@ -35,7 +35,7 @@ get_shapes_dnk();
 
 
 async function get_shapes_nld() {
-    const response = await fetch("./geojs/gadm36_NLD_2.json");
+    const response = await fetch("./geojs/gadm36_NLD_1.json");
     const data = await response.json();
     var counties_shp = L.geoJson(data);
     counties_shp.addTo(mymap);
