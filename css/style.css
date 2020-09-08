@@ -99,9 +99,12 @@ body p {
     margin-left: 6px;
 }
 
-.leaflet-bar a, .leaflet-bar a:hover {
-    margin-left: unset;
-    text-decoration: unset; 
+.leaflet-touch .leaflet-bar a {
+    text-decoration: unset;
+    }
+
+.leaflet-bar a, .leaflet-bar a:hover { 
+    margin-left: unset; 
 }
 
 .content a:active {
