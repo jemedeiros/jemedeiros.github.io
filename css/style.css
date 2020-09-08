@@ -99,9 +99,9 @@ body p {
     margin-left: 6px;
 }
 
-.leaflet-touch, .leaflet-bar a {
+.leaflet-touch .leaflet-bar a {
     text-decoration: unset;
-    }
+}
 
 .leaflet-bar a, .leaflet-bar a:hover { 
     margin-left: unset; 
