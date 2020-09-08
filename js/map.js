@@ -8,6 +8,11 @@ const attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">Op
 const tileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
+var loadingControl = L.Control.loading({
+    // 0.5 second delay when showing the loading indicator
+    delayIndicator: 500
+});
+mymap.addControl(loadingControl);
 
 async function get_shapes() {
     const response = await fetch("Counties_shp_1.geojson");
