@@ -9,12 +9,6 @@ const tileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
 
-L.geoPackageTileLayer({
-    geoPackageUrl: 'http://jemedeiros.github.io/gpkg_data/gadm36_DNK.gpkg',
-    layerName: 'denmark'
-}).addTo(mymap);
-
-
 async function get_shapes() {
     const response = await fetch("Counties_shp_1.geojson");
     const data = await response.json();
@@ -30,6 +24,14 @@ async function get_shapes() {
     counties_shp.addTo(mymap);
 }
 get_shapes();
+
+async function get_shapes_dnk() {
+    const response = await fetch("gpkg_data/gadm36_DNK.gpkg");
+    const data = await response.json();
+    var counties_shp = L.geoJson(data);
+    counties_shp.addTo(mymap);
+}
+get_shapes_dnk()
 
 function getColor(d) {
     return d > 300 ? '#610B21':   
