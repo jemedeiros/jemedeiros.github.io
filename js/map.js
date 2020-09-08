@@ -10,7 +10,7 @@ const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
 
 L.geoPackageTileLayer({
-    geoPackageUrl: 'https://jemedeiros.github.io/gpkg_data/gadm36_DNK.gpkg',
+    geoPackageUrl: 'http://jemedeiros.github.io/gpkg_data/gadm36_DNK.gpkg',
     layerName: 'denmark'
 }).addTo(mymap);
 
