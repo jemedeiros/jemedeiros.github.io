@@ -100,7 +100,8 @@ body p {
 }
 
 .leaflet-bar a, .leaflet-bar a:hover {
-    margin-left: unset; 
+    margin-left: unset;
+    text-decoration: unset; 
 }
 
 .content a:active {
