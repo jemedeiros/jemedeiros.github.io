@@ -3,7 +3,7 @@
 // The idea is to make the  map for every country.
 // Still working on that.
 
-const mymap = L.map('Map').setView([51.505, -0.09], 5);
+const mymap = L.map('Map', { loadingControl: true }).setView([51.505, -0.09], 5);
 const attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy <a href="https://www.mapbox.com/">Mapbox</a> Contains OS data &copy Crown copyright and database right 2018 - and the PAS: Thank you';
 const tileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const tiles = L.tileLayer(tileUrl, { attribution });
