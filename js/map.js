@@ -16,6 +16,7 @@ async function get_shapes() {
     var cbox = document.getElementById("pas_uk_lba_eia");
     if (cbox.checked === false) {
         mymap.removeLayer(shp_uk_lba_eia_id);
+        mymap.removeLayer("1");
     } else {
         const response = await fetch("Counties_shp_1.geojson");
         const data = await response.json();
@@ -30,6 +31,10 @@ async function get_shapes() {
         counties_shp = L.geoJson(data, {style: style});
         counties_shp.addTo(mymap);
         shp_uk_lba_eia_id = L.stamp(counties_shp);
+        console.log("shp_uk_lba_eia_id");
+        console.log(shp_uk_lba_eia_id);
+        console.log("first try");
+        counties_shp.id = "1"
     } 
 }
 // get_shapes();
