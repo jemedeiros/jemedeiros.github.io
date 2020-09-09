@@ -15,7 +15,7 @@ let shp_dime_lba_eia_id;
 async function get_shapes() {
     var cbox = document.getElementById("pas_uk_lba_eia");
     if (!cbox.value) {
-        mymap.remove(shp_uk_lba_eia_id);
+        mymap.removeLayers(shp_uk_lba_eia_id);
     } else {
         const response = await fetch("Counties_shp_1.geojson");
         const data = await response.json();
@@ -42,7 +42,6 @@ async function get_shapes_dnk() {
     shp_dnk_lba_eia_id = L.stamp(counties_shp);
 }
 // get_shapes_dnk();
-
 
 async function get_shapes_nld() {
     const response = await fetch("./geojs/gadm36_NLD_1.json");
