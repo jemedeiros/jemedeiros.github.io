@@ -14,7 +14,7 @@ let shp_nld_lba_eia_id;
 let shp_dime_lba_eia_id;
 async function get_shapes() {
     var cbox = document.getElementById("pas_uk_lba_eia");
-    if (!cbox.value) {
+    if (!cbox.checked) {
         mymap.removeLayers(shp_uk_lba_eia_id);
     } else {
         const response = await fetch("Counties_shp_1.geojson");
