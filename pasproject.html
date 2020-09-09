@@ -123,7 +123,19 @@
                 </div>
                 </div>
             </div> 
-            <div id="Map"></div>
+            <!-- End Modal Content -->
+            <div id="checkboxdiv"> 
+                <form action="#">
+                    <input type="checkbox" id="pas_uk_lba_eia" onchange="get_shapes();">
+                    <label for="pas_uk_lba_eia"> UK - LBA & EIA </label><br>
+                    <input type="checkbox" id="pan_lba_eia" onclick="get_shapes_nld();>
+                    <label for="pan_lba_eia"> PAN Netherlands - LBA & EIA </label><br>
+                    <input type="checkbox" id="dime" onclick="get_shapes_dnk();">
+                    <label for="dime"> DIME Denmark - LBA & EIA </label><br><br>
+                </form> 
+            </div>            
+            <div id="Map">
+                </div>
             <br>
             <hr>
             <hr>

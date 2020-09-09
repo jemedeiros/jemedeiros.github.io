@@ -9,29 +9,39 @@ const tileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
 
+let shp_uk_lba_eia_id;
+let shp_nld_lba_eia_id;
+let shp_dime_lba_eia_id;
 async function get_shapes() {
-    const response = await fetch("Counties_shp_1.geojson");
-    const data = await response.json();
-    var counties_shp = L.geoJson(data);
-    for (var x in counties_shp._layers) {
-        for (var y in counties_data) {
-            if (y.startsWith(counties_shp._layers[x].feature.properties['NAME'])) {
-                counties_shp._layers[x].feature.properties.pasrecords = counties_data[y];
-                       }
+    var cbox = document.getElementById("pas_uk_lba_eia");
+    if (!cbox.value) {
+        mymap.remove(shp_uk_lba_eia_id);
+    } else {
+        const response = await fetch("Counties_shp_1.geojson");
+        const data = await response.json();
+        var counties_shp = L.geoJson(data);
+        for (var x in counties_shp._layers) {
+            for (var y in counties_data) {
+                if (y.startsWith(counties_shp._layers[x].feature.properties['NAME'])) {
+                    counties_shp._layers[x].feature.properties.pasrecords = counties_data[y];
+                        }
+            }
         }
-    }
-    counties_shp = L.geoJson(data, {style: style});
-    counties_shp.addTo(mymap);
+        counties_shp = L.geoJson(data, {style: style});
+        counties_shp.addTo(mymap);
+        shp_uk_lba_eia_id = L.stamp(counties_shp);
+    } 
 }
-get_shapes();
+// get_shapes();
 
 async function get_shapes_dnk() {
     const response = await fetch("./geojs/gadm36_DNK_2.json");
     const data = await response.json();
     var counties_shp = L.geoJson(data);
     counties_shp.addTo(mymap);
+    shp_dnk_lba_eia_id = L.stamp(counties_shp);
 }
-get_shapes_dnk();
+// get_shapes_dnk();
 
 
 async function get_shapes_nld() {
@@ -39,8 +49,9 @@ async function get_shapes_nld() {
     const data = await response.json();
     var counties_shp = L.geoJson(data);
     counties_shp.addTo(mymap);
+    shp_nld_lba_eia_id = L.stamp(counties_shp);
 }
-get_shapes_nld();
+// get_shapes_nld();
 
 function getColor(d) {
     return d > 300 ? '#610B21':   
