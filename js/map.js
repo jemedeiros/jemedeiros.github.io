@@ -35,6 +35,7 @@ async function get_shapes() {
 // get_shapes();
 
 async function get_shapes_dnk() {
+    var cbox = document.getElementById("dime_lba_eia");
     if (cbox.checked === false) {
         mymap.removeLayer(shp_dnk_lba_eia_id);
     } else {
@@ -48,6 +49,7 @@ async function get_shapes_dnk() {
 // get_shapes_dnk();
 
 async function get_shapes_nld() {
+    var cbox = document.getElementById("pan_lba_eia");
     if (cbox.checked === false) {
         mymap.removeLayer(shp_nld_lba_eia_id);
     } else {
