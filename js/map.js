@@ -12,6 +12,17 @@ tiles.addTo(mymap);
 let shp_uk_lba_eia_id;
 let shp_nld_lba_eia_id;
 let shp_dime_lba_eia_id;
+
+var loadingHandler = function (event) {
+    mymap.fireEvent('dataloading', event);
+};
+
+var loadHandler = function (event) {
+    mymap.fireEvent('dataload', event);
+};
+shp_uk_lba_eia_id.on('loading', loadingHandler);
+shp_uk_lba_eia_id.on('load', loadHandler);
+
 async function get_shapes() {
     var cbox = document.getElementById("pas_uk_lba_eia");
     if (cbox.checked === false) {
@@ -29,6 +40,7 @@ async function get_shapes() {
         }
         counties_shp = L.geoJson(data, {style: style});
         shp_uk_lba_eia_id = counties_shp.addTo(mymap);
+        
     } 
 }
 // get_shapes();
