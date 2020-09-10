@@ -41,8 +41,6 @@ async function get_shapes() {
     } 
 }
 // get_shapes();
-shp_uk_lba_eia_id.on("loading", loadingHandler);
-shp_uk_lba_eia_id.on('load', loadHandler);
 
 async function get_shapes_dnk() {
     var cbox = document.getElementById("dime_lba_eia");
