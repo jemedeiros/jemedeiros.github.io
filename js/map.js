@@ -38,10 +38,9 @@ async function get_shapes() {
         }
         counties_shp = L.geoJson(data, {style: style});
         shp_uk_lba_eia_id = counties_shp.addTo(mymap);
-        shp_uk_lba_eia_id.on("loading", loadingHandler);
-        shp_uk_lba_eia_id.on('load', loadHandler);
-        
     } 
+    shp_uk_lba_eia_id.on("loading", loadingHandler);
+    shp_uk_lba_eia_id.on('load', loadHandler);
 }
 // get_shapes();
 
