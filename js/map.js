@@ -20,8 +20,6 @@ var loadingHandler = function (event) {
 var loadHandler = function (event) {
     mymap.fireEvent('dataload', event);
 };
-shp_uk_lba_eia_id.on('loading', loadingHandler);
-shp_uk_lba_eia_id.on('load', loadHandler);
 
 async function get_shapes() {
     var cbox = document.getElementById("pas_uk_lba_eia");
@@ -40,6 +38,8 @@ async function get_shapes() {
         }
         counties_shp = L.geoJson(data, {style: style});
         shp_uk_lba_eia_id = counties_shp.addTo(mymap);
+        shp_uk_lba_eia_id.on('loading', loadingHandler);
+        shp_uk_lba_eia_id.on('load', loadHandler);
         
     } 
 }
