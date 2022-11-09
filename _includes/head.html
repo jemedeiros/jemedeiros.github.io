@@ -1,0 +1,115 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{{ page.title }}</title>
+    {% assign handle = page.title %}
+    {% case handle %}
+    {% when "Home", "Blog" %}
+    <link rel='shortcut icon' href="/favicon.ico"  type='image/x-icon' />
+    {% when "Publications" %}
+    <link rel='shortcut icon' href="/favicon_publications.ico"  type='image/x-icon' />
+    {% when "PA Projects" %}
+    <link rel='shortcut icon' href="/favicon_pas.ico"  type='image/x-icon' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+     crossorigin=""/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+     crossorigin=""></script>
+    <link rel="stylesheet" href="https://rawgithub.com/ebrelsford/Leaflet.loading/master/src/Control.Loading.css" />
+    <script src="https://rawgithub.com/ebrelsford/Leaflet.loading/master/src/Control.Loading.js"></script>    
+    {% when "Archaeosweeper" %}
+    <link rel='shortcut icon' href="/favicon_as.ico"  type='image/x-icon' /> 
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/8bit-wonder" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="/assets/js/cell.js"></script>
+    <script type="text/javascript" src="/assets/js/Script1.js"></script>
+    {% endcase %} 
+</head>
+    {% if page.title == "Archaeosweeper" %}
+    <style>
+        html, p, h1, h2, h3, .dollar, .arch, body, .content, .game {
+            font-family: '8BITWONDERNominal';
+        }
+    
+        .game hgroup {
+        margin: 5px 5px 2px 2px;
+        font-family: '8BITWONDERNominal';
+        } 
+    
+        .game hgroup h1 {
+            font-family: '8BITWONDERNominal';
+            font-size: 35px;
+            color: black; /*HINT - This is where you change webpage title color */
+            text-align: center;
+        }
+    
+        .game hgroup h2 {
+            font-family: '8BITWONDERNominal';
+            font-size: 14px/20px ;
+            color: black; /*HINT - This is where you change quote color */
+            text-align: center;
+        }
+        .game h1 {
+            font-family: '8BITWONDERNominal';
+            font-size: 20px/20px;
+            margin-bottom: 15px;
+            color: #091516; /*HINT - here we set the heading color of site*/
+            font-weight: bold;
+        }
+        .game h2 {
+            font-family: '8BITWONDERNominal';
+            font-size: 20px/20px;
+            margin-bottom: 5px;
+            color: black;
+        }
+        .game p {
+            font-family: '8BITWONDERNominal';
+            margin-bottom: 18px;
+            margin-right: 18px;
+            margin-left: 18px;
+            margin-top: 8px;
+            text-align: justify;
+            line-height: 16px;
+            font-size: 12px
+        }
+        .game.dollar {
+            font-family: '8BITWONDERNominal';
+            text-align: justify;
+            margin-right: 5px;
+        }
+    
+        .game.arch { 
+            font-family: '8BITWONDERNominal';
+            cursor: url(16px.cur) 5 75, pointer;	                                                                
+        }
+        #script1_holder {
+            position: static;
+            width: 80%;
+            height: 500px;
+            text-align: center;
+            margin-left: 10%;
+        }
+        
+        @media screen and (max-width: 600px) { 
+            #script1_holder {    
+                width: 100%;
+                display: contents;
+            }   
+        }
+        #reset_btn {
+            width: 50px;
+            height: 20px;
+        }
+        </style>
+    {% endif %}

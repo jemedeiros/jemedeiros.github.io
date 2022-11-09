@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: Publications
+  link: /publications.html
+- name: PA Projects
+  link: /pasproject.html
+- name: Archaeosweeper
+  link: /archaeosweeper.html
+- name: Blog
+  link: /blog.html

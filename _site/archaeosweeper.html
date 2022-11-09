@@ -1,0 +1,237 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Archaeosweeper</title>
+    
+    
+    <link rel='shortcut icon' href="/favicon_as.ico"  type='image/x-icon' /> 
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/8bit-wonder" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="/assets/js/cell.js"></script>
+    <script type="text/javascript" src="/assets/js/Script1.js"></script>
+     
+</head>
+    
+    <style>
+        html, p, h1, h2, h3, .dollar, .arch, body, .content, .game {
+            font-family: '8BITWONDERNominal';
+        }
+    
+        .game hgroup {
+        margin: 5px 5px 2px 2px;
+        font-family: '8BITWONDERNominal';
+        } 
+    
+        .game hgroup h1 {
+            font-family: '8BITWONDERNominal';
+            font-size: 35px;
+            color: black; /*HINT - This is where you change webpage title color */
+            text-align: center;
+        }
+    
+        .game hgroup h2 {
+            font-family: '8BITWONDERNominal';
+            font-size: 14px/20px ;
+            color: black; /*HINT - This is where you change quote color */
+            text-align: center;
+        }
+        .game h1 {
+            font-family: '8BITWONDERNominal';
+            font-size: 20px/20px;
+            margin-bottom: 15px;
+            color: #091516; /*HINT - here we set the heading color of site*/
+            font-weight: bold;
+        }
+        .game h2 {
+            font-family: '8BITWONDERNominal';
+            font-size: 20px/20px;
+            margin-bottom: 5px;
+            color: black;
+        }
+        .game p {
+            font-family: '8BITWONDERNominal';
+            margin-bottom: 18px;
+            margin-right: 18px;
+            margin-left: 18px;
+            margin-top: 8px;
+            text-align: justify;
+            line-height: 16px;
+            font-size: 12px
+        }
+        .game.dollar {
+            font-family: '8BITWONDERNominal';
+            text-align: justify;
+            margin-right: 5px;
+        }
+    
+        .game.arch { 
+            font-family: '8BITWONDERNominal';
+            cursor: url(16px.cur) 5 75, pointer;	                                                                
+        }
+        #script1_holder {
+            position: static;
+            width: 80%;
+            height: 500px;
+            text-align: center;
+            margin-left: 10%;
+        }
+        
+        @media screen and (max-width: 600px) { 
+            #script1_holder {    
+                width: 100%;
+                display: contents;
+            }   
+        }
+        #reset_btn {
+            width: 50px;
+            height: 20px;
+        }
+        </style>
+    
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="topnav" id="myTopnav">
+    
+    <a href="/" > Home </a>
+    
+    <a href="/publications.html" > Publications </a>
+    
+    <a href="/pasproject.html" > PA Projects </a>
+    
+    <a href="/archaeosweeper.html"  class="active" > Archaeosweeper </a>
+    
+    <a href="/blog.html" > Blog </a>
+    
+    <a href="javascript:void(0);" class="icon" onclick="menuFnc()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+    <div class="content">
+              <div class="content game">
+            <h1 style="line-height: 6px"> Time left: <span id="timer"></span></h1>
+                <h2>
+                    <span id="totalBudget"></span>  <span class="dollar"> <img style="box-shadow: none;" class="dollar" src="/assets/archaeosweeper/dollar.ico" /></span>  &emsp;&emsp;&emsp; <span id="totalPoints"> </span>  Points &emsp;&emsp;&emsp; <span id="artifacts_found"></span> /  <span id="TotalArtifacts"></span> Artifacts Found
+                </h2>
+                <br />
+            <p> Archaesweeper is an archaeological simulation. It works as the opposite of minesweeper: You get more money if you find the artifacts!  </p>
+            <p> Just be aware! Everytime you click you lose money. These are the costs of excavations or prospections </p>
+            <p> But if you find something, you may refill your budget! Other times you will get points, but no money.</p>
+            <hr />
+
+            <div id="script1_holder" class="arch"> </div>
+            <br />
+            <p><div id="reset_btn"> </div></p>
+        </div>
+        
+        <div class="game">
+            <p style="font-size: 8px;">
+
+                Copyright &copy;
+            </p>
+            <p style="font-size: 8px;">
+
+                Sounds:
+                <ul>
+                    <li>
+                        Door Bell
+                        <a href="https://commons.wikimedia.org/wiki/File:Sound_Effect_-_Door_Bell.ogg" title="via Wikimedia Commons">Amada44</a> [CC0]
+                    </li>
+                    <li>
+                        No more money sound Whom Bass:
+                        <a href="https://commons.wikimedia.org/wiki/File:Whoom_bass.ogg" title="via Wikimedia Commons">stephan</a> / Public domain
+                    </li>
+                    <li>
+                        Coin dropping sound:
+                        <a href="https://commons.wikimedia.org/wiki/File:Dropmetalthing.ogg" title="via Wikimedia Commons">Secretlondon</a> /
+                        <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>
+                    </li>
+                    <li>
+                        Game Won Sound of Clapping:
+                        <a href="https://commons.wikimedia.org/wiki/File:Clapping_hurray.ogg" title="via Wikimedia Commons">starlite</a> / Public domain
+                    </li>
+                    <li>
+                        Digging dirt sound:
+                        <a href="https://freesound.org/s/491824/" title="via Freesound.org">alirabiei</a>  [CC] by 3.0
+                    </li>
+                </ul>
+            </p>
+            <p style="font-size: 8px;">
+                Images:
+                <ul>
+                    <li>
+                        Spaten for mouse cursor:
+                        <a href="https://commons.wikimedia.org/wiki/File:Szpadel-09845.svg" title="via Wikimedia Commons">https://pixabay.com/en/users/ClkerFreeVectorImages-3736/ (original picture), modification: Mielon</a> / CC0
+                    </li>
+                    <li>
+                        Clovis Point Image inside the cells:  &copy Virginia Dept. of Historic Resources. This copyrighted image was published by an agency of the Government of the Commonwealth of Virginia and is believed to be available for free use with a credited citation of its source.
+                        The copyright holder of this file allows anyone to use it for any purpose, provided that the copyright holder is properly attributed. Redistribution, derivative work, commercial use, and all other use is permitted.
+                    </li>
+                </ul>
+
+            </p>
+        </div>
+    </div>
+  </body>
+  <script src="/assets/js/main.js" async defer></script>
+  
+<footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">de Medeiros</h2>
+  
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li class="p-name">
+            de Medeiros, J. E. M.  
+            </li>
+            <li>
+              <a class="u-email" href="mailto: "> joseeduardo@m-de-medeiros </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer-col footer-col-2">
+          <div id="social-media">
+    
+    <a href="https://github.com/jemedeiros" title="GitHub">
+    <i class="fa fa-github-square">
+    </i></a>
+    
+    <a href="https://de.linkedin.com/in/joseeduardomedeiros" title="Linkedin">
+    <i class="fa fa-linkedin-square">
+    </i></a>
+    
+    <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros" title="academia">
+    <i class="fa fa-graduation-cap">
+    </i></a>
+    
+</div>
+        </div>
+  
+        <div class="footer-col footer-col-3">
+          <p> JEM de Medeiros' Website. </p>
+        </div>
+      </div>
+  
+    </div>
+  
+  </footer>
+  
+</html>

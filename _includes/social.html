@@ -1,0 +1,7 @@
+<div id="social-media">
+    {% for social in site.data.social %}
+    <a href="{{ social.href }}{{ social.id | cgi_escape }}" title="{{ social.title }}">
+    <i class="fa {{ social.fa-icon }}">
+    </i></a>
+    {% endfor %}
+</div>
