@@ -1,6 +1,6 @@
 ---
 layout: post
-author: medeiros
+author: de Medeiros, J. E. M.
 ---
 # Audio Interface arrived.
 After a time planning, I now have the audio interface to use with my microphone and to better record and edit the Podcast Episodes. 

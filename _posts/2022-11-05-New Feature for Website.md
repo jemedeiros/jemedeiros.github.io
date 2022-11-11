@@ -1,6 +1,6 @@
 ---
 layout: post
-author: medeiros
+author: de Medeiros, J. E. M.
 ---
 # Hello World and welcome to a new feture: my blog. 
 I am introducing a blog to my private website on github pages.

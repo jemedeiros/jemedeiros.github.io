@@ -1,6 +1,6 @@
 ---
 layout: post
-author: medeiros
+author: de Medeiros, J. E. M.
 ---
 # New article
 I just send to publication an article about how social stratification and cognitive approaches to archaeological interpretation differ in their methods, approach, structural presumptions and even in their concrete results in improving real knowledge about the past.
