@@ -7,4 +7,4 @@ I just send to publication an article about how social stratification and cognit
 
 This more theoretical discussions is, however, used to look at the Stelae from Daunia of the Iron Age.
 
-The article named "Hierarquia e Sentido" should come out soon. Another article in German, sent and accepted a couple of years ago should be coming out at the same time. 
+The article named " *Hierarquia e Sentido* " should come out soon. Another article in German, sent and accepted a couple of years ago should be coming out at the same time. 
