@@ -1,0 +1,15 @@
+- github:
+  id: 'jemedeiros'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fa-github-square'
+- linkedin:
+  id: 'joseeduardomedeiros'
+  href: 'https://de.linkedin.com/in/'
+  title: 'Linkedin'
+  fa-icon: 'fa-linkedin-square'
+- academia:
+  id: 'JoséEduardoMdeMedeiros'
+  href: https://uff.academia.edu/
+  title: 'academia'
+  fa-icon: 'fa-graduation-cap'

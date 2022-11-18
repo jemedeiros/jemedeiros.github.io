@@ -1,0 +1,4 @@
+# ignore everything in this list
+Gemfile
+Gemfile.lock
+.vscode
