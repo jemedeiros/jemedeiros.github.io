@@ -1,9 +1,10 @@
 ---
 layout: post
 author: de Medeiros, J. E. M.
+download: false
 ---
 # New article
-I just send to publication an article about how social stratification and cognitive approaches to archaeological interpretation differ in their methods, approach, structural presumptions and even in their concrete results in improving real knowledge about the past.
+I just sent to publication an article about how social stratification and cognitive approaches to archaeological interpretation differ in their methods, approach, structural assumptions and even in their concrete results in improving real knowledge about the past.
 
 This more theoretical discussions is, however, used to look at the Stelae from Daunia of the Iron Age.
 
