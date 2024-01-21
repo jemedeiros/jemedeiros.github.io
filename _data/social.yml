@@ -13,3 +13,13 @@
   href: https://uff.academia.edu/
   title: 'academia'
   fa-icon: 'fa-graduation-cap'
+- twitter:
+  id: 'imdemedeiros'
+  href: 'https://www.twitter.com/'
+  title: 'Twitter'
+  fa-icon: 'fa-twitter-square'
+- instagram:
+  id: 'imdemedeiros'
+  href: 'https://www.instagram.com/'
+  title: 'Instagram'
+  fa-icon: 'fa-instagram'
