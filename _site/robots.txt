@@ -1,7 +1,5 @@
 # robotstxt.org/
-
-
 User-agent: *
-
-
-Disallow: /
+Disallow: /pas-project*
+Disallow: /archaeosweeper.html
+Disallow: /20*
