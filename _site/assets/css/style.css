@@ -332,7 +332,8 @@ body p {
   color: #828282; }
 
 .footer-col {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  padding-left: 3%; }
 
 .footer-col-1, .footer-col-2 {
   width: calc(50% - (30px / 2)); }

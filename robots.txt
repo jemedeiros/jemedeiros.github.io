@@ -2,4 +2,3 @@
 User-agent: *
 Disallow: /pas-project*
 Disallow: /archaeosweeper.html
-Disallow: /20*
