@@ -2,6 +2,7 @@
 layout: post
 author: de Medeiros, J. E. M.
 download: false
+excerpt_separator: <!--more-->
 ---
 
 *Images follow below*
@@ -9,6 +10,7 @@ download: false
 # New year, new motivation
 
 2024 promises to be a year of change. It all started with me going oo vacation back home in Rio. A long needed vacation, as the last year was stressful and reserved some disappointments hard to cope with. 
+<!--more-->
 
 ## Surf and the dream
 
