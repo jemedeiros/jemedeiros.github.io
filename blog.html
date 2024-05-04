@@ -4,6 +4,7 @@ name: Blog
 title: Blog
 ---
 
+<div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>
 <div class="card-grid">
 {% assign first_post = site.posts.first %}
     <div class="cards first">
@@ -24,8 +25,7 @@ title: Blog
             </div>
         </div>            
         </div>
-    
-    {% for post in site.posts offset:1 %}
+    {% for post in site.posts offset:1 limit:4 %}
         <div class="cards">
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -35,3 +35,9 @@ title: Blog
         </div>
     {% endfor %}
 </div>  
+<!-- Add a message indicating more posts -->
+<div class="center-content">
+    <p>Explore more posts in our <a href="/archive.html">archive</a> </p>
+</div>
+
+<div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>

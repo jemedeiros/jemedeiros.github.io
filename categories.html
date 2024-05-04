@@ -1,0 +1,24 @@
+---
+layout: default
+permalink: /categories/
+title: Categories
+---
+
+<div id="archives">
+  <!-- Display Categories -->
+  <h2> Search post by Categories </h2>
+  {% for category in site.categories %}
+    <div class="archive-group">
+      {% capture category_name %}{{ category | first }}{% endcapture %}
+      <div id="{{ category_name | slugize }}"></div>
+      <h3 class="category-head">{{ category_name }}</h3>
+      <!-- Add links to individual posts within this category -->
+      <ul>
+        {% for post in category.last %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+

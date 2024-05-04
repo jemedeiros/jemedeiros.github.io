@@ -2,6 +2,8 @@
 layout: post
 author: de Medeiros, J. E. M.
 download: false
+categories: podcast
+tags: audiointerface audio music podcast
 
 ---
 # Audio Interface arrived.

@@ -4,7 +4,7 @@ author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
 categories: skateboard
-tags: dropinrideout ladies-only-skateboard-course morning community sensei ichbinhanna
+tags: dropinrideout ladies-only-skateboard-course morning community skatepark sensei ichbinhanna
 ---
 
 # Quiet Morning at Skatepark

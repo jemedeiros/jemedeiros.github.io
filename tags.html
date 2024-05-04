@@ -1,0 +1,23 @@
+---
+layout: default
+permalink: /tags/
+title: Tags
+---
+
+<div id="archives">
+  <!-- Display Tags -->
+  <h2> Search post by tags </h2>
+  {% for tag in site.tags %}
+    <div class="archive-group">
+      {% capture tag_name %}{{ tag | first }}{% endcapture %}
+      <div id="{{ tag_name | slugize }}"></div>
+      <h3 class="tag-head">{{ tag_name }}</h3>
+      <!-- Add links to individual posts with this tag -->
+      <ul>
+        {% for post in tag.last %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+  </div>

@@ -2,7 +2,10 @@
 layout: post
 author: de Medeiros, J. E. M.
 download: false
+categories: academic
+tags: article cognition theory hierarchy
 ---
+
 # New article
 I just sent to publication an article about how social stratification and cognitive approaches to archaeological interpretation differ in their methods, approach, structural assumptions and even in their concrete results in improving real knowledge about the past.
 

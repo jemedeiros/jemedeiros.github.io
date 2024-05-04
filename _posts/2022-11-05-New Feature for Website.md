@@ -2,7 +2,8 @@
 layout: post
 author: de Medeiros, J. E. M.
 download: false
-
+categories: website
+tags: blog webfeatures
 ---
 # Hello World and welcome to a new feature: my blog. 
 I am introducing a blog to my private website on github pages.
