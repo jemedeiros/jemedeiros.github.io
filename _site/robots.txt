@@ -1,4 +1,8 @@
 # robotstxt.org/
 User-agent: *
-Disallow: /pas-project*
+Disallow: /pas-project.html
 Disallow: /archaeosweeper.html
+Allow: /
+Allow: /index.html
+Allow: /publications.html
+Allow: /blog.html
