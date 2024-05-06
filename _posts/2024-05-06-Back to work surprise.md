@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: skateboard vacation
-tags: morning sunday skate skateboard community friends skatepark
+categories: surfskate
+tags: mondays boardshop.de 
 ---
 
 # Back to work
