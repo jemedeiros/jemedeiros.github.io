@@ -2,7 +2,7 @@ title: de Medeiros' Website
 author: José Eduardo M. de Medeiros
 tagline: The personal Website of José Eduardo M. de Medeiros
 description: The personal website of José Eduardo M. de Medeiros introducing his works, bibliography, extra projects like the Podcast Café Archae / Café Archaeology and other ideas.
-url: jemedeiros.github.io
+url: www.de-medeiros.com
 repository: jemedeiros/jemedeiros.github.io
 plugins:
   - jekyll-seo-tag
