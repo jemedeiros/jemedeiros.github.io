@@ -1,0 +1,12 @@
+<div id="browserMessage" style="display: none; background-color: #ffcc00; padding: 10px; text-align: center; font-size: 18px;">
+    This page is best viewed in Firefox. Please switch your browser to ensure correct display.
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+        if (!isFirefox) {
+            var message = document.getElementById('browserMessage');
+            message.style.display = 'block';
+        }
+    };
+</script>

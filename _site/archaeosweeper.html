@@ -29,14 +29,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, bibliography, extra projects like the Podcast Café Archae / Café Archaeology and other ideas." />
 <meta property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, bibliography, extra projects like the Podcast Café Archae / Café Archaeology and other ideas." />
-<link rel="canonical" href="www.de-medeiros.com/archaeosweeper.html" />
-<meta property="og:url" content="www.de-medeiros.com/archaeosweeper.html" />
+<link rel="canonical" href="http://localhost:4000/archaeosweeper.html" />
+<meta property="og:url" content="http://localhost:4000/archaeosweeper.html" />
 <meta property="og:site_name" content="de Medeiros’ Website" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Archaeosweeper" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, bibliography, extra projects like the Podcast Café Archae / Café Archaeology and other ideas.","headline":"Archaeosweeper","url":"www.de-medeiros.com/archaeosweeper.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, bibliography, extra projects like the Podcast Café Archae / Café Archaeology and other ideas.","headline":"Archaeosweeper","url":"http://localhost:4000/archaeosweeper.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -117,6 +117,19 @@
         }
         </style>
     
+  <div id="browserMessage" style="display: none; background-color: #ffcc00; padding: 10px; text-align: center; font-size: 18px;">
+    This page is best viewed in Firefox. Please switch your browser to ensure correct display.
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+        if (!isFirefox) {
+            var message = document.getElementById('browserMessage');
+            message.style.display = 'block';
+        }
+    };
+</script>
+
   <body>
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
