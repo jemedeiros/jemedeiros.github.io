@@ -23,3 +23,8 @@
   href: 'https://www.instagram.com/'
   title: 'Instagram'
   fa-icon: 'fa-instagram'
+- bluesky:
+  id: 'imdemedeiros.bsky.social'
+  href: 'https://www.bsky.app/profile'
+  title: 'BlueSky'
+  fa-icon: 'fa-bluesky'

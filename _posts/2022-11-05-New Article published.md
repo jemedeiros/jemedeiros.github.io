@@ -2,8 +2,8 @@
 layout: post
 author: de Medeiros, J. E. M.
 download: false
-categories: academic
-tags: article cognition theory hierarchy
+categories: Academic
+tags: Article Cognition Theory Hierarchy
 ---
 
 # New article

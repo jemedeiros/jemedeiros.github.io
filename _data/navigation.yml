@@ -2,9 +2,9 @@
   link: /
 - name: Publications
   link: /publications.html
-- name: PA Projects
-  link: /pasproject.html
-- name: Archaeosweeper
-  link: /archaeosweeper.html
+- name: CV
+  link: cv.html
+- name: Projects
+  link: /projects.html
 - name: Blog
   link: /blog.html

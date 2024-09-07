@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: skateboard
-tags: skateboard monday sensei senpai community friends skatepark boardshop.de
+categories: Surfskate
+tags: Skateboard Monday Sensei Senpai Community Friends Skatepark Boardshop.de
 ---
 
 # A New Homie

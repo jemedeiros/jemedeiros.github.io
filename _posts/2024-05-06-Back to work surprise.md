@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: surfskate
-tags: mondays boardshop.de 
+categories: Surfskate
+tags: Mondays Boardshop.de 
 ---
 
 # Back to work

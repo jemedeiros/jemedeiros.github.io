@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: skateboard
-tags: dropinrideout ladies-only-skateboard-course morning community skatepark sensei ichbinhanna
+categories: Surfskate
+tags: Dropinrideout Ladies-only-skateboard-course Morning Community Skatepark Sensei Ichbinhanna
 ---
 
 # Quiet Morning at Skatepark

@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: surfskate
-tags: holidays senpai-sensei
+categories: Surfskate
+tags: Holidays Senpai-sensei
 ---
 
 # "Die Zentrifuge": The Day I Did a 50-50 Grind on a curve!
