@@ -49,7 +49,7 @@ body{
 }
 
 body h1 {
-    font-size: 22px;
+    font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -124,6 +124,11 @@ body p {
     display: inline-block;
 }
 
+.home h1,
+.home h2 {
+    text-align: center;
+}
+
 .content.right {
     all: revert;
     width: 20%;
@@ -133,7 +138,7 @@ body p {
 
 .content.right img {
     vertical-align: middle;
-    width: 100%;
+    width: 65%;
     box-shadow: 5px 7px 2px rgb(202, 200, 200);
 }
 
