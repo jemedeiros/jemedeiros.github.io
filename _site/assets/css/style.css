@@ -125,6 +125,65 @@ body p {
   list-style: circle; }
 
 /***************************************************************************** 
+***************** Card Navigation Grid of Links Link Tiles *******************
+*****************************************************************************/
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0; }
+
+.link-card {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  transition: transform 0.2s ease; }
+
+.link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden; }
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: opacity 0.3s ease; }
+
+.link-card:hover img {
+  opacity: 0.9;
+  filter: grayscale(0%); }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; }
+
+.overlay h2 {
+  color: white;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px; }
+
+/***************************************************************************** 
 ********************** Responsive Parameters. ********************************
 *****************************************************************************/
 @media screen and (max-width: 600px) {
