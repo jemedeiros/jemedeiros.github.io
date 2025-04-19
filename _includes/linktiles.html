@@ -2,7 +2,7 @@
     {% for item in site.data.navigation %}
       <a href="{{ item.link }}" class="link-card">
         <div class="image-container">
-          <img src="{{ item.image }}" alt="{{ item.name }}">
+          <img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
           <div class="overlay">
             <h2>{{ item.name }}</h2>
           </div>
