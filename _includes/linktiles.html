@@ -1,5 +1,6 @@
 <div class="link-grid">
     {% for item in site.data.navigation %}
+    {% if page.url == item.link %} {% continue %} {% endif %}
       <a href="{{ item.link }}" class="link-card">
         <div class="image-container">
           <img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
