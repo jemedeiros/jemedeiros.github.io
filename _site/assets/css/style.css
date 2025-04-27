@@ -92,7 +92,8 @@ body p {
   margin-left: unset; }
 
 .content a:active {
-  color: #2649e7; }
+  /* color: #2649e7; */
+  color: #0066cc; }
 
 .content a:focus {
   background-color: #333;
