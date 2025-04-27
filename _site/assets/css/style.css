@@ -70,14 +70,17 @@ body p {
   text-decoration: underline dotted #b3afaf; }
 
 .content a:link {
-  color: inherit;
+  /* color: inherit; */
+  color: #333;
   text-decoration: underline dotted #b3afaf; }
 
 .content a:visited {
-  color: #0616f8; }
+  /*color: rgb(6, 22, 248); */
+  color: #333; }
 
 .content a:hover {
-  color: #05835d;
+  /*color: rgb(5, 131, 93);*/
+  color: #0066cc;
   cursor: pointer;
   transition: 0.3s;
   margin-left: 6px; }

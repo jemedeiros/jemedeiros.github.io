@@ -88,15 +88,18 @@ body p {
 }
 
 .content a:link {
-    color: inherit;
+    /* color: inherit; */
+    color: #333;
     text-decoration: underline dotted rgb(179, 175, 175);
 }
 
 .content a:visited {
-    color: rgb(6, 22, 248); 
+    /*color: rgb(6, 22, 248); */
+    color: #333
 }
 .content a:hover {
-    color: rgb(5, 131, 93);
+    /*color: rgb(5, 131, 93);*/
+    color: #0066cc;
     cursor: pointer;
     transition: 0.3s;
     margin-left: 6px;
