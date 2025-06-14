@@ -9,7 +9,7 @@ tags: LinkedIn Work DMS Digitalisierung Documentmanagementsystem Digitalisierung
 
 # Hochschultag & D.velop Summmit 2025
 
-On June 3rd, I had the pleasure of representing the University of Freiburg, as well as the DMS working group of Baden-Württemberg, at the University Day of the DMS Network, where I gave the opening lecture.
+On June 3rd, I had the pleasure of representing the University of Freiburg, as well as the DMS working group of Baden-Württemberg, at the University Day of the DMS Network, where I gave the opening lecture. <!--more-->
 
 I addressed some of the questions that motivate me in my work:
 
