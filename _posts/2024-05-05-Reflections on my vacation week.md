@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Surfskate Vacation
-tags: Morning Sunday Surfskate Skateboard Community Friends Skatepark
+categories: Surfskate Skateboard
+tags: Morning Sunday Vacation  Community Friends Skatepark
 ---
 
 # Reflections on My Vacation Week: Not just another Sunday at the park.

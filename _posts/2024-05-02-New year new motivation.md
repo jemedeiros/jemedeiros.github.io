@@ -3,7 +3,7 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Work-Life-Balance Vacation Surf Surfskate
+categories: Surfskate
 tags: Surf Vacation Rio Socialmedia Instagram Goals Objectives
 
 ---

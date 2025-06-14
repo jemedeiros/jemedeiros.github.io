@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Work Socialmedia 
-tags: Linkedin Work DMS Digitalisierung Documentmanagementsystem Digitalisierungindeutschland Digitalisierunginderverwaltung
+categories: IT 
+tags: LinkedIn Work DMS Digitalisierung Documentmanagementsystem Digitalisierungindeutschland Digitalisierunginderverwaltung
 ---
 
 # New LinkedIn Post
