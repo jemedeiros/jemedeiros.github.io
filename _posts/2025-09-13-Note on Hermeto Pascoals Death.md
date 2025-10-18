@@ -9,7 +9,7 @@ tags:
 
 # Hermeto Pascoal † 13. September 2025
 
-Hermeto Pascoal has left us, and I feel an emptiness that words can barely hold. <!--more--> He was more than a musician for me—he was an idol, a guide, a voice that helped me through the turbulence of my youth. His music soothed me in moments of loneliness, and his roots in the Northeast made me proud of my own origins, even as I struggled to find my place in the vast and overwhelming life of Rio.
+Hermeto Pascoal has left us, and I feel an emptiness that words can barely hold. He was more than a musician for me—he was an idol, a guide, a voice that helped me through the turbulence of my youth. His music soothed me in moments of loneliness, and his roots in the Northeast made me proud of my own origins, even as I struggled to find my place in the vast and overwhelming life of Rio.<!--more-->
 
 Hermeto, together with the Villa-Lobos Museum, Glauber Rocha, and the Itiberê Orquestras, formed the pillars of my identity during those crucial years of growth. But Hermeto shone above all. I even carry the cherished memory of gifting him a small instrument I built myself from pieces scavenged in my high school’s chemistry lab—a humble offering to a giant whose art meant everything to me.
 
