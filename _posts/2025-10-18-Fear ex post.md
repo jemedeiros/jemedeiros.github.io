@@ -18,3 +18,13 @@ Sensei, who is always there in the park, but very often also there for me in my 
 After the brief talk, I paddled my way to the curb. Another 5050. This time, the heart did not race as it did the other times. Turning to Sensei again, I said: "Now, I am not feeling it as before." In a moment of a real master, he taught, "See, talking about it helps."
 
 In a way, it did help a bit. Even if this phenomenon I will call "fear ex post" - because the feeling surges after the fact is accomplished - continued to resurface on that day, the lesson was there. The Skateboard Sensei turned into an uncertified psychoanalyst. Conversation, not in the privacy of the confession booth or of a psychologist’s clinic, no, conversation in public in the skatepark and training new tricks heals.
+
+
+<br/>
+<hr/>
+
+> ### Brief summary of characters:
+> As I try to protect their identities - at least of those minors or who are not publicly active - I must at least explain to you, my imaginary reader, who are the characters in these stories in the category of skateboard or surfskate. I named most of the more experienced skaters Senpais. If there is more than one mentioned in a story, I will differentiate between Senpai1 Senpai2 and so on. One other skater is the Sensei and another one is Senpai-Sensei. I am calling him that because he has a lot of skills, more than the usual Senpai, and offers really good advice and teachings. 
+
+<hr/>
+<br/>
