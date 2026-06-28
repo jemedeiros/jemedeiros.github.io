@@ -1,0 +1,222 @@
+// =============================================================================
+// _tokens.scss
+// Design tokens for de-medeiros.com
+// Import this first in style.scss — all other partials reference these values.
+// =============================================================================
+
+
+// -----------------------------------------------------------------------------
+// COLOR PALETTE
+// Named by role, not by visual description.
+// -----------------------------------------------------------------------------
+
+// Base
+$color-ink:         #1A1612;   // primary text — near-black, warm
+$color-ink-mid:     #3D342C;   // secondary text — headings, labels
+$color-ink-faint:   #6B5E54;   // tertiary text — captions, metadata
+$color-paper:       #F7F4EE;   // page background — warm off-white
+$color-paper-mid:   #EDE8DF;   // subtle surface — hover states, cards
+$color-rule:        #DDD5C4;   // borders, dividers, horizontal rules
+
+// Accent
+$color-rust:        #9B4A2C;   // primary accent — links, active states
+$color-rust-dim:    #C47A5A;   // softer accent — hover, underlines
+$color-slate:       #4A5568;   // neutral accent — tags, secondary UI
+
+// Dark surface (game strip, code blocks, inverted sections)
+$color-dark-bg:     #1A1612;   // same as ink — intentional
+$color-dark-mid:    #2D2520;   // dark card surface
+$color-dark-text:   #E8D5A3;   // parchment — text on dark backgrounds
+$color-dark-faint:  #8B7A6A;   // muted text on dark backgrounds
+$color-dark-accent: #9B7A5A;   // warm label on dark backgrounds
+
+// Semantic (used sparingly)
+$color-success:     #2D6A4F;   // confirmation, published status
+$color-warning:     #92400E;   // caution states
+$color-data-1:      #9B4A2C;   // chart series 1 — rust
+$color-data-2:      #4A7C8E;   // chart series 2 — teal
+$color-data-3:      #6B7C3A;   // chart series 3 — olive
+$color-data-4:      #7C4A8E;   // chart series 4 — muted purple
+
+
+// -----------------------------------------------------------------------------
+// CSS CUSTOM PROPERTIES
+// These are injected into :root so they work in plain CSS too (e.g. in
+// inline <style> blocks on individual pages and in JS-driven components).
+// -----------------------------------------------------------------------------
+
+:root {
+  // Color
+  --color-ink:          #{$color-ink};
+  --color-ink-mid:      #{$color-ink-mid};
+  --color-ink-faint:    #{$color-ink-faint};
+  --color-paper:        #{$color-paper};
+  --color-paper-mid:    #{$color-paper-mid};
+  --color-rule:         #{$color-rule};
+  --color-rust:         #{$color-rust};
+  --color-rust-dim:     #{$color-rust-dim};
+  --color-slate:        #{$color-slate};
+  --color-dark-bg:      #{$color-dark-bg};
+  --color-dark-mid:     #{$color-dark-mid};
+  --color-dark-text:    #{$color-dark-text};
+  --color-dark-faint:   #{$color-dark-faint};
+  --color-dark-accent:  #{$color-dark-accent};
+  --color-success:      #{$color-success};
+  --color-warning:      #{$color-warning};
+  --color-data-1:       #{$color-data-1};
+  --color-data-2:       #{$color-data-2};
+  --color-data-3:       #{$color-data-3};
+  --color-data-4:       #{$color-data-4};
+
+  // Typography — font families
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Source Serif 4', Georgia, serif;
+  --font-mono:     'Share Tech Mono', 'Courier New', monospace;
+  --font-sans:     'Inter', system-ui, -apple-system, sans-serif;  // utility only
+
+  // Typography — scale
+  // Named by semantic role so changing one value updates everywhere.
+  --text-xs:    0.65rem;    // eyebrows, labels, legal
+  --text-sm:    0.8rem;     // captions, metadata, chips
+  --text-base:  1rem;       // body copy
+  --text-md:    1.1rem;     // slightly enlarged body (used in intros)
+  --text-lg:    1.25rem;    // section subheadings
+  --text-xl:    1.5rem;     // section titles
+  --text-2xl:   1.9rem;     // page subheadings
+  --text-3xl:   2.4rem;     // hero display (clamp floor)
+  --text-hero:  clamp(1.9rem, 4.5vw, 2.8rem);  // hero statement
+
+  // Typography — line heights
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-normal: 1.65;
+  --leading-loose:  1.85;
+
+  // Typography — letter spacing
+  --tracking-tight:  -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.08em;
+  --tracking-wider:   0.15em;
+  --tracking-widest:  0.22em;  // used for eyebrow labels in mono
+
+  // Spacing — base-8 scale
+  --space-1:   0.25rem;   //  4px
+  --space-2:   0.5rem;    //  8px
+  --space-3:   0.75rem;   // 12px
+  --space-4:   1rem;      // 16px
+  --space-5:   1.25rem;   // 20px
+  --space-6:   1.5rem;    // 24px
+  --space-8:   2rem;      // 32px
+  --space-10:  2.5rem;    // 40px
+  --space-12:  3rem;      // 48px
+  --space-16:  4rem;      // 64px
+  --space-20:  5rem;      // 80px
+
+  // Layout
+  --max-width-content:  860px;   // main content column
+  --max-width-prose:    640px;   // reading width for long-form text
+  --max-width-narrow:   480px;   // narrow content (hero sub, pull quotes)
+
+  // Borders & radius
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-full: 9999px;
+  --border-width: 1px;
+
+  // Shadows
+  --shadow-sm:  0 1px 3px rgba(26, 22, 18, 0.08);
+  --shadow-md:  0 4px 12px rgba(26, 22, 18, 0.12);
+  --shadow-lg:  0 8px 24px rgba(26, 22, 18, 0.16);
+
+  // Transitions
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow:   0.4s ease;
+
+  // Z-index layers
+  --z-base:     1;
+  --z-raised:   10;
+  --z-overlay:  100;
+  --z-modal:    200;
+  --z-toast:    300;
+}
+
+
+// -----------------------------------------------------------------------------
+// FONT IMPORTS
+// Loaded once here so no page needs its own @import.
+// Only the weights actually used are requested — keeps load fast.
+// -----------------------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap');
+
+
+// -----------------------------------------------------------------------------
+// SASS HELPER MIXINS
+// Small utilities that pages and components can use.
+// -----------------------------------------------------------------------------
+
+// Eyebrow label — the small uppercase mono label above headings
+@mixin eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  line-height: var(--leading-tight);
+}
+
+// Display heading — Playfair, light weight, generous spacing
+@mixin display-heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+// Mono label — used for tags, status badges, coordinate labels
+@mixin mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-snug);
+}
+
+// CTA link — the small uppercase arrow links at section bottoms
+@mixin cta-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-rust);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+}
+
+// Responsive breakpoints
+$bp-sm:  480px;
+$bp-md:  640px;
+$bp-lg:  860px;
+$bp-xl: 1100px;
+
+@mixin below($bp) {
+  @media screen and (max-width: $bp) { @content; }
+}
+
+@mixin above($bp) {
+  @media screen and (min-width: $bp) { @content; }
+}
+
+// Reduced motion
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}

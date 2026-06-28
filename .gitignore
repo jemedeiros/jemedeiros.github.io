@@ -4,4 +4,4 @@ Gemfile.lock
 .vscode
 .DS_Store
 .gitignore
-.sass-cache
+.sass-cache_site/

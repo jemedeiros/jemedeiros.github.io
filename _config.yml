@@ -2,7 +2,10 @@ title: J. E. de Medeiros
 author: José Eduardo M. de Medeiros
 tagline: The Website of José Eduardo M. de Medeiros
 description: The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.
-url: www.de-medeiros.com
+url: https://www.de-medeiros.com
 repository: jemedeiros/jemedeiros.github.io
+logo: /assets/images/presentationsfoto.jpg
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
