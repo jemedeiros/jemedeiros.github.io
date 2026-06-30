@@ -1,3 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap");
+:root {
+  --color-ink: #1A1612;
+  --color-ink-mid: #3D342C;
+  --color-ink-faint: #6B5E54;
+  --color-paper: #F7F4EE;
+  --color-paper-mid: #EDE8DF;
+  --color-rule: #DDD5C4;
+  --color-rust: #9B4A2C;
+  --color-rust-dim: #C47A5A;
+  --color-slate: #4A5568;
+  --color-dark-bg: #1A1612;
+  --color-dark-mid: #2D2520;
+  --color-dark-text: #E8D5A3;
+  --color-dark-faint: #8B7A6A;
+  --color-dark-accent: #9B7A5A;
+  --color-success: #2D6A4F;
+  --color-warning: #92400E;
+  --color-data-1: #9B4A2C;
+  --color-data-2: #4A7C8E;
+  --color-data-3: #6B7C3A;
+  --color-data-4: #7C4A8E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --text-xs: 0.65rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-md: 1.1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.9rem;
+  --text-3xl: 2.4rem;
+  --text-hero: clamp(1.9rem, 4.5vw, 2.8rem);
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.65;
+  --leading-loose: 1.85;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.15em;
+  --tracking-widest: 0.22em;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --max-width-content: 860px;
+  --max-width-prose: 640px;
+  --max-width-narrow: 480px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  --border-width: 1px;
+  --shadow-sm: 0 1px 3px rgba(26, 22, 18, 0.08);
+  --shadow-md: 0 4px 12px rgba(26, 22, 18, 0.12);
+  --shadow-lg: 0 8px 24px rgba(26, 22, 18, 0.16);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-overlay: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
 /***************************************************************************** 
 *** Copyright 2021 - Medeiros. The CSS File for my personal Website **********
 *****************************************************************************/
@@ -6,7 +82,8 @@
 *****************************************************************************/
 .topnav {
   overflow: hidden;
-  background-color: #333; }
+  background-color: #333;
+}
 
 .topnav a {
   float: left;
@@ -15,19 +92,23 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px; }
+  font-size: 17px;
+}
 
 .topnav a:hover {
   background-color: #ddd;
   color: black;
-  transition: 0.3s; }
+  transition: 0.3s;
+}
 
 .topnav a.active {
   background-color: #26e1e7;
-  color: white; }
+  color: white;
+}
 
 .topnav .icon {
-  display: none; }
+  display: none;
+}
 
 /***************************************************************************** 
 **************************** Main content ************************************
@@ -35,99 +116,120 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+}
 
 body h1 {
   font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 body h2 {
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 body h3 {
   font-size: 19px;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 body p {
   font-size: 18px;
   line-height: 1.6;
   font-family: Arial, Helvetica, sans-serif;
-  text-align: justify; }
+  text-align: justify;
+}
 
 .content {
   padding: 10px 10px 10px 14px;
   margin: 1% 3% 3% 3%;
   border-radius: 3% 3% 3% 3%;
-  box-shadow: 5px 10px 5px #cac8c8;
-  background-color: #fefefe; }
+  box-shadow: 5px 10px 5px rgb(202, 200, 200);
+  background-color: #fefefe;
+}
 
 .content li {
-  line-height: 170%; }
+  line-height: 170%;
+}
 
 .content a {
   color: inherit;
-  text-decoration: underline dotted #b3afaf; }
+  text-decoration: underline dotted rgb(179, 175, 175);
+}
 
 .content a:link {
   /* color: inherit; */
   color: #333;
-  text-decoration: underline dotted #b3afaf; }
+  text-decoration: underline dotted rgb(179, 175, 175);
+}
 
 .content a:visited {
   /*color: rgb(6, 22, 248); */
-  color: #333; }
+  color: #333;
+}
 
 .content a:hover {
   /*color: rgb(5, 131, 93);*/
   color: #0066cc;
   cursor: pointer;
   transition: 0.3s;
-  margin-left: 6px; }
+  margin-left: 6px;
+}
 
 .leaflet-touch .leaflet-bar a {
-  text-decoration: unset; }
+  text-decoration: unset;
+}
 
 .leaflet-bar a, .leaflet-bar a:hover {
-  margin-left: unset; }
+  margin-left: unset;
+}
 
 .content a:active {
   /* color: #2649e7; */
-  color: #0066cc; }
+  color: #0066cc;
+}
 
 .content a:focus {
   background-color: #333;
-  color: #05835d; }
+  color: rgb(5, 131, 93);
+}
 
 .content.left {
   all: revert;
   width: 70%;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .home h1,
 .home h2 {
-  text-align: center; }
+  text-align: center;
+}
 
 .content.right {
   all: revert;
   width: 20%;
   height: 20%;
-  float: right; }
+  float: right;
+}
 
 .content.right img {
   vertical-align: middle;
   width: 65%;
-  box-shadow: 5px 7px 2px #cac8c8; }
+  box-shadow: 5px 7px 2px rgb(202, 200, 200);
+}
 
 .summary {
   border-width: 1px;
   border-style: dashed;
-  border-color: #09e6ee2c;
+  border-color: rgba(9, 230, 238, 0.1725490196);
   width: fit-content;
-  shadow: #333; }
+  shadow: #333;
+}
 
 .summary li {
-  list-style: circle; }
+  list-style: circle;
+}
 
 /***************************************************************************** 
 ***************** Card Navigation Grid of Links Link Tiles *******************
@@ -136,7 +238,8 @@ body p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  padding: 2rem 0; }
+  padding: 2rem 0;
+}
 
 .link-card {
   text-decoration: none;
@@ -144,17 +247,20 @@ body p {
   border-radius: 8px;
   overflow: hidden;
   display: block;
-  transition: transform 0.2s ease; }
+  transition: transform 0.2s ease;
+}
 
 .link-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
 .image-container {
   position: relative;
   width: 100%;
   height: 300px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .image-container img {
   width: 100%;
@@ -163,11 +269,13 @@ body p {
   object-position: center center;
   filter: grayscale(100%);
   opacity: 0.5;
-  transition: opacity 0.3s ease; }
+  transition: opacity 0.3s ease;
+}
 
 .link-card:hover img {
   opacity: 0.9;
-  filter: grayscale(0%); }
+  filter: grayscale(0%);
+}
 
 .overlay {
   position: absolute;
@@ -178,7 +286,8 @@ body p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem; }
+  padding: 0.5rem;
+}
 
 .overlay h2 {
   color: white;
@@ -186,120 +295,124 @@ body p {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   background: rgba(0, 0, 0, 0.4);
   padding: 0.25rem 0.75rem;
-  border-radius: 4px; }
+  border-radius: 4px;
+}
 
 /***************************************************************************** 
 ********************** Responsive Parameters. ********************************
 *****************************************************************************/
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
-    display: none; }
-
+    display: none;
+  }
   .topnav a.icon {
     float: right;
-    display: block; } }
+    display: block;
+  }
+}
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    position: relative; }
-
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0; }
-
+    top: 0;
+  }
   .datatable,
   .topnav.responsive a,
   .content.left,
   .content.right {
     float: none;
     display: block;
-    text-align: left; }
-
+    text-align: left;
+  }
   .datatable {
     width: 100%;
-    height: fit-content; } }
+    height: fit-content;
+  }
+}
 /***************************************************************************** 
 ******** The style for the map and the divs with data summaries. *************
 *****************************************************************************/
 /* First the Explanation parameters as  a modal exclusive to the PAS Project */
 /* The Modal (background) */
 .modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 2;
-  /* Sit on top */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */ }
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  /* Could be more or less, depending on screen size */ }
+  width: 80%; /* Could be more or less, depending on screen size */
+}
 
 /* The Close Button */
 .close {
   color: #aaa;
   float: right;
   font-size: 28px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 #more {
-  display: none; }
+  display: none;
+}
 
 /* End of modal for the explanation on PAS Page. */
 #Map {
   height: 500px;
   width: 80%;
   margin-left: 10%;
-  z-index: 1; }
+  z-index: 1;
+}
 
 .datatable {
   padding: 1px 1px 1px 5px;
-  box-shadow: 5px 10px 5px #cac8c8;
+  box-shadow: 5px 10px 5px rgb(202, 200, 200);
   width: 280px;
   border: 0.5px dotted #333;
   margin-right: 10px;
   margin-bottom: 10px;
   overflow: auto;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .card-grid {
   display: flex !important;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-bottom: 2.5rem; }
+  margin-bottom: 2.5rem;
+}
 
 .cards {
   flex-grow: 1;
   width: 44%;
-  background: #f0f0f0;
+  background: rgb(240, 240, 240);
   padding: 1em;
   margin: 0.5em;
-  box-shadow: 0px 1em 1em 0px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0px 1em 1em 0px rgba(0, 0, 0, 0.1);
+}
 
 /**************************************************
 ** Cards layout inspired in @infusing computing. **
@@ -309,28 +422,32 @@ body p {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-bottom: 2.5rem; }
+  margin-bottom: 2.5rem;
+}
 
 .cards {
   flex-grow: 1;
   display: inline-block;
   width: 44%;
-  background: #f0f0f0;
+  background: rgb(240, 240, 240);
   padding: 1em;
   margin: 2em 0.5em 2em 0.5em;
   box-shadow: 0px 1em 1em 0px rgba(0, 0, 0, 0.1);
-  border-radius: 3%; }
+  border-radius: 3%;
+}
 
 .cards .img {
   height: 30em;
   width: -webkit-fill-available;
   padding: revert;
-  margin: 0.5em; }
+  margin: 0.5em;
+}
 
 .cards:hover {
   background: #fff;
   box-shadow: 0px 1em 2em 0.5em rgba(0, 0, 0, 0.2);
-  transition: .3s ease-out; }
+  transition: 0.3s ease-out;
+}
 
 .first {
   max-width: 100%;
@@ -338,39 +455,47 @@ body p {
   border-bottom: 1em solid #333;
   border-radius: 0%;
   background: #f2f2f2;
-  color: #3f0707; }
+  color: rgb(63, 7, 7);
+}
 
 .books {
   max-width: fit-content;
   height: 20rem;
-  border-bottom: 1em solid #3f0707;
+  border-bottom: 1em solid rgb(63, 7, 7);
   border-radius: 0%;
   background: #f2f2f2;
-  color: #3f0707;
-  border-radius: 3%; }
+  color: rgb(63, 7, 7);
+  border-radius: 3%;
+}
 
 .books img {
   border-radius: 3%;
-  height: 20rem; }
+  height: 20rem;
+}
 
 .books:hover {
   width: 100%;
-  background: #d9d9d9;
-  color: #fff; }
+  background: rgb(216.5, 216.5, 216.5);
+  color: #fff;
+}
 
 .first a {
-  color: #181616 !important; }
+  color: rgb(24, 22, 22) !important;
+}
 
 .first a:hover {
-  color: #333 !important; }
+  color: #333 !important;
+}
 
 .first h2 {
-  margin-right: -.4em; }
+  margin-right: -0.4em;
+}
 
 .first:hover {
   width: 100%;
-  background: #d9d9d9;
-  color: #fff; }
+  background: rgb(216.5, 216.5, 216.5);
+  color: #fff;
+}
 
 /*************************************************
 **************** Site footer *********************
@@ -379,57 +504,72 @@ body p {
   /*border-top: 1px solid rgb(0, 0, 0)*/
   border-top: 4mm ridge rgba(156, 159, 160, 0.6);
   padding: 30px 0;
-  background-color: #f9f9faf1; }
+  background-color: rgba(249, 249, 250, 0.9450980392);
+}
 
 .footer-heading {
   font-size: 1.125rem;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+}
 
 .feed-subscribe .svg-icon {
-  padding: 5px 5px 2px 0; }
+  padding: 5px 5px 2px 0;
+}
 
 .contact-list, .social-media-list, .pagination {
   list-style: none;
-  margin-left: 0; }
+  margin-left: 0;
+}
 
 .site-footer i {
-  font-size: xxx-large; }
+  font-size: xxx-large;
+}
 
 .footer-col-wrapper, .social-links {
   font-size: 0.9375rem;
-  color: #828282; }
+  color: #828282;
+}
 
 .footer-col {
   margin-bottom: 15px;
-  padding-left: 3%; }
+  padding-left: 3%;
+}
 
 .footer-col-1, .footer-col-2 {
-  width: calc(50% - (30px / 2)); }
+  width: calc(50% - 15px);
+}
 
 .footer-col-3 {
-  width: calc(100% - (30px / 2)); }
+  width: calc(100% - 15px);
+}
 
 @media screen and (min-width: 800px) {
   .footer-col-1 {
-    width: calc(35% - (30px / 2)); }
-
+    width: calc(35% - 15px);
+  }
   .footer-col-2 {
-    width: calc(20% - (30px / 2)); }
-
+    width: calc(20% - 15px);
+  }
   .footer-col-3 {
-    width: calc(45% - (30px / 2)); } }
+    width: calc(45% - 15px);
+  }
+}
 @media screen and (min-width: 600px) {
   .footer-col-wrapper {
-    display: flex; }
-
+    display: flex;
+  }
   .footer-col {
-    width: calc(100% - (30px / 2));
-    padding: 0 15px; }
-
+    width: calc(100% - 15px);
+    padding: 0 15px;
+  }
   .footer-col:first-child {
     padding-right: 15px;
-    padding-left: 0; }
-
+    padding-left: 0;
+  }
   .footer-col:last-child {
     padding-right: 0;
-    padding-left: 15px; } }
+    padding-left: 15px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

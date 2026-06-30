@@ -4,40 +4,320 @@ name: Blog
 title: Blog
 ---
 
-<div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>
-<div class="card-grid">
-{% assign first_post = site.posts.first %}
-    <div class="cards first">
-        <h1 class="label reversed"> Latest </h1>
-        <div class="center-content">
-            <div class="seven columns">
-                <h2><a class="post-link" href="{{ first_post.url | prepend: site.baseurl }}">{{ first_post.title }}</a></h2>
-                
-                <p class="meta">{{ first_post.date | date: "%b %-d, %Y" }}</p>
-                <p>{{ first_post.excerpt }} </p> 
-            </div>
-            <div class="four columns center-content">
+<div class="dm-page">
 
-                {% if first_post.download %}
-                <a href="{{ first_post.file }}" class="button button-primary" download="{{ first_post.title }}">Download Now</a>
-                {% endif %}
+  <!-- ── PAGE HEADER ─────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Writing</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      Essays &amp; Notes
+    </h1>
+    <p class="dm-hero-sub">
+      On skateboarding and embodied practice, the digitalization of institutions,
+      migration between languages, and the slow work of becoming a writer.
+      In English, German, and Portuguese.
+    </p>
+    <div class="dm-blog-nav">
+      Browse by
+      <a href="/categories">category</a>
+      or by
+      <a href="/tags">tag</a>
+    </div>
+  </section>
 
-            </div>
-        </div>            
+  <!-- ── FEATURED POST ───────────────────────────────────────── -->
+  {% assign first_post = site.posts.first %}
+  {% if first_post %}
+  <section class="dm-section dm-section--flush">
+    <p class="dm-section-eyebrow">Latest</p>
+    <article class="dm-post-featured">
+      <div class="dm-post-featured-meta">
+        <span class="dm-post-cat">{{ first_post.categories | first | capitalize }}</span>
+        <span class="dm-post-date">{{ first_post.date | date: "%d %b %Y" }}</span>
+      </div>
+      <h2 class="dm-post-featured-title">
+        <a href="{{ first_post.url | prepend: site.baseurl }}">{{ first_post.title }}</a>
+      </h2>
+      <p class="dm-post-featured-excerpt">
+        {{ first_post.excerpt | strip_html | truncatewords: 40 }}
+      </p>
+      <div class="dm-post-featured-footer">
+        <a class="dm-cta" href="{{ first_post.url | prepend: site.baseurl }}">
+          Read &rarr;
+        </a>
+        {% if first_post.download %}
+        <a class="dm-btn-download"
+           href="{{ first_post.file }}"
+           download="{{ first_post.title }}">
+          &#8595; Download
+        </a>
+        {% endif %}
+      </div>
+    </article>
+  </section>
+  {% endif %}
+
+  <!-- ── POST LIST ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">All posts</p>
+    <h2 class="dm-section-title">Archive</h2>
+
+    <ul class="dm-post-list">
+      {% for post in site.posts offset:1 limit:10 %}
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">{{ post.date | date: "%d %b %Y" }}</span>
+          <span class="dm-post-cat">{{ post.categories | first | capitalize }}</span>
         </div>
-    {% for post in site.posts offset:1 limit:4 %}
-        <div class="cards">
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <p>{{ post.excerpt }} </p>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 25 }}
+          </p>
+          {% if post.download %}
+          <a class="dm-btn-download dm-btn-download--sm"
+             href="{{ post.file }}"
+             download="{{ post.title }}">
+            &#8595; Download
+          </a>
+          {% endif %}
         </div>
-    {% endfor %}
-</div>  
-<!-- Add a message indicating more posts -->
-<div class="center-content">
-    <p>Explore more posts in our <a href="/archive">archive</a> </p>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if site.posts.size > 11 %}
+    <a class="dm-cta" href="/archive">
+      All {{ site.posts.size | minus: 1 }} older posts &rarr;
+    </a>
+    {% endif %}
+  </section>
+
 </div>
 
-<div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>
+<style>
+/* ── BLOG NAV ───────────────────────────────────────────────── */
+.dm-blog-nav {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 1rem;
+}
+.dm-blog-nav a {
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+}
+.dm-blog-nav a:hover { color: var(--color-ink, #1A1612); }
+
+/* ── FEATURED POST ──────────────────────────────────────────── */
+.dm-section--flush { padding-top: 2rem; }
+
+.dm-post-featured {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 1.6rem 1.8rem;
+  margin-top: 0.8rem;
+  background: var(--color-paper-mid, #EDE8DF);
+}
+
+.dm-post-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.dm-post-cat {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  border: 1px solid var(--color-rust-dim, #C47A5A);
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.dm-post-date {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  color: var(--color-ink-faint, #6B5E54);
+  letter-spacing: 0.05em;
+}
+
+.dm-post-featured-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  max-width: 600px;
+}
+.dm-post-featured-title a {
+  color: var(--color-ink, #1A1612);
+  text-decoration: none;
+}
+.dm-post-featured-title a:hover { color: var(--color-rust, #9B4A2C); }
+
+.dm-post-featured-excerpt {
+  font-size: 0.95rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  font-style: italic;
+}
+
+.dm-post-featured-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ── DOWNLOAD BUTTON ────────────────────────────────────────── */
+.dm-btn-download {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid, #3D342C);
+  text-decoration: none;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 2px;
+  padding: 0.3rem 0.7rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dm-btn-download:hover {
+  border-color: var(--color-ink-mid, #3D342C);
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-btn-download--sm { font-size: 0.58rem; padding: 0.2rem 0.5rem; }
+
+/* ── POST LIST ──────────────────────────────────────────────── */
+.dm-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.dm-post-row {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  align-items: flex-start;
+}
+
+.dm-post-row-meta {
+  flex-shrink: 0;
+  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.15rem;
+}
+
+.dm-post-row-body { flex: 1; }
+
+.dm-post-row-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+.dm-post-row-title a {
+  color: var(--color-ink, #1A1612);
+  text-decoration: none;
+}
+.dm-post-row-title a:hover { color: var(--color-rust, #9B4A2C); }
+
+.dm-post-row-excerpt {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint, #6B5E54);
+  line-height: 1.55;
+  font-style: italic;
+  margin: 0 0 0.4rem;
+}
+
+/* ── SHARED (safety fallbacks) ──────────────────────────────── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1A1612);
+}
+.dm-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-hero--slim { padding: 2.5rem 0 1.8rem; }
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement--sm { font-size: clamp(1.5rem, 3.5vw, 2.1rem); }
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 560px;
+  line-height: 1.7;
+  margin: 0;
+}
+.dm-section { padding: 2.5rem 0; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-section:last-child { border-bottom: none; }
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+}
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  .dm-post-row { flex-direction: column; gap: 0.4rem; }
+  .dm-post-row-meta { width: auto; flex-direction: row; align-items: center; }
+  .dm-post-featured { padding: 1.2rem; }
+}
+</style>

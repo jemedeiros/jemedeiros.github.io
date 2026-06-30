@@ -1,166 +1,546 @@
---- 
+---
 layout: default
 name: PA Projects
 title: PA Projects
---- 
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Short Explanation </button>
-			<p> Note: I have now access to the PAN data, but I am looking for a way to display it here without any troubles. The PAN does not have yet json url ready to be fetched. </p>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-            <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>
-                        The scientific discovery of the past is not usually associated with great numbers of people.
-                        Some people would understand it even as an elitist activity. Yet, there are a number of people looking
-                        for reliques of the past on their own, either in their free time or as a side effect of their occupations. In this context, there is an ongoing discussion about how to deal with amateur archaeologists
-                        specially those using metal detectors. It used to be problematic to gather data about these activities. Consequently the discussions about the role played by amateurs
-                        and metal detectorists lacked precise data. However, the British Museum had an innovative idea that offered numbers to the work
-                        with amateur archaeologists. Other countries now followed and started their own projects. I want to compare them here. <span id="dots">...</span>
-                    </p>
-                <button onclick="readmore()"  id="readmoreBtn">Read more about this page </button>
-                <div id="more">
-                    <p>
-                        A lot of these finding do not appear in the scientific radar of professional or academic archaeology.
-                        However, the internet has made possible to harness some of the potentially lost information.
-                        The <i>Portable Antiquities Scheme</i> (a.k.a <abbr>PAS</abbr>) is a public programme for the voluntary registration of archaeological finds made by the public
-                        in England, Wales and Northern Ireland.
-                        It uses this capacity to crowdsource information in the network of computers to support and
-                        orient hobby archeologists and cautiously safeguard information that would otherwise remain unregistered.
-                        In addition to community and educational work, PAS provides a database for research.
-                        PAS is, above all, a pedagogical program, making available a database and information on how to deal with archaeological finds.
-                        While this is an intelligent strategy, it is certainly not free from discussions.
-                        You can read more about this subject in their website (e.g. the <a href="https://finds.org.uk/publications/reports/2017">Annual Reports</a>)
-                        and in the following literature:
-                        <ul>
-                            <li>
-                                Thomas, S. and Stone, P.G. (eds.) 2009, Metal Detecting and Archaeology. Woodbridge: Boydell Press.
-                            </li>
-                            <li>
-                                Worrell, S., Egan, G., Naylor, J., Leahy, K. & Lewis, M. 2010,
-                                A Decade of Discovery. Proceedings of the Portable Antiquities Scheme Conference 2007. BAR Brit. Ser., 520.
-                                Oxford: Archaeopress.
-                            </li>
-                            <li>
-                                Gill, D.W.J. 2010, The Portable Antiquities Scheme and the Treasure Act: Protecting the Archaeology
-                                of England and Wales? Papers from the Institute of Archaeology, 20, 1-11.
-                            </li>
-                            <li>
-                                Compagnon, G. (Hrsg.). 2010, Halte au pillage!. Arles: Errance.
-                            </li>
-                            <li>
-                                <a href="https://journals.ub.uni-heidelberg.de/index.php/arch-inf/article/view/15327">
-                                    Huth, C. 2013, Vom rechten Umgang mit Sondengänger: Das „Portable Antiquities Scheme“
-                                    in England und Wales und seine Folgen, in: Archäologische Informationen 36, p.129-137.
-                                </a>
-                            </li>
-    
-                        </ul>
-                    </p>
-                    <p>
-                        Nowadays the Netherlands started their own program called the <a href="https://portable-antiquities.nl/pan/#/public">
-                            Portable Antiquities of the Netherlands
-                        </a>
-                        (a.k.a <abbr>PAN</abbr>). Now, Denmark too with the <a href="https://www.metaldetektorfund.dk/"> DIME </a>.
-                        And Finland <a href="https://blogs.helsinki.fi/sualt-project/"> SuALT / Find Sampo </a>
-                    </p>
-    
-                    <p>
-                        While I am waiting to see what happens with all these projects and much more to come, I thought about building
-                        a program that would gather their data, respecting any copyright and sensitive data they do not wish to publish,
-                        and display them side by side so that we can get an idea of the comparison between their projects.
-                    </p>
-                    <p>
-                        I just started with the data from the PAS website. And I am going to start with some data for the Late bronze Age and the Early Iron Age,
-                        because that is the data I worked with in my M.A. Thesis. Naturally, I want to make relevant comparisons and, thus, display here how the projects
-                        are doing in regard to their own regions, and in regard to the archaeological potentials in their regions.
-                        But the idea is to compare with data from the other projects too, once I get all the proportions from each project.
-                    </p>
-                    <p>
-                        This project just stared, so please be patient. But you will find here, distribution and density maps, and a summary of the data
-                        I am retrieving for their websites in real time. I only deal with data open to the public, so as a rule the finds will not be pointing to their exact locations
-                    </p>
-                    <p> Also, the maps take a while to load, specially with firefox. So please be patient. </p> </span>
-                </div>
-                </div>
-            </div> 
-            <!-- End Modal Content -->
-            <div id="checkboxdiv"> 
-                <form action="#">
-                    <input type="checkbox" id="pas_uk_lba_eia" onchange="get_shapes();">
-                    <label for="pas_uk_lba_eia"> UK - LBA & EIA </label><br>
-                    <input type="checkbox" id="pan_lba_eia" onchange="get_shapes_nld();">
-                    <label for="pan_lba_eia"> PAN Netherlands - LBA & EIA </label><br>
-                    <input type="checkbox" id="dime_lba_eia" onchange="get_shapes_dnk();">
-                    <label for="dime_lba_eia"> DIME Denmark - LBA & EIA </label><br><br>
-                </form> 
-            </div>            
-            <div id="Map">
-                </div>
-            <br>
-            <hr>
-            <hr>
+---
 
-            <div> <!-- container for the UK datatables -->
-                <h3> UK LBA & EIA: </h3>
-                <div class="datatable">
-                    <p> <strong>Search from 1300BC to 700BC </strong></p>
-                    <p> # Records: <span id="total_ba_ea"> </span></p>
-                    <p> Classified in Bronze Age: <span id="ba_nr"> </span></p>
-                    <p> Classified in Iron Age: <span id="ea_nr"></span> </p>
-                    <p><strong>Status </strong></p>
-                    <p> Published finds: <span id="published_ba_ia"> </span> </p>
-                    <p> Awaiting validation: <span id="validation_ba_ia"> </span> </p>
-                </div>
-                <div class="datatable"><canvas id="chart" width="100%" height="100%"></canvas></div> 
-                <div class="datatable"><canvas id="chart1" width="100%" height="100%"></canvas></div>
-           </div> <!-- container for the UK datatables -->
-        
-        
-        <script src="/assets/js/map.js"></script>
-        <script src="/assets/js/pas_project.js" async defer></script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
+<div class="dm-page">
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Research tool</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      PAS Schemes Monitor
+    </h1>
+    <p class="dm-hero-sub">
+      Comparing how England, the Netherlands, and Denmark track
+      archaeological finds made by the public — with live data
+      from the Portable Antiquities Scheme.
+    </p>
+    <div class="dm-badge-row">
+      <span class="dm-badge">Live · PAS UK</span>
+      <span class="dm-badge dm-badge--muted">PAN &amp; DIME · boundaries only</span>
+      <span class="dm-badge dm-badge--muted">Updates automatically</span>
+    </div>
+  </section>
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+  <!-- ── STATS BAR ───────────────────────────────────────────── -->
+  <section class="dm-section dm-section--tight">
+    <div class="dm-stats-bar">
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="total_ba_ea">—</span>
+        <span class="dm-stat-l">Total Records</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ba_nr">—</span>
+        <span class="dm-stat-l">Bronze Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ea_nr">—</span>
+        <span class="dm-stat-l">Iron Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="published_ba_ia">—</span>
+        <span class="dm-stat-l">Published</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="validation_ba_ia">—</span>
+        <span class="dm-stat-l">Awaiting Validation</span>
+      </div>
+    </div>
+    <p class="dm-stats-caption">1300–700 BC · live from finds.org.uk</p>
+  </section>
 
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
+  <!-- ── ABOUT ───────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">About this project</p>
+    <h2 class="dm-section-title">Comparing how nations track public finds</h2>
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+    <div class="dm-about-text">
+      <p>
+        Professional archaeology doesn't have a monopoly on finding the past.
+        Across England, Wales, and Northern Ireland, metal detectorists and
+        other members of the public report their discoveries to the
+        <em>Portable Antiquities Scheme</em> (PAS) — a voluntary programme
+        run by the British Museum that, for the first time, gave this activity
+        real numbers. The Netherlands followed with PAN, Denmark with DIME,
+        and Finland with SuALT. This project compares them.
+      </p>
+      <p>
+        Most of what these programmes find never reaches academic archaeology.
+        PAS exists to change that — crowdsourcing find locations and object
+        types into a public database, while keeping exact findspots
+        confidential. It's as much a pedagogical project as a research one,
+        and not without its critics; the Annual Reports and the literature
+        below cover that debate in more depth.
+      </p>
+      <p>
+        I started with PAS data on Late Bronze Age and Early Iron Age finds —
+        the period I worked on for my MA thesis — because I already know the
+        material. The map below shows finds by English county, drawn live
+        from the PAS API. I now have access to PAN's Dutch data as well, but
+        their public interface doesn't yet expose a JSON endpoint I can fetch
+        automatically, so for now their map layer shows administrative
+        boundaries only, without a count overlay. The same is true for DIME.
+        Both will get proper data layers as their public APIs allow it —
+        or as I find a reasonable workaround.
+      </p>
+    </div>
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        function readmore() {
-            var dots = document.getElementById("dots");
-            var moreText = document.getElementById("more");
-            var btnText = document.getElementById("readmoreBtn");
+    <details class="dm-details">
+      <summary class="dm-details-summary">
+        <span class="dm-details-arrow">&#9656;</span>
+        Further reading &amp; related programmes
+      </summary>
+      <div class="dm-details-body">
+        <p class="dm-details-intro">
+          More on the PAS programme and the debates around it: the
+          <a href="https://finds.org.uk/publications/reports/2017"
+             target="_blank" rel="noopener">Annual Reports</a>
+          and the literature below.
+        </p>
+        <ul class="dm-pub-list">
+          <li>
+            <span class="dm-pub-year">2009</span>
+            <span class="dm-pub-entry">
+              Thomas, S. and Stone, P.G. (eds.)
+              <em>Metal Detecting and Archaeology.</em>
+              Woodbridge: Boydell Press.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Worrell, S., Egan, G., Naylor, J., Leahy, K. &amp; Lewis, M.
+              <em>A Decade of Discovery: Proceedings of the Portable
+              Antiquities Scheme Conference 2007.</em>
+              BAR Brit. Ser. 520. Oxford: Archaeopress.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Gill, D.W.J. The Portable Antiquities Scheme and the Treasure
+              Act: Protecting the Archaeology of England and Wales?
+              <em>Papers from the Institute of Archaeology</em> 20, 1–11.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Compagnon, G. (Hrsg.) <em>Halte au pillage!</em>
+              Arles: Errance.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2013</span>
+            <span class="dm-pub-entry">
+              <a href="https://journals.ub.uni-heidelberg.de/index.php/arch-inf/article/view/15327"
+                 target="_blank" rel="noopener">
+                Huth, C. Vom rechten Umgang mit Sondengänger: Das
+                „Portable Antiquities Scheme" in England und Wales
+                und seine Folgen.
+              </a>
+              <em>Archäologische Informationen</em> 36, 129–137.
+            </span>
+          </li>
+        </ul>
+        <p class="dm-details-links">
+          Related programmes:
+          <a href="https://portable-antiquities.nl/pan/#/public"
+             target="_blank" rel="noopener">PAN (Netherlands)</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.metaldetektorfund.dk/"
+             target="_blank" rel="noopener">DIME (Denmark)</a>
+          &nbsp;·&nbsp;
+          <a href="https://blogs.helsinki.fi/sualt-project/"
+             target="_blank" rel="noopener">SuALT / Find Sampo (Finland)</a>
+        </p>
+      </div>
+    </details>
+  </section>
 
-            if (dots.style.display === "none") {
-                dots.style.display = "inline";
-                btnText.innerHTML = "Read more about this page"; 
-                moreText.style.display = "none";
-                 } else {
-                    dots.style.display = "none";
-                    btnText.innerHTML = "Read less"; 
-                    moreText.style.display = "inline";
-                    }
-        } 
-        shp_uk_lba_eia_id.on("loading", loadingHandler);
-        shp_uk_lba_eia_id.on('load', loadHandler);
-    </script>
+  <!-- ── MAP ─────────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Interactive map</p>
+    <h2 class="dm-section-title">Finds by county</h2>
+    <p class="dm-section-intro">
+      Toggle layers on or off. UK counties are coloured by find density;
+      Netherlands and Denmark currently show boundaries only.
+    </p>
+
+    <div id="checkboxdiv" class="dm-layer-toggles">
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pas_uk_lba_eia" onchange="get_shapes();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">UK</span>
+          <span class="dm-layer-sub">PAS · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pan_lba_eia" onchange="get_shapes_nld();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Netherlands</span>
+          <span class="dm-layer-sub">PAN · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="dime_lba_eia" onchange="get_shapes_dnk();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Denmark</span>
+          <span class="dm-layer-sub">DIME · LBA &amp; EIA</span>
+        </span>
+      </label>
+    </div>
+
+    <div class="dm-map-card">
+      <div id="Map"></div>
+    </div>
+    <p class="dm-map-caption">
+      Map data may take a moment to load, especially in Firefox.
+    </p>
+  </section>
+
+  <!-- ── UK DETAIL CHARTS ────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">UK in detail</p>
+    <h2 class="dm-section-title">Late Bronze Age &amp; Early Iron Age finds</h2>
+    <p class="dm-section-intro">
+      Breakdown of the same dataset by county and by object type.
+    </p>
+
+    <div class="dm-chart-grid">
+      <div class="dm-chart-card">
+        <div class="dm-chart-label">By county</div>
+        <canvas id="chart" width="100%" height="100%"></canvas>
+      </div>
+      <div class="dm-chart-card">
+        <div class="dm-chart-label">By object type</div>
+        <canvas id="chart1" width="100%" height="100%"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BACK LINK ───────────────────────────────────────────── -->
+  <div class="dm-back-link">
+    <a class="dm-cta" href="/projects.html">&larr; Back to Projects</a>
+  </div>
+
+</div>
+
+<style>
+/* ── HERO ───────────────────────────────────────────────────── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1A1612);
+}
+.dm-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-hero--slim { padding: 2.5rem 0 1.8rem; }
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement--sm { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  line-height: 1.7;
+  margin: 0 0 1.1rem;
+}
+
+/* ── BADGES ─────────────────────────────────────────────────── */
+.dm-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.dm-badge {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-success, #2D6A4F);
+  border: 1px solid var(--color-success, #2D6A4F);
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+.dm-badge--muted {
+  color: var(--color-ink-faint, #6B5E54);
+  border-color: var(--color-rule, #DDD5C4);
+}
+
+/* ── SECTIONS ───────────────────────────────────────────────── */
+.dm-section { padding: 2.5rem 0; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-section--tight { padding: 1.6rem 0; }
+.dm-section:last-of-type { border-bottom: none; }
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
+}
+.dm-section-intro {
+  font-size: 0.95rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  line-height: 1.6;
+}
+
+/* ── STATS BAR ──────────────────────────────────────────────── */
+.dm-stats-bar {
+  display: flex;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.dm-stat {
+  flex: 1;
+  min-width: 110px;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.dm-stat:last-child { border-right: none; }
+.dm-stat-n {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-rust, #9B4A2C);
+  line-height: 1;
+}
+.dm-stat-l {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  text-align: center;
+}
+.dm-stats-caption {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0.6rem 0 0;
+  text-align: center;
+}
+
+/* ── ABOUT TEXT ─────────────────────────────────────────────── */
+.dm-about-text p {
+  font-size: 0.96rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 620px;
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+.dm-about-text p:last-child { margin-bottom: 0; }
+.dm-about-text em { font-style: italic; }
+
+/* ── DETAILS / FURTHER READING ──────────────────────────────── */
+.dm-details {
+  margin-top: 1.3rem;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  padding-top: 1rem;
+}
+.dm-details-summary {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.dm-details-summary::-webkit-details-marker { display: none; }
+.dm-details-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast, 0.15s ease);
+  font-size: 0.7rem;
+}
+.dm-details[open] .dm-details-arrow { transform: rotate(90deg); }
+.dm-details-body { padding-top: 1rem; }
+.dm-details-intro {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin: 0 0 1rem;
+  max-width: 580px;
+  line-height: 1.6;
+}
+.dm-details-links {
+  font-size: 0.82rem;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 1rem;
+}
+.dm-details-links a { color: var(--color-rust, #9B4A2C); text-underline-offset: 3px; }
+
+/* ── PUBLICATIONS LIST (reused pattern) ─────────────────────── */
+.dm-pub-list { list-style: none; padding: 0; margin: 0; }
+.dm-pub-list li {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.dm-pub-list li:first-child { border-top: none; }
+.dm-pub-year {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  color: var(--color-ink-faint, #6B5E54);
+  flex-shrink: 0;
+  width: 2.6rem;
+}
+.dm-pub-entry {
+  font-size: 0.85rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.55;
+}
+.dm-pub-entry a { color: var(--color-ink, #1A1612); text-underline-offset: 3px; }
+.dm-pub-entry a:hover { color: var(--color-rust, #9B4A2C); }
+
+/* ── LAYER TOGGLES ──────────────────────────────────────────── */
+.dm-layer-toggles {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.dm-layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast, 0.15s ease),
+              background var(--transition-fast, 0.15s ease);
+}
+.dm-layer-toggle:hover {
+  border-color: var(--color-rust-dim, #C47A5A);
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-layer-toggle input[type="checkbox"] {
+  accent-color: var(--color-rust, #9B4A2C);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.dm-layer-text { display: flex; flex-direction: column; gap: 0.05rem; }
+.dm-layer-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+}
+.dm-layer-sub {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+}
+
+/* ── MAP CARD ───────────────────────────────────────────────── */
+.dm-map-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1.2rem;
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-map-card #Map {
+  width: 100%;
+  margin-left: 0;
+  border-radius: 2px;
+}
+.dm-map-caption {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+/* ── CHART CARDS ────────────────────────────────────────────── */
+.dm-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.dm-chart-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+.dm-chart-label {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-bottom: 0.6rem;
+}
+.dm-chart-card canvas { flex: 1; max-width: 100%; max-height: 100%; }
+
+/* ── BACK LINK ──────────────────────────────────────────────── */
+.dm-back-link { padding-top: 2rem; }
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast, 0.15s ease),
+              border-color var(--transition-fast, 0.15s ease);
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-chart-grid { grid-template-columns: 1fr; }
+  .dm-stat { min-width: calc(33% - 1px); border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+}
+</style>
+
+<script src="/assets/js/map.js"></script>
+<script src="/assets/js/pas_project.js" async defer></script>

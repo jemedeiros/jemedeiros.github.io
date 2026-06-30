@@ -3,37 +3,474 @@ layout: default
 name: Home
 title: Home
 ---
-<br>
-<br>
 
+<div class="dm-page">
 
-<div class="content right" style="text-align: left;"> <img style="max-width: 200px;" src="/assets/images/presentationsfoto.jpg"> 
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="dm-hero">
+
+    <div class="dm-hero-portrait">
+      <img src="/assets/images/presentationsfoto.jpg"
+           alt="José Eduardo M. de Medeiros" />
+    </div>
+
+    <p class="dm-hero-eyebrow">de-medeiros.com</p>
+
+    <h1 class="dm-hero-statement">
+      The past is never finished.<br>
+      <em>Neither is the work of reading it.</em>
+    </h1>
+
+    <p class="dm-hero-sub">
+      I am a Brazilian archaeologist working in Germany — on Bronze Age hoards,
+      on the digitalization of institutions, and on stories that have not been
+      written yet. This is where those three things meet.
+    </p>
+
+    <!-- Identity strips -->
+    <div class="dm-strips">
+      <a class="dm-strip" href="/publications.html">
+        <div class="dm-strip-label">Research</div>
+        <div class="dm-strip-title">Archaeology &amp; Theory</div>
+        <div class="dm-strip-hint">Publications, lectures, seminars</div>
+      </a>
+      <a class="dm-strip" href="/blog.html">
+        <div class="dm-strip-label">Writing</div>
+        <div class="dm-strip-title">Essays &amp; Notes</div>
+        <div class="dm-strip-hint">On institutions, movement, practice</div>
+      </a>
+      <a class="dm-strip" href="/projects.html">
+        <div class="dm-strip-label">Projects</div>
+        <div class="dm-strip-title">PAS Data &amp; Archaeosweeper</div>
+        <div class="dm-strip-hint">Interactive &amp; experimental work</div>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ── WRITING ────────────────────────────────────────────────── -->
+  <section class="dm-section">
+
+    <p class="dm-section-eyebrow">From the blog</p>
+    <h2 class="dm-section-title">Recent writing</h2>
+    <p class="dm-section-intro">
+      Essays and notes on skateboarding and embodied practice, the digitalization
+      of institutions, and the experience of doing research across languages and borders.
+    </p>
+
+    <div class="dm-writing-grid">
+      {% for post in site.posts limit:2 %}
+      <a class="dm-writing-card" href="{{ post.url }}">
+        <div class="dm-writing-card-label">
+          {{ post.categories | first | capitalize }}
+          &nbsp;·&nbsp;
+          {{ post.date | date: "%Y" }}
+        </div>
+        <div class="dm-writing-card-title">{{ post.title }}</div>
+        <div class="dm-writing-card-excerpt">
+          {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 22 }}
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <a class="dm-cta" href="/blog.html">All posts &rarr;</a>
+
+  </section>
+
+  <!-- ── PUBLICATIONS ───────────────────────────────────────────── -->
+  <section class="dm-section">
+
+    <p class="dm-section-eyebrow">Academic record</p>
+    <h2 class="dm-section-title">Selected publications</h2>
+    <p class="dm-section-intro">
+      Monograph, book chapters, and journal articles in German, English,
+      and Portuguese — across archaeological theory, Bronze Age hoards,
+      and the sociology of institutions.
+    </p>
+
+    <ul class="dm-pub-list">
+      <li>
+        <span class="dm-pub-year">2021</span>
+        <span class="dm-pub-entry">
+          <a href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit"
+             target="_blank" rel="noopener">
+            <em>Hortfunde der Spätbronze- und Früheisenzeit:
+            Ein prozesslogischer Paradigmawechsel.</em>
+          </a>
+          Leiden: Sidestone Press.
+        </span>
+      </li>
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <a href="https://books.ub.uni-heidelberg.de/propylaeum/catalog/book/1092/chapter/15028"
+             target="_blank" rel="noopener">
+            Die Kritik an der Subjektlogik und ihre Auswirkung auf die
+            Interpretation von Hortfunden.
+          </a>
+          In: <em>Theorie | Archäologie | Reflexion.</em>
+          Heidelberg: Propylaeum.
+        </span>
+      </li>
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <a href="https://www.finotracoeditora.com.br/e-book-desigualdades-passadas-e-presentes-estudos-sobre-as-desigualdades-em-perspectiva-diacronica"
+             target="_blank" rel="noopener">
+            Hierarquia e sentido: Um ensaio sobre expressões enfáticas
+            em enterramentos.
+          </a>
+          In: <em>Desigualdades passadas e presentes.</em>
+          Belo Horizonte: Fino Traço.
+        </span>
+      </li>
+    </ul>
+
+    <a class="dm-cta" href="/publications.html">Full publication record &rarr;</a>
+
+  </section>
+
+  <!-- ── GAME ───────────────────────────────────────────────────── -->
+  <section class="dm-section">
+
+    <p class="dm-section-eyebrow">Side project</p>
+    <h2 class="dm-section-title">A game about excavation</h2>
+    <p class="dm-section-intro">
+      Archaeosweeper is a browser game built as a single file — no downloads,
+      no accounts. Dig for artifacts before your budget runs dry.
+      Three difficulty tiers, a field journal, and a sound engine
+      synthesized in the browser.
+    </p>
+
+    <a class="dm-game-strip" href="/archaeosweeper.html">
+      <span class="dm-game-glyph">⛏</span>
+      <span class="dm-game-text">
+        <div class="dm-game-text-label">Play in browser &nbsp;·&nbsp; free</div>
+        <div class="dm-game-text-title">Archaeosweeper II — Field Excavation</div>
+        <div class="dm-game-text-sub">
+          Surface Survey · Trench Excavation · Deep Excavation
+        </div>
+      </span>
+      <span class="dm-game-arrow">&rarr;</span>
+    </a>
+
+    <p class="dm-pwa-note">
+      <span class="dm-pwa-icon">📱</span>
+      <span>
+        <strong>Install on iPhone:</strong> open in Safari &rarr;
+        tap Share (&#x25A1;&#x2191;) &rarr; "Add to Home Screen."
+        On Android Chrome: tap (&vellip;) &rarr; "Add to Home Screen."
+        Launches fullscreen and works offline.
+      </span>
+    </p>
+
+  </section>
+
 </div>
-<div class="content left home">
-<br>
-<h1 id="aboutme"> José Eduardo M. de Medeiros, PhD </h1>
-<h2> Archaeologist & Writer </h2>
-<br>
-  <p>
-    This is the website of Brazilian archaeologist José Eduardo M. de Medeiros.
-    His academic research offers a distinctive perspective on cultural evolution,
-    engaging with the historico-genetic theory of culture and making him one of 
-    the few Latin American scholars working in this tradition. 
-    In addition to his archaeological studies, he conducts ethnographic research 
-    on the digitalization of university administration, reflecting on his 
-    firsthand experiences in the field. He also publishes fiction 
-    and poetry independently. Here, you will find his publications, ongoing projects, 
-    and reflections on writing, research, and storytelling.
-  </p>
-  <br>
-<br>
-<br>
 
-</div>
-<br>
-<hr>
-<br>
+<style>
+/* ── PAGE WRAPPER ───────────────────────────────────────────────── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: var(--leading-normal, 1.65);
+  color: var(--color-ink, #1A1612);
+}
 
+/* ── HERO ───────────────────────────────────────────────────────── */
+.dm-hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
 
+.dm-hero-portrait {
+  float: right;
+  margin: 0 0 1.5rem 2.5rem;
+}
+.dm-hero-portrait img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--color-rule, #DDD5C4);
+  display: block;
+}
 
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: var(--text-xs, 0.65rem);
+  letter-spacing: var(--tracking-widest, 0.22em);
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 1.2rem;
+}
 
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  max-width: 600px;
+  margin: 0 0 1.4rem;
+}
+.dm-hero-statement em {
+  font-style: italic;
+  color: var(--color-rust, #9B4A2C);
+}
+
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 520px;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+/* ── IDENTITY STRIPS ────────────────────────────────────────────── */
+.dm-strips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  overflow: hidden;
+  clear: both;
+}
+
+.dm-strip {
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  border-right: 1px solid var(--color-rule, #DDD5C4);
+  transition: background var(--transition-fast, 0.15s ease);
+  display: block;
+}
+.dm-strip:last-child { border-right: none; }
+.dm-strip:hover { background: var(--color-paper-mid, #EDE8DF); }
+
+.dm-strip-label {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  margin-bottom: 0.25rem;
+}
+.dm-strip-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+}
+.dm-strip-hint {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+
+/* ── SECTIONS ───────────────────────────────────────────────────── */
+.dm-section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
+.dm-section:last-child { border-bottom: none; }
+
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.5rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+}
+.dm-section-intro {
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  font-size: 0.98rem;
+}
+
+/* ── WRITING CARDS ──────────────────────────────────────────────── */
+.dm-writing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.dm-writing-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast, 0.15s ease),
+              background var(--transition-fast, 0.15s ease);
+  display: block;
+}
+.dm-writing-card:hover {
+  border-color: var(--color-rust-dim, #C47A5A);
+  background: var(--color-paper-mid, #EDE8DF);
+}
+
+.dm-writing-card-label {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-bottom: 0.35rem;
+}
+.dm-writing-card-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+.dm-writing-card-excerpt {
+  font-size: 0.82rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── PUBLICATIONS LIST ──────────────────────────────────────────── */
+.dm-pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+}
+.dm-pub-list li {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.dm-pub-year {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.7rem;
+  color: var(--color-ink-faint, #6B5E54);
+  flex-shrink: 0;
+  width: 2.6rem;
+}
+.dm-pub-entry {
+  font-size: 0.9rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.55;
+}
+.dm-pub-entry a {
+  color: var(--color-ink, #1A1612);
+  text-decoration-color: var(--color-rust-dim, #C47A5A);
+  text-underline-offset: 3px;
+}
+.dm-pub-entry a:hover { color: var(--color-rust, #9B4A2C); }
+
+/* ── GAME STRIP ─────────────────────────────────────────────────── */
+.dm-game-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--color-dark-bg, #1A1612);
+  color: var(--color-dark-text, #E8D5A3);
+  border-radius: 4px;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: background var(--transition-fast, 0.15s ease);
+}
+.dm-game-strip:hover { background: #2D2520; }
+
+.dm-game-glyph { font-size: 2rem; flex-shrink: 0; }
+
+.dm-game-text { flex: 1; }
+.dm-game-text-label {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-dark-accent, #9B7A5A);
+  margin-bottom: 0.2rem;
+}
+.dm-game-text-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-text, #E8D5A3);
+  line-height: 1.3;
+}
+.dm-game-text-sub {
+  font-size: 0.78rem;
+  color: var(--color-dark-faint, #8B7A6A);
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+.dm-game-arrow {
+  font-size: 1.1rem;
+  color: var(--color-dark-accent, #9B7A5A);
+  flex-shrink: 0;
+}
+
+/* ── PWA NOTE ───────────────────────────────────────────────────── */
+.dm-pwa-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+.dm-pwa-icon { flex-shrink: 0; }
+.dm-pwa-note strong { color: var(--color-ink-mid, #3D342C); }
+
+/* ── CTA LINK ───────────────────────────────────────────────────── */
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast, 0.15s ease),
+              border-color var(--transition-fast, 0.15s ease);
+}
+.dm-cta:hover {
+  color: var(--color-ink, #1A1612);
+  border-color: var(--color-ink, #1A1612);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  .dm-strips { grid-template-columns: 1fr; }
+  .dm-strip  { border-right: none; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+  .dm-strip:last-child { border-bottom: none; }
+  .dm-writing-grid { grid-template-columns: 1fr; }
+  .dm-hero-portrait { float: none; margin: 0 0 1.5rem; }
+  .dm-hero-portrait img { width: 90px; height: 90px; }
+  .dm-game-strip { flex-wrap: wrap; }
+}
+</style>

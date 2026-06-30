@@ -5,7 +5,7 @@
   link: /publications.html
   image: "/assets/images/publications.jpeg"
 - name: CV
-  link: cv.html
+  link: /cv.html
   image: "/assets/images/cv.jpeg"
 - name: Projects
   link: /projects.html

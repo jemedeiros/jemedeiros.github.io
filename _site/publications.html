@@ -1,51 +1,80 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon_publications.ico" type="image/x-icon">
     
-    
-    
-    <link rel='shortcut icon' href="/favicon_publications.ico"  type='image/x-icon' />
-     
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+  <!-- Page-specific assets -->
+  
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Publications | J. E. de Medeiros</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Publications" />
 <meta name="author" content="José Eduardo M. de Medeiros" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
-<meta property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
 <link rel="canonical" href="http://localhost:4000/publications.html" />
 <meta property="og:url" content="http://localhost:4000/publications.html" />
 <meta property="og:site_name" content="J. E. de Medeiros" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Publications" />
+<meta name="twitter:title" content="Publications" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Publications","url":"http://localhost:4000/publications.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Publications","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/publications.html"}</script>
 <!-- End Jekyll SEO tag -->
 
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
 </head>
-    
   <body>
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
     <div class="topnav" id="myTopnav">
     
     <a href="/" > Home </a>
     
     <a href="/publications.html"  class="active" > Publications </a>
     
-    <a href="cv.html" > CV </a>
+    <a href="/cv.html" > CV </a>
     
     <a href="/projects.html" > Projects </a>
     
@@ -55,7 +84,7 @@
         <i class="fa fa-bars"></i>
     </a>
 </div>
-    
+
     <div class="content">
       <div id="social-media">
     
@@ -80,292 +109,599 @@
     </i></a>
     
 </div>
-      <br>
-<br>
+      <div class="dm-page">
 
-<h1> Recent Works </h1>
-<div class="card-grid">
-    <div class="cards books">
-        <a href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit">
-            <img src="https://www.sidestone.com/images/1978.png" alt="Sidestone Press">
+  <!-- ── PAGE HEADER ─────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Academic record</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      Publications &amp; Lectures
+    </h1>
+    <p class="dm-hero-sub">
+      Research in archaeological theory, Bronze Age hoards, and cultural
+      interpretation — in German, English, and Portuguese.
+    </p>
+
+    <!-- Stats bar -->
+    <div class="dm-stats-bar">
+      <div class="dm-stat">
+        <span class="dm-stat-n">1</span>
+        <span class="dm-stat-l">Monograph</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n">4</span>
+        <span class="dm-stat-l">Articles &amp; Chapters</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n">6</span>
+        <span class="dm-stat-l">Lectures</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n">3</span>
+        <span class="dm-stat-l">Languages</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n">4</span>
+        <span class="dm-stat-l">Countries</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MONOGRAPH ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Monograph</p>
+    <h2 class="dm-section-title">Book</h2>
+
+    <div class="dm-book-row">
+      <a class="dm-book-cover"
+         href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit"
+         target="_blank" rel="noopener">
+        <img src="https://www.sidestone.com/images/1978.png"
+             alt="Cover of Hortfunde der Spätbronze- und Früheisenzeit" />
+      </a>
+      <div class="dm-book-meta">
+        <div class="dm-pub-tag">2021 · Sidestone Press · Leiden</div>
+        <h3 class="dm-book-title">
+          <a href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit"
+             target="_blank" rel="noopener">
+            Hortfunde der Spätbronze- und Früheisenzeit:<br>
+            <em>Ein prozesslogischer Paradigmawechsel</em>
+          </a>
+        </h3>
+        <p class="dm-book-desc">
+          A systematic reanalysis of Late Bronze Age and Early Iron Age hoards
+          from a process-logical theoretical perspective. Argues for a paradigm
+          shift in the interpretation of depositional practices, drawing on the
+          historico-genetic sociology of Günter Dux.
+        </p>
+        <a class="dm-cta"
+           href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit"
+           target="_blank" rel="noopener">
+          View at Sidestone Press &rarr;
         </a>
-
+      </div>
     </div>
+  </section>
+
+  <!-- ── ARTICLES & CHAPTERS ─────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Articles &amp; Book Chapters</p>
+    <h2 class="dm-section-title">Peer-reviewed contributions</h2>
+
+    <ul class="dm-pub-list dm-pub-list--full">
+
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <a href="https://books.ub.uni-heidelberg.de/propylaeum/catalog/book/1092/chapter/15028"
+             target="_blank" rel="noopener">
+            Die Kritik an der Subjektlogik und ihre Auswirkung auf die
+            Interpretation von Hortfunden der Spätbronze- und Früheisenzeit.
+          </a>
+          In: Renger, M.; Rotermund, S. M.; Schreiber, S.; Veling, A. (eds.)
+          <em>Theorie | Archäologie | Reflexion: Kontroversen und Ansätze
+          im deutschsprachigen Diskurs.</em>
+          Heidelberg: Propylaeum, pp. 293–333.
+          <span class="dm-pub-lang">DE</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <a href="https://www.finotracoeditora.com.br/e-book-desigualdades-passadas-e-presentes-estudos-sobre-as-desigualdades-em-perspectiva-diacronica"
+             target="_blank" rel="noopener">
+            Hierarquia e sentido: Um ensaio sobre expressões enfáticas em
+            enterramentos no caso das estelas daunias.
+          </a>
+          In: Ferreira, N. O. (org.)
+          <em>Desigualdades passadas e presentes: Estudos sobre as
+          Desigualdades em perspectiva diacrônica.</em>
+          1. ed. Belo Horizonte: Fino Traço, pp. 31–60.
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2018</span>
+        <span class="dm-pub-entry">
+          <a href="https://www.academia.edu/37769081/Os_desafios_da_educa%C3%A7%C3%A3o_patrimonial_%C3%A0_altura_do_nosso_tempo"
+             target="_blank" rel="noopener">
+            Os desafios da educação patrimonial à altura do nosso tempo.
+          </a>
+          In: Campos, J. B.; Rodrigues, M. H. S. G.; Santos, M. C. P. (orgs.)
+          <em>Patrimônio cultural, direito e meio ambiente:
+          Educação Patrimonial e Ambiental.</em>
+          1. ed. Curitiba: Multideia, v. 3, pp. 19–43.
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2016</span>
+        <span class="dm-pub-entry">
+          <a href="https://www.academia.edu/16578367/O_pensamento_as_sociedades_e_a_cultura._Uma_apologia_da_cultura_e_do_humano_tendo_como_exemplo_o_Portable_Antiquities_Scheme_do_Reino_Unido"
+             target="_blank" rel="noopener">
+            O pensamento, as sociedades e a cultura: Uma apologia da cultura
+            e do humano, tendo como exemplo o Portable Antiquities Scheme
+            do Reino Unido.
+          </a>
+          In: Campos, J. B.; Preve, D. R.; Souza, I. F. de. (orgs.)
+          <em>Patrimônio cultural, direito e meio ambiente: perspectivas
+          sobre diversidades, cultura e memória.</em>
+          1. ed. Curitiba: Multideia, v. 2, pp. 173–189.
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── LECTURES ─────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Invited lectures</p>
+    <h2 class="dm-section-title">Conference papers &amp; invited talks</h2>
+
+    <ul class="dm-pub-list dm-pub-list--full">
+
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <strong>Símbolos, ideologia e processo formativo: Uma reflexão
+          sobre estruturas de interpretação / Symbols, ideology and the
+          formative process: A reflection on structures of interpretation.</strong>
+          <span class="dm-lecture-venue">
+            <em>The Iberian Stelae of the Final Bronze Age: Iconography,
+            Technology and the Transfer of Knowledge between the Atlantic
+            and the Mediterranean.</em>
+            International Project Workshop and Conference,
+            Albert-Ludwigs-Universität Freiburg, 10–11 Oct. 2023.
+          </span>
+          <span class="dm-pub-lang">PT/EN</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <strong>Entre contato e isolamento: Uma reflexão sobre o
+          emaranhamento cultural no caso das estelas Daunias.</strong>
+          <span class="dm-lecture-venue">
+            Seminário discente: Representações e espaços no Mediterrâneo
+            antigo. NEREIDA – PPGH – UFF, 24–28 Apr. 2023.
+          </span>
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2023</span>
+        <span class="dm-pub-entry">
+          <strong>Une interprétation des dépôts de parures de l'Âge du
+          Bronze Final en France / An interpretation of the ornament hoards
+          of the Late Bronze Age in France.</strong>
+          <span class="dm-lecture-venue">
+            <em>Parures réincarnées: Les ornements corporels pour révéler
+            les identités et les mobilités aux âges des Métaux.</em>
+            International workshop, 3rd Prix Joseph Déchelette / APRAB,
+            Musée d'Archéologie nationale, Saint-Germain-en-Laye,
+            Paris, 02 Mar. 2023.
+          </span>
+          <span class="dm-pub-lang">FR/EN</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2022</span>
+        <span class="dm-pub-entry">
+          <strong>The historico-genetic foundation of ethnographic
+          comparisons and an example from the analysis of Late Bronze Age
+          ornament hoards in France.</strong>
+          <span class="dm-lecture-venue">
+            WAC-9, Prague. Session: <em>Ethnoarchaeology and Later European
+            Prehistory – Venturing the Ridge between Hypothesis, Plausibility,
+            and Evidence.</em> 07 Jun. 2022.
+          </span>
+          <span class="dm-pub-lang">EN</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2021</span>
+        <span class="dm-pub-entry">
+          <strong>Die Auswirkung der historisch-genetischen Theorie des
+          Freiburger Soziologen Günter Dux auf die archäologische
+          Interpretation: Ein Beispiel aus der Spätbronzezeit.</strong>
+          <span class="dm-lecture-venue">
+            Institut für Soziologie, Albert-Ludwigs-Universität Freiburg.
+            Lecture series: <em>Einführung in die empirische
+            Sozialforschung,</em> coord. Dr. Dominique Schirmer,
+            13 Jan. 2021.
+          </span>
+          <span class="dm-pub-lang">DE</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2020</span>
+        <span class="dm-pub-entry">
+          <strong>Religiosidade a partir de uma perspectiva arqueológica:
+          Um exemplo da Idade do Bronze.</strong>
+          <span class="dm-lecture-venue">
+            Class: <em>European Prehistory,</em>
+            coord. Prof. Dr. Adriene Baron Tacla,
+            Universidade Federal Fluminense, Rio de Janeiro,
+            01 Dec. 2020.
+          </span>
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+      <li>
+        <span class="dm-pub-year">2020</span>
+        <span class="dm-pub-entry">
+          <strong>Uma interpretação dos depósitos de joias da Idade do
+          Bronze Final na França.</strong>
+          <span class="dm-lecture-venue">
+            IV Ciclo de Conferências do Grupo de Pesquisa de Pós-Doutorado
+            em História Antiga NEREIDA–UFF,
+            Universidade Federal Fluminense, Rio de Janeiro,
+            18 Set. 2020.
+          </span>
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── SEMINARS ─────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Seminars</p>
+    <h2 class="dm-section-title">Invited seminars</h2>
+
+    <ul class="dm-pub-list dm-pub-list--full">
+      <li>
+        <span class="dm-pub-year">2021</span>
+        <span class="dm-pub-entry">
+          <strong>O Portable Antiquities Scheme do British Museum:
+          proteção do patrimônio e o uso da tecnologia na arqueologia.</strong>
+          <span class="dm-lecture-venue">
+            Universidade Federal Fluminense, Niterói, Brazil,
+            27 Set. – 08 Oct. 2021.
+          </span>
+          <span class="dm-pub-lang">PT</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── TEACHING ─────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">University teaching</p>
+    <h2 class="dm-section-title">Language courses</h2>
+
+    <ul class="dm-pub-list dm-pub-list--full">
+      <li>
+        <span class="dm-pub-year">2020–21</span>
+        <span class="dm-pub-entry">
+          <strong>Portuguese I, II &amp; III.</strong>
+          <span class="dm-lecture-venue">
+            SprachLehrInstitut &amp; Zentrum für Schlüsselqualifikation,
+            Albert-Ludwigs-Universität Freiburg.
+            Up to three course levels per semester; linguistic development
+            and cultural context.
+          </span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── FICTION NOTE ─────────────────────────────────────────── -->
+  <section class="dm-section dm-section--note">
+    <p class="dm-section-eyebrow">Independent writing</p>
+    <h2 class="dm-section-title">Fiction &amp; poetry</h2>
+    <p class="dm-section-intro">
+      Forthcoming works in Portuguese — fiction and poetry written independently,
+      outside the academic context. Updates will appear on the
+      <a href="/blog.html">blog</a> as projects develop.
+    </p>
+  </section>
+
 </div>
-<div class="content left">
-    <h2> Fiction </h2>
-    <br>
 
-    <p>
-        <i>Exploring new forms of storytelling,
-            these works of fiction reflect my
-            journey from academic research to independent creative
-            writing. Stay tuned for more updates as I venture
-            into the world of poetry and novels.</i>
-    </p>
+<style>
+/* Inherits .dm-page, .dm-section, .dm-hero, .dm-cta from index.html.
+   Additional components specific to this page: */
 
-    <br>
-    <ul>
-        <li> Upcoming works will explore fiction in Portuguese. More details to come soon </li>
-    </ul>
-    <br>
-    <br>
-    <hr>
-    <br>
-    <h2> Academic Publications </h2>
-    <br>
-    <p>
-        <i>My academic research focused on archaeological theory,
-            historical analysis, and cultural studies. These works
-            represent my contributions to scholarly discussions on these
-            subjects, offering critical insights into ancient societies
-            and heritage preservation.</i>
-    </p>
-    <br>
-    <h2> Monographs </h2>
-    <br>
-    <p>
-        <i>My monographs delve into complex archaeological themes,
-            presenting original research on Bronze Age hoards and cultural
-            interpretation through material findings.</i>
-    </p>
-    <br>
-    <ul>
-        <h3> 2021 </h3>
-        <li>
-            <a href="https://www.sidestone.com/books/hortfunde-der-spaetbronze-und-frueheisenzeit">
-                de Medeiros, J. E. M. (2021) Hortfunde der Spätbronze- und Früheisenzeit: Ein prozesslogischer
-                Paradigmawechsel. Leiden: SideStone Press.
-            </a>
-        </li>
-    </ul>
-    <br>
-    <br>
-    <h2> Articles </h2>
-    <br>
-    <p>
-        <i>In these articles, I explore various aspects of archaeology,
-            societal structures, and interpretive theory, contributing
-            to international and interdisciplinary academic debates.</i>
-    </p>
-    <br>
-    <ul>
-        <h3>2023</h3>
-        <li>
-            <a
-                href="https://www.finotracoeditora.com.br/e-book-desigualdades-passadas-e-presentes-estudos-sobre-as-desigualdades-em-perspectiva-diacronica">
-                de Medeiros, J. E. M. (2023) Hierarquia e sentido: Um ensaio sobre expressões enfáticas em enterramentos
-                no caso das estelas daunias in: Ferreira, Noberto O. (org.) Desigualdades passadas e presentes.
-                Estudos sobre as Desigualdades em perspectiva diacrônica, 1. ed., Belo Horizonte: Fino Traço, p. 31-60.
-            </a>
-        </li>
-        <br>
+/* ── HERO VARIANTS ──────────────────────────────────────────── */
+.dm-hero--slim { padding: 2.5rem 0 2rem; }
 
-        <li>
-            <a href="https://books.ub.uni-heidelberg.de/propylaeum/catalog/book/1092/chapter/15028">
-                de Medeiros, J. E. M. (2023) Die Kritik an der Subjektlogik und ihre Auswirkung auf die Interpretation
-                von Hortfunden der Spätbronze- und Früheisenzeit,
-                in: Renger, M., Rotermund, S. M. Schreiber, S., Veling, A.
-                Theorie | Archäologie | Reflexion Kontroversen und Ansätze im deutschsprachigen Diskurs. Heidelberg:
-                Propylaeum, S. 293-333.
-            </a>
-        </li>
-        <br>
-        <h3>2018</h3>
-        <li> <a
-                href=" https://www.academia.edu/37769081/Os_desafios_da_educa%C3%A7%C3%A3o_patrimonial_%C3%A0_altura_do_nosso_tempo?source=swp_share">
-                de Medeiros, J. E. M. (2018) Os desafios da educação patrimonial à altura do nosso tempo.
-                In: Campos, J. B.; Rodrigues, M. H. S. G.; Santos, M. C. P. (Org.). Patrimônio cultural, direito e meio
-                ambiente:
-                Educação Patrimonial e Ambiental. 1ed., Curitiba: Multideia, 2018, v. 3., 19-43.
-            </a>
-        </li>
-        <br>
-        <h3>2016</h3>
-        <li> <a
-                href=" https://www.academia.edu/16578367/O_pensamento_as_sociedades_e_a_cultura._Uma_apologia_da_cultura_e_do_humano_tendo_como_exemplo_o_Portable_Antiquities_Scheme_do_Reino_Unido?source=swp_share">
-                de Medeiros, J. E. M. (2016) O pensamento, as sociedades e a cultura: Uma apologia da cultura e do
-                humano, tendo como exemplo o Portable Antiquities Scheme do Reino Unido.
-                In: Campos, J. B.; Preve, D. R.; Souza I. F. de. (Org.). Patrimônio cultural, direito e meio ambiente:
-                perspectivas sobre diversidades, cultura e memória. 1ed., Curitiba: Multideia, 2016, v. 2, p. 173-189.
-            </a>
-        </li>
-        <br>
-    </ul>
-    <br>
-    <h1> Seminars </h1>
-    <br>
-    <p>
-        <i>These seminars were opportunities for me to share my
-            research and engage with academic peers, students on
-            topics ranging from Late Bronze Age hoards to heritage education.</i>
-    </p>
-    <br>
-    <ul>
-        <h3>2021 </h3>
-        <li> 27 Set. 2021 to 08 Oct. 2021 <strong> O Portable Antiquities Scheme do British Museum: proteção do
-                patrimônio e o uso da tecnologia na arqueologia. </strong> Universidade Federal Fluminense, Niterói
-            Brazil
-        </li>
-        <br>
-    </ul>
-    <br>
-    <h1> Lectures </h1>
-    <br>
-    <p>
-        <i>Over the years, I’ve been invited to deliver lectures on a variety
-            of archaeological and theoretical topics, sharing my work with students
-            and fellow researchers across institutions topics ranging from
-            Late Bronze Age hoards to heritage education.</i>
-    </p>
+.dm-hero-statement--sm {
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  margin-bottom: 0.8rem;
+}
 
-    <br>
+/* ── STATS BAR ──────────────────────────────────────────────── */
+.dm-stats-bar {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
 
-    <ul>
-        <h3>2023</h3>
-        <li>
-            10 Oct. 2023 <strong> Símbolos, ideologia e processo
-                formativo: Uma reflexão sobre estruturas de interpre-
-                tação / Symbols, ideology and the formative pro-
-                cess: A reflection on structures of interpretation. </strong>
-            The Iberian Stelae of the Final Bronze Age: Iconography, Technology and the Transfer of Knowledge between
-            the
-            Atlantic and the Mediterranean, Albert-Ludwigs-Universität, Freiburg Germany. International Project Workshop
-            and Conference 10-11 Oct 2023
-        </li>
-        <br>
-        <li>
-            24-28 Apr. 2023 <strong> Entre contato e isolamento: Uma reflexão sobre o emaranhamento cultural no caso das
-                estelas Daunias </strong> Seminário discente: Representações e espaços no Mediterrâneo antigo. NEREIDA -
-            PPGH - UFF
-        </li>
-        <br>
-        <li>
-            02 Mar. 2023 <strong> Une interprétation des dépôts de parures de l’Âge du Bronze Final en France
-                * An interpretation of the ornament hoards of the Late Bronze Age in France </strong>, Paris, Musée
-            d’Archéologie nationale,
-            Saint-Germain-en-Laye, Parures réincarnées Les ornements corporels
-            pour révéler les identités et les mobilités aux âges des Métaux. International workshop organized in the
-            framework of the 3rd Prize
-            for archaeology Joseph Déchelette and by APRAB.
-        </li>
-        <br>
-    </ul>
-    <br>
+.dm-stat {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.75rem 1rem;
+  border-right: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.dm-stat:last-child { border-right: none; }
 
-    <ul>
-        <h3>2022</h3>
-        <li>
-            07 Jun. 2022 <strong> The historico-genetic foundation of ethnographic comparisons and
-                an example from the analysis of Late Bronze Age ornament hoards
-                in France </strong>, WAC-9 Prag, Session Ethnoarchaeology and Later European Prehistory – Venturing the
-            Ridge between Hypothesis, Plausibility,
-            and Evidence.
-        </li>
-    </ul>
-    <br>
+.dm-stat-n {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-rust, #9B4A2C);
+  line-height: 1;
+}
+.dm-stat-l {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  text-align: center;
+}
 
-    <ul>
-        <h3> 2021 </h3>
-        <li>
-            13 Jan. 2021 <strong> Die Auswirkung der historisch-genetischen
-                Theorie des Freiburger Soziologen Günter Dux auf die archäologische
-                Interpretation: Ein Beispiel aus der Spätbronzezeit.</strong>
-            Institut für Soziologie, Albert-Ludwigs-Universität, Freiburg Germany
-            Part of undergraduate lecture: <em>Einführung in die empirische Sozialforschung</em>
-            (en. Introduction to empirical social research) coordinated by Dr. Dominique Schirmer
-        </li>
-        <br>
-    </ul>
-    <br>
+/* ── BOOK ROW ───────────────────────────────────────────────── */
+.dm-book-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+}
 
-    <ul>
-        <h3>2020</h3>
-        <li>
-            01 Dec. 2020 <strong> Religiosidade a partir de uma perspectiva arqueológica: Um exemplo da Idade do Bronze
-            </strong>
-            Universidade Federal Fluminense, Rio de Janeiro, Brazil
-            Part of class “European Prehistory” coordinated by Prof. Dr. Adriene Baron Tacla
-        </li>
-        <br>
-        <li>
-            18 Set. 2020 <strong>Uma interpretação dos depósitos de joias da Idade do Bronze Final na França. </strong>
-            Universidade Federal Fluminense, Rio de Janeiro, Brazil
-            IV Cycle of Lectures of Postdoctoral Research Group in Ancient History NEREIDA-UFF
-        </li>
-        <br>
-    </ul>
-    <br>
-    <h1> Language Courses Taught </h1>
-    <br>
-    <p>
-        <i>During my teaching activities, I instructed university
-            students in Portuguese language courses, blending academic
-            rigor with practical language acquisition skills.</i>
-    </p>
-    <br>
-    <ul>
-        <li>
-            <strong> Jul 2020 - Jul 2021 </strong> <br>
-            <strong> Portuguese I, II & III</strong> <br>
-            Albert-Ludwigs-Universität, Freiburg Germany <br>
-            SprachLehrInstitut & Zentrum für Schlüsselqualifikation <br>
-            Taught up to three different levels of Portuguese language
-            classes each semester, focusing on linguistic
-            development and cultural context.
-        </li>
-    </ul>
-    <br>
-</div>
-      <div class="link-grid">
-    
-    
-      <a href="/" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/home.jpeg" alt="Home" loading="lazy">
-          <div class="overlay">
-            <h2>Home</h2>
-          </div>
-        </div>
-      </a>
-    
-     
-    
-      <a href="cv.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/cv.jpeg" alt="CV" loading="lazy">
-          <div class="overlay">
-            <h2>CV</h2>
-          </div>
-        </div>
-      </a>
-    
-    
-      <a href="/projects.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/projects.jpeg" alt="Projects" loading="lazy">
-          <div class="overlay">
-            <h2>Projects</h2>
-          </div>
-        </div>
-      </a>
-    
-    
-      <a href="/blog.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/blog.jpeg" alt="Blog" loading="lazy">
-          <div class="overlay">
-            <h2>Blog</h2>
-          </div>
-        </div>
-      </a>
-    
-  </div>
-  
+.dm-book-cover {
+  flex-shrink: 0;
+}
+.dm-book-cover img {
+  width: 120px;
+  display: block;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(26,22,18,0.12));
+  transition: box-shadow var(--transition-fast, 0.15s ease);
+}
+.dm-book-cover:hover img {
+  box-shadow: var(--shadow-lg, 0 8px 24px rgba(26,22,18,0.16));
+}
+
+.dm-book-meta { flex: 1; }
+
+.dm-pub-tag {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-bottom: 0.5rem;
+}
+
+.dm-book-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+}
+.dm-book-title a {
+  color: var(--color-ink, #1A1612);
+  text-decoration-color: var(--color-rust-dim, #C47A5A);
+  text-underline-offset: 3px;
+}
+.dm-book-title a:hover { color: var(--color-rust, #9B4A2C); }
+.dm-book-title em { font-style: italic; }
+
+.dm-book-desc {
+  font-size: 0.88rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 0 1rem;
+}
+
+/* ── PUBLICATIONS LIST ──────────────────────────────────────── */
+.dm-pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.dm-pub-list li {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.dm-pub-year {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  color: var(--color-ink-faint, #6B5E54);
+  flex-shrink: 0;
+  width: 3.2rem;
+  padding-top: 0.1rem;
+}
+
+.dm-pub-entry {
+  font-size: 0.9rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.6;
+  flex: 1;
+}
+.dm-pub-entry a {
+  color: var(--color-ink, #1A1612);
+  text-decoration-color: var(--color-rust-dim, #C47A5A);
+  text-underline-offset: 3px;
+}
+.dm-pub-entry a:hover { color: var(--color-rust, #9B4A2C); }
+.dm-pub-entry strong { color: var(--color-ink, #1A1612); }
+
+/* Venue line below title */
+.dm-lecture-venue {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 0.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Language badge */
+.dm-pub-lang {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--color-rust, #9B4A2C);
+  border: 1px solid var(--color-rust-dim, #C47A5A);
+  border-radius: 2px;
+  padding: 1px 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  font-style: normal;
+}
+
+/* Note section — lighter treatment */
+.dm-section--note .dm-section-intro {
+  font-style: italic;
+  color: var(--color-ink-faint, #6B5E54);
+}
+.dm-section--note .dm-section-intro a {
+  color: var(--color-rust, #9B4A2C);
+  text-underline-offset: 3px;
+}
+
+/* ── SHARED (duplicated from index for standalone safety) ───── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1A1612);
+}
+.dm-hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 1rem;
+}
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  margin: 0 0 1rem;
+}
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 560px;
+  line-height: 1.7;
+  margin: 0;
+}
+.dm-section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
+.dm-section:last-child { border-bottom: none; }
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
+}
+.dm-section-intro {
+  font-size: 0.98rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  .dm-book-row { flex-direction: column; gap: 1.2rem; }
+  .dm-book-cover img { width: 100px; }
+  .dm-stats-bar { flex-wrap: wrap; }
+  .dm-stat { min-width: calc(50% - 1px); border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+}
+</style>
+      
     </div>
-  </body>
-  <script src="/assets/js/main.js" async defer></script>
-  
+
+    <script src="/assets/js/main.js" async defer></script>
+    
 <footer class="site-footer h-card">
     <data class="u-url" href="/"></data>
   
@@ -421,4 +757,5 @@
   
   </footer>
   
+  </body>
 </html>

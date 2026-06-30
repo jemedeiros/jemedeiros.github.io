@@ -1,51 +1,80 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     
-    
-    
-    <link rel='shortcut icon' href="/favicon.ico"  type='image/x-icon' />
-     
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+  <!-- Page-specific assets -->
+  
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Blog | J. E. de Medeiros</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Blog" />
 <meta name="author" content="José Eduardo M. de Medeiros" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
-<meta property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
 <link rel="canonical" href="http://localhost:4000/blog.html" />
 <meta property="og:url" content="http://localhost:4000/blog.html" />
 <meta property="og:site_name" content="J. E. de Medeiros" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blog" />
+<meta name="twitter:title" content="Blog" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Blog","url":"http://localhost:4000/blog.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/blog.html"}</script>
 <!-- End Jekyll SEO tag -->
 
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
 </head>
-    
   <body>
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
     <div class="topnav" id="myTopnav">
     
     <a href="/" > Home </a>
     
     <a href="/publications.html" > Publications </a>
     
-    <a href="cv.html" > CV </a>
+    <a href="/cv.html" > CV </a>
     
     <a href="/projects.html" > Projects </a>
     
@@ -55,7 +84,7 @@
         <i class="fa fa-bars"></i>
     </a>
 </div>
-    
+
     <div class="content">
       <div id="social-media">
     
@@ -80,136 +109,460 @@
     </i></a>
     
 </div>
-      <div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>
-<div class="card-grid">
+      <div class="dm-page">
 
-    <div class="cards first">
-        <h1 class="label reversed"> Latest </h1>
-        <div class="center-content">
-            <div class="seven columns">
-                <h2><a class="post-link" href="/digitalisierung/2025/12/15/AG-DMS.html">Ag Dms</a></h2>
-                
-                <p class="meta">Dec 15, 2025</p>
-                <p><h1 id="ag-dms-dez-2025-in-freiburg">AG-DMS Dez 2025 in Freiburg</h1>
+  <!-- ── PAGE HEADER ─────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Writing</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      Essays &amp; Notes
+    </h1>
+    <p class="dm-hero-sub">
+      On skateboarding and embodied practice, the digitalization of institutions,
+      migration between languages, and the slow work of becoming a writer.
+      In English, German, and Portuguese.
+    </p>
+    <div class="dm-blog-nav">
+      Browse by
+      <a href="/categories">category</a>
+      or by
+      <a href="/tags">tag</a>
+    </div>
+  </section>
 
-<p>Die Digitalisierung der Verwaltung ist eine komplexe Aufgabe, wie die jahrelange Arbeit der Arbeitsgruppe DMS Baden-Württemberg zeigt. Seit ihrer Gründung vor drei bis vier Jahren hat sich die Agenda von einer lockeren Liste von Punkten zu einem umfassenden Themenkatalog entwickelt, der die Zeit für eine umfassende Diskussion für alle Mitglieder mit unterschiedlichen Interessen knapp erscheinen ließ.</p>
+  <!-- ── FEATURED POST ───────────────────────────────────────── -->
+  
+  
+  <section class="dm-section dm-section--flush">
+    <p class="dm-section-eyebrow">Latest</p>
+    <article class="dm-post-featured">
+      <div class="dm-post-featured-meta">
+        <span class="dm-post-cat">Digitalisierung</span>
+        <span class="dm-post-date">15 Dec 2025</span>
+      </div>
+      <h2 class="dm-post-featured-title">
+        <a href="/digitalisierung/2025/12/15/AG-DMS.html">Ag Dms</a>
+      </h2>
+      <p class="dm-post-featured-excerpt">
+        AG-DMS Dez 2025 in Freiburg Die Digitalisierung der Verwaltung ist eine komplexe Aufgabe, wie die jahrelange Arbeit der Arbeitsgruppe DMS Baden-Württemberg zeigt. Seit ihrer Gründung vor drei bis vier Jahren hat sich die Agenda von einer lockeren Liste von Punkten...
+      </p>
+      <div class="dm-post-featured-footer">
+        <a class="dm-cta" href="/digitalisierung/2025/12/15/AG-DMS.html">
+          Read &rarr;
+        </a>
+        
+      </div>
+    </article>
+  </section>
+  
 
- </p> 
-            </div>
-            <div class="four columns center-content">
+  <!-- ── POST LIST ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">All posts</p>
+    <h2 class="dm-section-title">Archive</h2>
 
-                
-
-            </div>
-        </div>            
+    <ul class="dm-post-list">
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">18 Oct 2025</span>
+          <span class="dm-post-cat">Skateboard</span>
         </div>
-    
-        <div class="cards">
-        <h2>
-          <a class="post-link" href="/skateboard/2025/10/18/Fear-ex-post.html">Fear ex post</a>
-        </h2>
-        <p class="meta">Oct 18, 2025</p>
-        <p><h1 id="fear-ex-post">Fear ex post</h1>
-
-<p>They say Freud took inspiration from the  Catholic ritual of confession to develop the methods of psychoanalysis. Conversation as a tool to reveal insights, develop cognitive distance to psychic patterns that may be inflicting pain or anxiety on patients.</p>
-
-<p>As my first week after a long vacation began in the skatepark, I experienced a new kind of psychic state.</p>
-
- </p>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/skateboard/2025/10/18/Fear-ex-post.html">Fear ex post</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Fear ex post They say Freud took inspiration from the Catholic ritual of confession to develop the methods of psychoanalysis. Conversation as a tool to...
+          </p>
+          
         </div>
-    
-        <div class="cards">
-        <h2>
-          <a class="post-link" href="/2025/09/13/Note-on-Hermeto-Pascoals-Death.html">Note on hermeto pascoals death</a>
-        </h2>
-        <p class="meta">Sep 13, 2025</p>
-        <p><h1 id="hermeto-pascoal--13-september-2025">Hermeto Pascoal † 13. September 2025</h1>
-
-<p>Hermeto Pascoal has left us, and I feel an emptiness that words can barely hold. He was more than a musician for me—he was an idol, a guide, a voice that helped me through the turbulence of my youth. His music soothed me in moments of loneliness, and his roots in the Northeast made me proud of my own origins, even as I struggled to find my place in the vast and overwhelming life of Rio.</p>
-
- </p>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">13 Sep 2025</span>
+          <span class="dm-post-cat"></span>
         </div>
-    
-        <div class="cards">
-        <h2>
-          <a class="post-link" href="/skateboard/academic/2025/06/22/Reflection-on-community.html">Reflection on community</a>
-        </h2>
-        <p class="meta">Jun 22, 2025</p>
-        <p><h1 id="a-reflection-on-community-in-the-skatepark">A Reflection on Community in the skatepark</h1>
-
-<p>Recently, I’ve been thinking a lot about different group dynamics—both at work and during my free time at the skatepark. The dynamics of working in digitalization are subject of a book of its own to be published in the next years. But the latest episodes at the skatepark are more intuitively graspable.</p>
-
- </p>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/2025/09/13/Note-on-Hermeto-Pascoals-Passing.html">Note on hermeto pascoals passing</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Hermeto Pascoal † 13. September 2025 Hermeto Pascoal has left us, and I feel an emptiness that words can barely hold. He was more than...
+          </p>
+          
         </div>
-    
-        <div class="cards">
-        <h2>
-          <a class="post-link" href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a>
-        </h2>
-        <p class="meta">Jun 14, 2025</p>
-        <p><h1 id="hochschultag--dvelop-summmit-2025">Hochschultag &amp; D.velop Summmit 2025</h1>
-
-<p>On June 3rd, I had the pleasure of representing the University of Freiburg, as well as the DMS working group of Baden-Württemberg, at the University Day of the DMS Network, where I gave the opening lecture.</p>
-
- </p>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">22 Jun 2025</span>
+          <span class="dm-post-cat">Skateboard</span>
         </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/skateboard/academic/2025/06/22/Reflection-on-community.html">Reflection on community</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            A Reflection on Community in the skatepark Recently, I’ve been thinking a lot about different group dynamics—both at work and during my free time at...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">14 Jun 2025</span>
+          <span class="dm-post-cat">Digitalisierung</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Hochschultag &amp; D.velop Summmit 2025 On June 3rd, I had the pleasure of representing the University of Freiburg, as well as the DMS working group...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">23 Nov 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/11/23/Freeze.html">Freeze</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Freezing pause Apologies for the long pause in my skateboarding ethnography! I was on vacation, but that’s no excuse. A lot has happened in the...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">15 Jul 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/07/15/Ups-and-Downs.html">Ups and downs</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Embracing the Ups and Downs of Skateboarding (Surf-)Skateboarding is a journey, not just a sport. Over the past few days, I’ve felt the exhilarating rush...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">31 May 2024</span>
+          <span class="dm-post-cat">It</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on document management system</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            New LinkedIn Post Recently, I made the decision to publish posts on LinkedIn as part of my plan to engage with social media this year....
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">13 May 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/05/13/A-new-homie.html">A new homie</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            A New Homie There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">11 May 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/05/11/The-Centrifuge-Achievement.html">The centrifuge achievement</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            “Die Zentrifuge”: The Day I Did a 50-50 Grind on a curve! The Holidays May was blessed with a couple of holidays, and I was...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">06 May 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/05/06/Back-to-work-surprise.html">Back to work surprise</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Back to work Today, duty called …back. After a really nice week on vacation, work started. I went to my office where I can work...
+          </p>
+          
+        </div>
+      </li>
+      
+    </ul>
+
     
-</div>  
-<!-- Add a message indicating more posts -->
-<div class="center-content">
-    <p>Explore more posts in our <a href="/archive">archive</a> </p>
+    <a class="dm-cta" href="/archive">
+      All 14 older posts &rarr;
+    </a>
+    
+  </section>
+
 </div>
 
-<div> <p style="font-size: 14px; text-align: right;"> Search Posts by  <a href="/categories">category</a> or by <a href="/tags">tag</a> </p></div>
-      <div class="link-grid">
-    
-    
-      <a href="/" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/home.jpeg" alt="Home" loading="lazy">
-          <div class="overlay">
-            <h2>Home</h2>
-          </div>
-        </div>
-      </a>
-    
-    
-      <a href="/publications.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/publications.jpeg" alt="Publications" loading="lazy">
-          <div class="overlay">
-            <h2>Publications</h2>
-          </div>
-        </div>
-      </a>
-    
-    
-      <a href="cv.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/cv.jpeg" alt="CV" loading="lazy">
-          <div class="overlay">
-            <h2>CV</h2>
-          </div>
-        </div>
-      </a>
-    
-    
-      <a href="/projects.html" class="link-card">
-        <div class="image-container">
-          <img src="/assets/images/projects.jpeg" alt="Projects" loading="lazy">
-          <div class="overlay">
-            <h2>Projects</h2>
-          </div>
-        </div>
-      </a>
-    
-     
-  </div>
-  
+<style>
+/* ── BLOG NAV ───────────────────────────────────────────────── */
+.dm-blog-nav {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 1rem;
+}
+.dm-blog-nav a {
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+}
+.dm-blog-nav a:hover { color: var(--color-ink, #1A1612); }
+
+/* ── FEATURED POST ──────────────────────────────────────────── */
+.dm-section--flush { padding-top: 2rem; }
+
+.dm-post-featured {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 1.6rem 1.8rem;
+  margin-top: 0.8rem;
+  background: var(--color-paper-mid, #EDE8DF);
+}
+
+.dm-post-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.dm-post-cat {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  border: 1px solid var(--color-rust-dim, #C47A5A);
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.dm-post-date {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  color: var(--color-ink-faint, #6B5E54);
+  letter-spacing: 0.05em;
+}
+
+.dm-post-featured-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  max-width: 600px;
+}
+.dm-post-featured-title a {
+  color: var(--color-ink, #1A1612);
+  text-decoration: none;
+}
+.dm-post-featured-title a:hover { color: var(--color-rust, #9B4A2C); }
+
+.dm-post-featured-excerpt {
+  font-size: 0.95rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  font-style: italic;
+}
+
+.dm-post-featured-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ── DOWNLOAD BUTTON ────────────────────────────────────────── */
+.dm-btn-download {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid, #3D342C);
+  text-decoration: none;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 2px;
+  padding: 0.3rem 0.7rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dm-btn-download:hover {
+  border-color: var(--color-ink-mid, #3D342C);
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-btn-download--sm { font-size: 0.58rem; padding: 0.2rem 0.5rem; }
+
+/* ── POST LIST ──────────────────────────────────────────────── */
+.dm-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.dm-post-row {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  align-items: flex-start;
+}
+
+.dm-post-row-meta {
+  flex-shrink: 0;
+  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.15rem;
+}
+
+.dm-post-row-body { flex: 1; }
+
+.dm-post-row-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+.dm-post-row-title a {
+  color: var(--color-ink, #1A1612);
+  text-decoration: none;
+}
+.dm-post-row-title a:hover { color: var(--color-rust, #9B4A2C); }
+
+.dm-post-row-excerpt {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint, #6B5E54);
+  line-height: 1.55;
+  font-style: italic;
+  margin: 0 0 0.4rem;
+}
+
+/* ── SHARED (safety fallbacks) ──────────────────────────────── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1A1612);
+}
+.dm-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-hero--slim { padding: 2.5rem 0 1.8rem; }
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement--sm { font-size: clamp(1.5rem, 3.5vw, 2.1rem); }
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 560px;
+  line-height: 1.7;
+  margin: 0;
+}
+.dm-section { padding: 2.5rem 0; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-section:last-child { border-bottom: none; }
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+}
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  .dm-post-row { flex-direction: column; gap: 0.4rem; }
+  .dm-post-row-meta { width: auto; flex-direction: row; align-items: center; }
+  .dm-post-featured { padding: 1.2rem; }
+}
+</style>
+      
     </div>
-  </body>
-  <script src="/assets/js/main.js" async defer></script>
-  
+
+    <script src="/assets/js/main.js" async defer></script>
+    
 <footer class="site-footer h-card">
     <data class="u-url" href="/"></data>
   
@@ -265,4 +618,5 @@
   
   </footer>
   
+  </body>
 </html>

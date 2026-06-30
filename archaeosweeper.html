@@ -1,21 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Archaeosweeper II — Field Excavation</title>
-<link rel="manifest" href="/manifest.json" />
-<meta name="theme-color" content="#C8873A" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="Archaeosweeper" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+---
+layout: default
+name: Archaeosweeper
+title: Archaeosweeper
+---
+
+<!-- ── PAGE INTRO (site palette) ─────────────────────────────── -->
+<div class="as-intro">
+  <div class="as-intro-inner">
+    <p class="as-eyebrow">de-medeiros.com &nbsp;·&nbsp; Field Projects</p>
+    <h1 class="as-title">Archaeosweeper <span class="as-version">v2.0</span></h1>
+    <p class="as-sub">
+      A reversed excavation game. Every cell you dig costs budget —
+      find artifacts to replenish it before time runs out.
+      Numbers show how many artifacts are hiding in adjacent cells.
+      Use them as your field survey.
+    </p>
+    <div class="as-meta-row">
+      <span class="as-badge">Free · No download</span>
+      <span class="as-badge">Browser · PWA</span>
+      <span class="as-badge">Sound on first click</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── GAME (dark world) ─────────────────────────────────────── -->
+<div class="as-game-wrapper">
 
 <style>
-/* ── TOKENS ─────────────────────────────────────────────────── */
-:root {
+/* ── GAME RESETS — scoped inside wrapper ─────────────────────── */
+/* The game expects to own body; we scope its styles here instead. */
+.as-game-wrapper * { box-sizing: border-box; }
+
+.as-game-wrapper {
   --void:       #09090E;
   --soil-deep:  #130E06;
   --soil-mid:   #1E1508;
@@ -27,99 +43,41 @@
   --parchment:  #E8D5A3;
   --parch-dim:  #A8935A;
   --verdigris:  #4A9A6F;
-  --verd-glow:  #6FBFA090;
   --ochre:      #8B2020;
-  --ochre-glow: #CC303050;
-  --sand:       #D4A85A;
   --mono:       'Share Tech Mono', monospace;
   --serif:      'Crimson Pro', Georgia, serif;
-  --r-cell:     3px;
-}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { font-size: 16px; }
-
-body {
   background: var(--void);
   color: var(--parchment);
   font-family: var(--mono);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-}
-
-/* ── SCANLINE OVERLAY ──────────────────────────────────────── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.08) 2px,
-    rgba(0,0,0,0.08) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* ── HEADER ────────────────────────────────────────────────── */
-header {
-  width: 100%;
-  max-width: 800px;
-  padding: 2.5rem 1.5rem 0.5rem;
-  text-align: center;
+  padding: 2rem 0 2rem;
   position: relative;
 }
 
-.site-label {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  color: var(--clay-dim);
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
+/* scanline overlay scoped to game wrapper */
+.as-game-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-h1 {
-  font-family: var(--mono);
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--clay);
-  text-shadow: 0 0 40px var(--clay-dim);
-  line-height: 1.1;
-}
+.as-game-wrapper > * { position: relative; z-index: 1; }
 
-h1 span {
-  color: var(--parch-dim);
-  font-size: 0.55em;
-  letter-spacing: 0.15em;
-  display: block;
-  margin-top: 0.25rem;
-}
-
-.subtitle {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--parch-dim);
-  margin-top: 0.8rem;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5;
-}
-
-/* ── DIFFICULTY SELECTOR ───────────────────────────────────── */
+/* ── DIFFICULTY SELECTOR ────────────────────────────────────── */
 #difficulty-screen {
   width: 100%;
   max-width: 800px;
-  padding: 2rem 1.5rem 3rem;
+  padding: 1rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +110,6 @@ h1 span {
   position: relative;
   overflow: hidden;
 }
-
 .diff-card::after {
   content: '';
   position: absolute;
@@ -160,13 +117,11 @@ h1 span {
   background: linear-gradient(135deg, rgba(200,135,58,0.06) 0%, transparent 60%);
   pointer-events: none;
 }
-
 .diff-card:hover {
   border-color: var(--clay);
   background: var(--soil-light);
   transform: translateY(-2px);
 }
-
 .diff-card .tier {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
@@ -174,14 +129,12 @@ h1 span {
   color: var(--clay);
   margin-bottom: 0.4rem;
 }
-
 .diff-card .name {
   font-family: var(--mono);
   font-size: 1rem;
   color: var(--parchment);
   margin-bottom: 0.5rem;
 }
-
 .diff-card .spec {
   font-family: var(--serif);
   font-style: italic;
@@ -190,18 +143,18 @@ h1 span {
   line-height: 1.4;
 }
 
-/* ── GAME LAYOUT ───────────────────────────────────────────── */
+/* ── GAME SCREEN ────────────────────────────────────────────── */
 #game-screen {
   display: none;
   width: 100%;
   max-width: 860px;
-  padding: 1.5rem 1rem 3rem;
+  padding: 1rem 1rem 2rem;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
 }
 
-/* ── HUD ───────────────────────────────────────────────────── */
+/* ── HUD ────────────────────────────────────────────────────── */
 #hud {
   width: 100%;
   max-width: 720px;
@@ -209,7 +162,6 @@ h1 span {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.6rem;
 }
-
 .hud-cell {
   background: var(--soil-mid);
   border: 1px solid var(--earth);
@@ -219,30 +171,23 @@ h1 span {
   flex-direction: column;
   gap: 0.15rem;
 }
-
 .hud-label {
   font-size: 0.55rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--parch-dim);
 }
-
 .hud-value {
   font-family: var(--mono);
   font-size: 1.1rem;
   color: var(--clay);
   line-height: 1;
 }
-
 #hud-timer { color: var(--parchment); }
 #hud-timer.danger { color: var(--ochre); animation: pulse-danger 1s infinite; }
+@keyframes pulse-danger { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-@keyframes pulse-danger {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-/* ── GRID WRAPPER ──────────────────────────────────────────── */
+/* ── GRID ───────────────────────────────────────────────────── */
 #grid-wrapper {
   position: relative;
   overflow-x: auto;
@@ -250,404 +195,173 @@ h1 span {
   display: flex;
   justify-content: center;
 }
-
 #grid-container {
   display: inline-flex;
   flex-direction: column;
-  gap: 0;
-  position: relative;
   border: 1px solid var(--earth-hi);
   border-radius: 4px;
   overflow: hidden;
-  box-shadow:
-    0 0 60px rgba(200,135,58,0.08),
-    0 0 2px var(--earth-hi) inset;
+  box-shadow: 0 0 60px rgba(200,135,58,0.08), 0 0 2px var(--earth-hi) inset;
 }
-
-.grid-row {
-  display: flex;
-  gap: 0;
-}
-
-/* ── CELL ──────────────────────────────────────────────────── */
+.grid-row { display: flex; }
 .cell {
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  font-weight: 700;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
   cursor: pointer;
   border: 1px solid rgba(255,255,255,0.04);
   background: var(--earth);
   position: relative;
   transition: background 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
+  user-select: none; -webkit-user-select: none;
   overflow: hidden;
-  /* soil relief */
   box-shadow: var(--cell-shadow, none);
 }
-
 .cell:hover:not(.revealed):not(.flagged) {
   background: var(--earth-hi);
   cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><text y='16' font-size='16'>⛏</text></svg>") 4 16, crosshair;
 }
-
-/* soil texture via pseudo-element */
 .cell::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at var(--tx, 30%) var(--ty, 60%), rgba(255,255,255,0.03) 0%, transparent 60%);
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at var(--tx,30%) var(--ty,60%), rgba(255,255,255,0.03) 0%, transparent 60%);
   pointer-events: none;
 }
-
-/* ── REVEALED STATES ───────────────────────────────────────── */
 .cell.revealed {
   background: var(--soil-deep);
   cursor: default;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
 }
-
 .cell.revealed::after {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
-
-/* Number colors — depth-coded */
-.cell[data-n="1"] { color: #82B8D4; }
-.cell[data-n="2"] { color: #6FBFA0; }
-.cell[data-n="3"] { color: #C8873A; }
-.cell[data-n="4"] { color: #9F7EC8; }
-.cell[data-n="5"] { color: #C85050; }
-.cell[data-n="6"] { color: #4AA8C8; }
-.cell[data-n="7"] { color: #E8D5A3; }
-.cell[data-n="8"] { color: #808080; }
-
-/* ── ARTIFACT ─────────────────────────────────────────────── */
-.cell.artifact {
-  background: var(--soil-deep);
-  animation: artifact-reveal 0.4s ease-out forwards;
-}
-
-@keyframes artifact-reveal {
-  0%   { transform: scale(0.6); opacity: 0; }
-  60%  { transform: scale(1.15); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
+.cell[data-n="1"]{color:#82B8D4} .cell[data-n="2"]{color:#6FBFA0}
+.cell[data-n="3"]{color:#C8873A} .cell[data-n="4"]{color:#9F7EC8}
+.cell[data-n="5"]{color:#C85050} .cell[data-n="6"]{color:#4AA8C8}
+.cell[data-n="7"]{color:#E8D5A3} .cell[data-n="8"]{color:#808080}
+.cell.artifact { background: var(--soil-deep); animation: artifact-reveal 0.4s ease-out forwards; }
+@keyframes artifact-reveal { 0%{transform:scale(0.6);opacity:0} 60%{transform:scale(1.15)} 100%{transform:scale(1);opacity:1} }
 .cell.artifact .artifact-glyph {
   font-size: 1.3rem;
   filter: drop-shadow(0 0 6px var(--verdigris));
   animation: glyph-float 3s ease-in-out infinite;
 }
-
-@keyframes glyph-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-2px); }
-}
-
-/* ── FLAG ──────────────────────────────────────────────────── */
-.cell.flagged {
-  background: var(--earth);
-  cursor: default;
-}
-
-.flag-icon {
-  font-size: 1rem;
-  animation: flag-plant 0.2s ease-out;
-}
-
-@keyframes flag-plant {
-  0%   { transform: scale(0) rotate(-30deg); }
-  100% { transform: scale(1) rotate(0deg); }
-}
-
-/* ── DIG ANIMATION ─────────────────────────────────────────── */
+@keyframes glyph-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
+.cell.flagged { background: var(--earth); cursor: default; }
+.flag-icon { font-size: 1rem; animation: flag-plant 0.2s ease-out; }
+@keyframes flag-plant { 0%{transform:scale(0) rotate(-30deg)} 100%{transform:scale(1) rotate(0)} }
 @keyframes dig-reveal {
-  0%   { clip-path: inset(50% 50% 50% 50%); opacity: 0; }
-  60%  { clip-path: inset(0% 0% 0% 0%); opacity: 0.7; }
-  100% { clip-path: inset(0% 0% 0% 0%); opacity: 1; }
+  0%{clip-path:inset(50% 50% 50% 50%);opacity:0}
+  60%{clip-path:inset(0% 0% 0% 0%);opacity:0.7}
+  100%{clip-path:inset(0% 0% 0% 0%);opacity:1}
 }
+.cell.digging { animation: dig-reveal 0.25s ease-out forwards; }
 
-.cell.digging {
-  animation: dig-reveal 0.25s ease-out forwards;
-}
-
-/* ── GRID COORD LABELS ─────────────────────────────────────── */
-.coord-labels-row {
-  display: flex;
-  gap: 0;
-  width: max-content;
-  padding-left: 24px;
-}
-
+/* ── COORD LABELS ───────────────────────────────────────────── */
+.coord-labels-row { display:flex; width:max-content; padding-left:24px; }
 .coord-label-col, .coord-label-row {
-  width: 38px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.5rem;
-  color: var(--earth-hi);
-  letter-spacing: 0.05em;
+  width:38px; height:20px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.5rem; color:var(--earth-hi); letter-spacing:0.05em;
 }
+.coord-label-row { width:22px; height:38px; }
+.grid-with-coords { display:flex; }
+.row-labels { display:flex; flex-direction:column; }
 
-.coord-label-row {
-  width: 22px;
-  height: 38px;
-}
-
-.grid-with-coords {
-  display: flex;
-  gap: 0;
-}
-
-.row-labels {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ── FIELD JOURNAL ──────────────────────────────────────────── */
+/* ── JOURNAL ────────────────────────────────────────────────── */
 #journal {
-  width: 100%;
-  max-width: 720px;
-  background: var(--soil-mid);
-  border: 1px solid var(--earth);
-  border-radius: 4px;
-  padding: 1rem 1.25rem;
+  width:100%; max-width:720px;
+  background:var(--soil-mid); border:1px solid var(--earth);
+  border-radius:4px; padding:1rem 1.25rem;
 }
-
 .journal-header {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--parch-dim);
-  margin-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--parch-dim); margin-bottom:0.75rem;
+  display:flex; justify-content:space-between; align-items:center;
 }
-
-.journal-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  min-height: 2.5rem;
-}
-
+.journal-grid { display:flex; flex-wrap:wrap; gap:0.5rem; min-height:2.5rem; }
 .find-chip {
-  background: var(--soil-deep);
-  border: 1px solid var(--verdigris);
-  border-radius: 3px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.7rem;
-  color: var(--parchment);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  animation: chip-appear 0.3s ease-out;
+  background:var(--soil-deep); border:1px solid var(--verdigris);
+  border-radius:3px; padding:0.25rem 0.6rem;
+  font-size:0.7rem; color:var(--parchment);
+  display:flex; align-items:center; gap:0.35rem;
+  animation:chip-appear 0.3s ease-out;
 }
+@keyframes chip-appear { 0%{transform:scale(0.7) translateY(4px);opacity:0} 100%{transform:scale(1) translateY(0);opacity:1} }
+.find-chip .chip-glyph { font-size:1rem; }
+.find-chip .chip-name  { font-family:var(--serif); font-style:italic; }
+.find-chip .chip-pts   { color:var(--verdigris); font-size:0.6rem; margin-left:0.2rem; }
 
-@keyframes chip-appear {
-  0%   { transform: scale(0.7) translateY(4px); opacity: 0; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
-}
+/* ── STATUS ─────────────────────────────────────────────────── */
+#status-log { width:100%; max-width:720px; height:2.2rem; display:flex; align-items:center; }
+#status-msg { font-family:var(--serif); font-style:italic; font-size:0.9rem; color:var(--parch-dim); transition:color 0.3s; }
+#status-msg.good{color:var(--verdigris)} #status-msg.warn{color:var(--clay)} #status-msg.bad{color:var(--ochre)}
 
-.find-chip .chip-glyph { font-size: 1rem; }
-.find-chip .chip-name  { font-family: var(--serif); font-style: italic; }
-.find-chip .chip-pts   { color: var(--verdigris); font-size: 0.6rem; margin-left: 0.2rem; }
-
-/* ── STATUS LOG ────────────────────────────────────────────── */
-#status-log {
-  width: 100%;
-  max-width: 720px;
-  height: 2.2rem;
-  display: flex;
-  align-items: center;
-}
-
-#status-msg {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--parch-dim);
-  transition: color 0.3s;
-}
-
-#status-msg.good  { color: var(--verdigris); }
-#status-msg.warn  { color: var(--clay); }
-#status-msg.bad   { color: var(--ochre); }
-
-/* ── CONTROL STRIP ─────────────────────────────────────────── */
-#controls {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+/* ── CONTROLS ───────────────────────────────────────────────── */
+#controls { display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; }
 .btn {
-  background: transparent;
-  border: 1px solid var(--earth-hi);
-  color: var(--parch-dim);
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.55rem 1.1rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  background:transparent; border:1px solid var(--earth-hi);
+  color:var(--parch-dim); font-family:var(--mono);
+  font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;
+  padding:0.55rem 1.1rem; border-radius:3px; cursor:pointer;
+  transition:border-color 0.2s, color 0.2s, background 0.2s;
 }
-
-.btn:hover { border-color: var(--clay); color: var(--clay); background: rgba(200,135,58,0.06); }
-.btn.primary { border-color: var(--clay); color: var(--clay); }
-.btn.primary:hover { background: rgba(200,135,58,0.15); }
-
-.mode-indicator {
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--parch-dim);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.mode-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--clay);
-  transition: background 0.2s;
-}
-
-.mode-dot.flag { background: var(--verdigris); }
+.btn:hover{border-color:var(--clay);color:var(--clay);background:rgba(200,135,58,0.06)}
+.btn.primary{border-color:var(--clay);color:var(--clay)}
+.btn.primary:hover{background:rgba(200,135,58,0.15)}
+.mode-indicator { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--parch-dim); display:flex; align-items:center; gap:0.4rem; }
+.mode-dot { width:8px; height:8px; border-radius:50%; background:var(--clay); transition:background 0.2s; }
+.mode-dot.flag { background:var(--verdigris); }
 
 /* ── END SCREEN ─────────────────────────────────────────────── */
 #end-screen {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(9,9,14,0.92);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  display:none; position:fixed; inset:0;
+  background:rgba(9,9,14,0.92); z-index:200;
+  align-items:center; justify-content:center; padding:1rem;
 }
-
 .end-card {
-  background: var(--soil-mid);
-  border: 1px solid var(--earth-hi);
-  border-radius: 8px;
-  padding: 2.5rem 2.5rem;
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 80px rgba(200,135,58,0.1);
-  animation: end-appear 0.5s ease-out;
+  background:var(--soil-mid); border:1px solid var(--earth-hi);
+  border-radius:8px; padding:2.5rem; max-width:480px; width:100%;
+  text-align:center; box-shadow:0 0 80px rgba(200,135,58,0.1);
+  animation:end-appear 0.5s ease-out;
 }
+@keyframes end-appear { 0%{transform:scale(0.9) translateY(20px);opacity:0} 100%{transform:scale(1) translateY(0);opacity:1} }
+.end-glyph{font-size:3.5rem;margin-bottom:1rem}
+.end-title{font-family:var(--mono);font-size:1.3rem;letter-spacing:0.1em;color:var(--clay);margin-bottom:0.4rem}
+.end-sub{font-family:var(--serif);font-style:italic;color:var(--parch-dim);font-size:0.95rem;margin-bottom:1.5rem;line-height:1.5}
+.end-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.8rem}
+.end-stat{background:var(--soil-deep);border-radius:4px;padding:0.6rem}
+.end-stat-v{font-size:1.4rem;color:var(--parchment);font-family:var(--mono)}
+.end-stat-l{font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--parch-dim)}
 
-@keyframes end-appear {
-  0%   { transform: scale(0.9) translateY(20px); opacity: 0; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
+/* ── GAME FOOTER NOTE ───────────────────────────────────────── */
+.as-game-footer {
+  width:100%; max-width:800px;
+  padding:1rem 1.5rem;
+  text-align:center;
+  font-size:0.62rem;
+  color:var(--earth-hi);
+  letter-spacing:0.06em;
+  line-height:1.8;
 }
-
-.end-glyph { font-size: 3.5rem; margin-bottom: 1rem; }
-
-.end-title {
-  font-family: var(--mono);
-  font-size: 1.3rem;
-  letter-spacing: 0.1em;
-  color: var(--clay);
-  margin-bottom: 0.4rem;
-}
-
-.end-sub {
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--parch-dim);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-}
-
-.end-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1.8rem;
-}
-
-.end-stat {
-  background: var(--soil-deep);
-  border-radius: 4px;
-  padding: 0.6rem;
-}
-
-.end-stat-v {
-  font-size: 1.4rem;
-  color: var(--parchment);
-  font-family: var(--mono);
-}
-
-.end-stat-l {
-  font-size: 0.55rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--parch-dim);
-}
-
-/* ── FOOTER ────────────────────────────────────────────────── */
-footer {
-  width: 100%;
-  max-width: 800px;
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.65rem;
-  color: var(--earth-hi);
-  letter-spacing: 0.06em;
-  line-height: 1.7;
-}
-
-footer a { color: var(--parch-dim); text-decoration: none; }
-footer a:hover { color: var(--clay); }
+.as-game-footer a { color:var(--parch-dim); text-decoration:none; }
+.as-game-footer a:hover { color:var(--clay); }
 
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
-@media (max-width: 520px) {
-  .cell { width: 30px; height: 30px; font-size: 0.7rem; }
-  .coord-label-col { width: 30px; }
-  .coord-label-row { height: 30px; }
-  h1 { font-size: 1.4rem; }
-  #hud { grid-template-columns: 1fr 1fr; }
+@media(max-width:520px){
+  .cell{width:30px;height:30px;font-size:0.7rem}
+  .coord-label-col{width:30px} .coord-label-row{height:30px}
+  #hud{grid-template-columns:1fr 1fr}
 }
-
-@media (max-width: 380px) {
-  .cell { width: 24px; height: 24px; font-size: 0.6rem; }
-  .coord-label-col { width: 24px; }
-  .coord-label-row { height: 24px; }
+@media(max-width:380px){
+  .cell{width:24px;height:24px;font-size:0.6rem}
+  .coord-label-col{width:24px} .coord-label-row{height:24px}
 }
-
-/* ── REDUCED MOTION ─────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; }
-}
+@media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation-duration:0.01ms!important} }
 </style>
-</head>
-<body>
-
-<header>
-  <div class="site-label">de-medeiros.com &nbsp;·&nbsp; Field Projects</div>
-  <h1>ARCHAEOSWEEPER<span>FIELD EXCAVATION SIM · v2.0</span></h1>
-  <p class="subtitle">Every click is an excavation. Spend wisely — the past rewards patience.</p>
-</header>
 
 <!-- DIFFICULTY SCREEN -->
 <div id="difficulty-screen">
@@ -674,24 +388,11 @@ footer a:hover { color: var(--clay); }
 <!-- GAME SCREEN -->
 <div id="game-screen">
   <div id="hud">
-    <div class="hud-cell">
-      <div class="hud-label">Budget</div>
-      <div class="hud-value" id="hud-budget">$0</div>
-    </div>
-    <div class="hud-cell">
-      <div class="hud-label">Points</div>
-      <div class="hud-value" id="hud-points">0</div>
-    </div>
-    <div class="hud-cell">
-      <div class="hud-label">Artifacts</div>
-      <div class="hud-value" id="hud-artifacts">0 / 0</div>
-    </div>
-    <div class="hud-cell">
-      <div class="hud-label">Time Left</div>
-      <div class="hud-value" id="hud-timer">0:00</div>
-    </div>
+    <div class="hud-cell"><div class="hud-label">Budget</div><div class="hud-value" id="hud-budget">$0</div></div>
+    <div class="hud-cell"><div class="hud-label">Points</div><div class="hud-value" id="hud-points">0</div></div>
+    <div class="hud-cell"><div class="hud-label">Artifacts</div><div class="hud-value" id="hud-artifacts">0 / 0</div></div>
+    <div class="hud-cell"><div class="hud-label">Time Left</div><div class="hud-value" id="hud-timer">0:00</div></div>
   </div>
-
   <div id="controls">
     <div class="mode-indicator">
       <div class="mode-dot" id="mode-dot"></div>
@@ -701,9 +402,7 @@ footer a:hover { color: var(--clay); }
     <button class="btn" id="btn-restart">↺ Restart</button>
     <button class="btn" id="btn-menu">◈ Menu</button>
   </div>
-
   <div id="status-log"><span id="status-msg">Choose a cell to begin excavating.</span></div>
-
   <div id="grid-wrapper">
     <div>
       <div class="coord-labels-row" id="col-labels"></div>
@@ -713,7 +412,6 @@ footer a:hover { color: var(--clay); }
       </div>
     </div>
   </div>
-
   <div id="journal">
     <div class="journal-header">
       <span>▦ Field Journal — Discoveries</span>
@@ -732,22 +430,10 @@ footer a:hover { color: var(--clay); }
     <div class="end-title" id="end-title">EXCAVATION COMPLETE</div>
     <div class="end-sub" id="end-sub">The field has yielded its secrets.</div>
     <div class="end-stats">
-      <div class="end-stat">
-        <div class="end-stat-v" id="end-pts">0</div>
-        <div class="end-stat-l">Points</div>
-      </div>
-      <div class="end-stat">
-        <div class="end-stat-v" id="end-art">0</div>
-        <div class="end-stat-l">Artifacts</div>
-      </div>
-      <div class="end-stat">
-        <div class="end-stat-v" id="end-time">0:00</div>
-        <div class="end-stat-l">Time Used</div>
-      </div>
-      <div class="end-stat">
-        <div class="end-stat-v" id="end-budget">$0</div>
-        <div class="end-stat-l">Budget Left</div>
-      </div>
+      <div class="end-stat"><div class="end-stat-v" id="end-pts">0</div><div class="end-stat-l">Points</div></div>
+      <div class="end-stat"><div class="end-stat-v" id="end-art">0</div><div class="end-stat-l">Artifacts</div></div>
+      <div class="end-stat"><div class="end-stat-v" id="end-time">0:00</div><div class="end-stat-l">Time Used</div></div>
+      <div class="end-stat"><div class="end-stat-v" id="end-budget">$0</div><div class="end-stat-l">Budget Left</div></div>
     </div>
     <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
       <button class="btn primary" id="end-play-again">↺ Play Again</button>
@@ -756,14 +442,232 @@ footer a:hover { color: var(--clay); }
   </div>
 </div>
 
-<footer>
-  Archaeosweeper v2 · <a href="https://www.de-medeiros.com">de-medeiros.com</a>
-  &nbsp;·&nbsp; Right-click or toggle flag mode to plant a marker.
-  &nbsp;·&nbsp; Numbers show adjacent artifacts. Double-click to clear a quadrant (costs budget per cell).
-</footer>
+<div class="as-game-footer">
+  Right-click or toggle flag mode to plant a marker.
+  &nbsp;·&nbsp; Numbers show adjacent artifacts.
+  &nbsp;·&nbsp; Double-click to clear a quadrant (costs budget per cell).
+  &nbsp;·&nbsp; Sound activates on first interaction.
+</div>
+
+</div><!-- end .as-game-wrapper -->
+
+<!-- ── PWA INSTALL (back to site palette) ────────────────────── -->
+<div class="as-install">
+  <div class="as-install-inner">
+    <p class="dm-section-eyebrow">Install the game</p>
+    <h2 class="as-install-title">Play offline — add to your home screen</h2>
+    <p class="as-install-sub">
+      Archaeosweeper is a PWA — it installs like a native app and works
+      fully offline after the first visit. No app store required.
+    </p>
+
+    <div class="as-install-grid">
+      <div class="as-install-card">
+        <div class="as-install-platform">
+          <i class="fab fa-apple"></i> iPhone &amp; iPad
+        </div>
+        <ol class="as-install-steps">
+          <li>Open this page in <strong>Safari</strong></li>
+          <li>Tap the Share button <strong>&#x25A1;&#x2191;</strong> at the bottom</li>
+          <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+          <li>Tap <strong>Add</strong> — done</li>
+        </ol>
+        <p class="as-install-note">Launches fullscreen, works offline.</p>
+      </div>
+
+      <div class="as-install-card">
+        <div class="as-install-platform">
+          <i class="fab fa-android"></i> Android
+        </div>
+        <ol class="as-install-steps">
+          <li>Open this page in <strong>Chrome</strong></li>
+          <li>Tap the menu <strong>&#8942;</strong> in the top right</li>
+          <li>Tap <strong>"Add to Home Screen"</strong></li>
+          <li>Tap <strong>Add</strong> — done</li>
+        </ol>
+        <p class="as-install-note">Chrome may also show an install banner automatically.</p>
+      </div>
+
+      <div class="as-install-card">
+        <div class="as-install-platform">
+          <i class="fas fa-desktop"></i> Desktop
+        </div>
+        <ol class="as-install-steps">
+          <li>Open this page in <strong>Chrome</strong> or <strong>Edge</strong></li>
+          <li>Look for the install icon <strong>⊕</strong> in the address bar</li>
+          <li>Click it and confirm</li>
+          <li>The game opens in its own window</li>
+        </ol>
+        <p class="as-install-note">Works offline after first load.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BACK TO SITE ──────────────────────────────────────────── -->
+<div class="as-back">
+  <a class="dm-cta" href="/projects.html">&larr; Back to Projects</a>
+</div>
+
+<style>
+/* ── PAGE INTRO ─────────────────────────────────────────────── */
+.as-intro {
+  background: var(--color-paper, #F7F4EE);
+  border-bottom: 3px solid #1A1612;
+  padding: 2.5rem 1.5rem 2rem;
+}
+.as-intro-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.as-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-bottom: 0.8rem;
+}
+.as-title {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #C8873A;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.as-version {
+  font-size: 0.45em;
+  letter-spacing: 0.15em;
+  color: var(--color-ink-faint, #6B5E54);
+  vertical-align: middle;
+}
+.as-sub {
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+.as-meta-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.as-badge {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C8873A;
+  border: 1px solid #C47A5A;
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+
+/* ── PWA INSTALL ────────────────────────────────────────────── */
+.as-install {
+  background: var(--color-paper, #F7F4EE);
+  border-top: 3px solid #1A1612;
+  padding: 2.5rem 1.5rem;
+}
+.as-install-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.as-install-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  margin: 0.4rem 0 0.6rem;
+  line-height: 1.3;
+}
+.as-install-sub {
+  font-size: 0.95rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.as-install-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.as-install-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 1.1rem 1.2rem;
+}
+.as-install-platform {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.as-install-steps {
+  padding-left: 1.2rem;
+  margin: 0 0 0.6rem;
+}
+.as-install-steps li {
+  font-size: 0.85rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.6;
+  margin-bottom: 0.2rem;
+}
+.as-install-steps strong { color: var(--color-ink, #1A1612); }
+.as-install-note {
+  font-size: 0.75rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── BACK LINK ──────────────────────────────────────────────── */
+.as-back {
+  padding: 1.5rem 1.5rem 2.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .as-install-grid { grid-template-columns: 1fr; }
+}
+</style>
 
 <script>
-/* ── ARTIFACT CATALOGUE ─────────────────────────────────────── */
 const ARTIFACTS = [
   { glyph: '🏺', name: 'Ceramic Vessel',      period: 'Bronze Age',   pts: 800,  budget: 1200 },
   { glyph: '🗡️', name: 'Iron Blade Fragment', period: 'Iron Age',     pts: 600,  budget: 900  },
@@ -778,624 +682,366 @@ const ARTIFACTS = [
   { glyph: '🦷', name: 'Human Molar',          period: 'Various',      pts: 350,  budget: 500  },
   { glyph: '🧱', name: 'Inscribed Brick',      period: 'Mesopotamia',  pts: 650,  budget: 950  },
 ];
-
 const DIG_COST = 100;
-
 const CONFIGS = {
-  survey: { rows: 8,  cols: 8,  budget: 5000, time: 180, label: 'Surface Survey'    },
-  trench: { rows: 12, cols: 12, budget: 8000, time: 300, label: 'Trench Excavation' },
-  deep:   { rows: 16, cols: 16, budget:12000, time: 480, label: 'Deep Excavation'   },
+  survey: { rows:8,  cols:8,  budget:5000,  time:180, label:'Surface Survey'    },
+  trench: { rows:12, cols:12, budget:8000,  time:300, label:'Trench Excavation' },
+  deep:   { rows:16, cols:16, budget:12000, time:480, label:'Deep Excavation'   },
 };
-
-/* ── STATE ──────────────────────────────────────────────────── */
 let G = {
-  config: null,
-  board: [],           // 2d array of adjacency counts (artifacts)
-  revealed: [],        // 2d boolean
-  flagged: [],         // 2d boolean
-  artifactAt: [],      // 2d: artifact index or -1
-  budget: 0,
-  points: 0,
-  artifactsFound: 0,
-  totalArtifacts: 0,
-  timeLeft: 0,
-  timer: null,
-  started: false,
-  over: false,
-  flagMode: false,
-  firstClick: true,
-  discoveries: [],
-  timeElapsed: 0,
-  startBudget: 0,
+  config:null, board:[], revealed:[], flagged:[], artifactAt:[],
+  budget:0, points:0, artifactsFound:0, totalArtifacts:0,
+  timeLeft:0, timer:null, started:false, over:false,
+  flagMode:false, firstClick:true, discoveries:[], timeElapsed:0, startBudget:0,
 };
-
-/* ── UTILS ──────────────────────────────────────────────────── */
-function rand(n) { return Math.floor(Math.random() * n); }
-function fmtTime(s) { return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
-function fmtBudget(n) { return `$${n.toLocaleString()}`; }
-
-/* ── INIT GAME ──────────────────────────────────────────────── */
-function initGame(diffKey) {
-  const cfg = CONFIGS[diffKey];
-  G.config = cfg;
-  G.budget = cfg.budget;
-  G.startBudget = cfg.budget;
-  G.points = 0;
-  G.artifactsFound = 0;
-  G.timeLeft = cfg.time;
-  G.timeElapsed = 0;
-  G.started = false;
-  G.over = false;
-  G.flagMode = false;
-  G.firstClick = true;
-  G.discoveries = [];
+function rand(n){return Math.floor(Math.random()*n)}
+function fmtTime(s){return`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`}
+function fmtBudget(n){return`$${n.toLocaleString()}`}
+function initGame(diffKey){
+  const cfg=CONFIGS[diffKey];
+  G.config=cfg; G.budget=cfg.budget; G.startBudget=cfg.budget;
+  G.points=0; G.artifactsFound=0; G.timeLeft=cfg.time; G.timeElapsed=0;
+  G.started=false; G.over=false; G.flagMode=false; G.firstClick=true; G.discoveries=[];
   clearInterval(G.timer);
-
-  const R = cfg.rows, C = cfg.cols;
-  G.board     = Array.from({length:R}, () => Array(C).fill(0));
-  G.revealed  = Array.from({length:R}, () => Array(C).fill(false));
-  G.flagged   = Array.from({length:R}, () => Array(C).fill(false));
-  G.artifactAt= Array.from({length:R}, () => Array(C).fill(-1));
-
-  // artifacts and adjacency placed on first click (safe zone)
-  G.totalArtifacts = 0;
-
-  document.getElementById('difficulty-screen').style.display = 'none';
-  document.getElementById('game-screen').style.display = 'flex';
-  document.getElementById('end-screen').style.display = 'none';
-
-  buildGrid();
-  updateHUD();
-  setStatus('Choose a cell to begin excavating.', '');
-  clearJournal();
-  updateModeUI();
+  const R=cfg.rows,C=cfg.cols;
+  G.board=Array.from({length:R},()=>Array(C).fill(0));
+  G.revealed=Array.from({length:R},()=>Array(C).fill(false));
+  G.flagged=Array.from({length:R},()=>Array(C).fill(false));
+  G.artifactAt=Array.from({length:R},()=>Array(C).fill(-1));
+  G.totalArtifacts=0;
+  document.getElementById('difficulty-screen').style.display='none';
+  document.getElementById('game-screen').style.display='flex';
+  document.getElementById('end-screen').style.display='none';
+  buildGrid(); updateHUD();
+  setStatus('Choose a cell to begin excavating.','');
+  clearJournal(); updateModeUI();
 }
-
-function placeArtifacts(safeR, safeC) {
-  const R = G.config.rows, C = G.config.cols;
-
-  // assign artifacts (~13% of cells, avoiding the first-click safe zone)
-  const safe = new Set([`${safeR},${safeC}`]);
-  for(let dr=-1;dr<=1;dr++) for(let dc=-1;dc<=1;dc++) {
-    const nr=safeR+dr, nc=safeC+dc;
-    if(nr>=0&&nr<R&&nc>=0&&nc<C) safe.add(`${nr},${nc}`);
+function placeArtifacts(safeR,safeC){
+  const R=G.config.rows,C=G.config.cols;
+  const safe=new Set([`${safeR},${safeC}`]);
+  for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){
+    const nr=safeR+dr,nc=safeC+dc;
+    if(nr>=0&&nr<R&&nc>=0&&nc<C)safe.add(`${nr},${nc}`);
   }
-
-  let artCount = 0;
-  const artIndices = shuffleArr([...Array(ARTIFACTS.length).keys()]);
-  let artPointer = 0;
-  for(let r=0;r<R;r++) for(let c=0;c<C;c++) {
-    if(!safe.has(`${r},${c}`) && Math.random() < 0.13) {
-      G.artifactAt[r][c] = artIndices[artPointer % artIndices.length];
-      artPointer++;
-      artCount++;
+  let artCount=0;
+  const artIndices=shuffleArr([...Array(ARTIFACTS.length).keys()]);
+  let artPointer=0;
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++){
+    if(!safe.has(`${r},${c}`)&&Math.random()<0.13){
+      G.artifactAt[r][c]=artIndices[artPointer%artIndices.length];
+      artPointer++; artCount++;
     }
   }
-  G.totalArtifacts = artCount;
-
-  // compute adjacency numbers — count neighbouring ARTIFACTS
-  for(let r=0;r<R;r++) for(let c=0;c<C;c++) {
-    if(G.artifactAt[r][c] >= 0) { G.board[r][c] = -1; continue; } // artifact cell, number irrelevant
+  G.totalArtifacts=artCount;
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++){
+    if(G.artifactAt[r][c]>=0){G.board[r][c]=-1;continue}
     let n=0;
-    for(let dr=-1;dr<=1;dr++) for(let dc=-1;dc<=1;dc++) {
-      if(dr===0&&dc===0) continue;
-      const nr=r+dr, nc=c+dc;
-      if(nr>=0&&nr<R&&nc>=0&&nc<C&&G.artifactAt[nr][nc]>=0) n++;
+    for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){
+      if(dr===0&&dc===0)continue;
+      const nr=r+dr,nc=c+dc;
+      if(nr>=0&&nr<R&&nc>=0&&nc<C&&G.artifactAt[nr][nc]>=0)n++;
     }
-    G.board[r][c] = n;
+    G.board[r][c]=n;
   }
-
-  document.getElementById('hud-artifacts').textContent = `0 / ${G.totalArtifacts}`;
+  document.getElementById('hud-artifacts').textContent=`0 / ${G.totalArtifacts}`;
 }
-
-function shuffleArr(a) {
-  for(let i=a.length-1;i>0;i--) {
-    const j=rand(i+1); [a[i],a[j]]=[a[j],a[i]];
-  }
+function shuffleArr(a){
+  for(let i=a.length-1;i>0;i--){const j=rand(i+1);[a[i],a[j]]=[a[j],a[i]]}
   return a;
 }
-
-/* ── BUILD GRID DOM ─────────────────────────────────────────── */
-function buildGrid() {
-  const R = G.config.rows, C = G.config.cols;
-  const gc = document.getElementById('grid-container');
-  gc.innerHTML = '';
-  const colLbl = document.getElementById('col-labels');
-  const rowLbl = document.getElementById('row-labels');
-  colLbl.innerHTML = '';
-  rowLbl.innerHTML = '';
-
-  // col labels
-  for(let c=0;c<C;c++) {
-    const d = document.createElement('div');
+function buildGrid(){
+  const R=G.config.rows,C=G.config.cols;
+  const gc=document.getElementById('grid-container');
+  gc.innerHTML='';
+  const colLbl=document.getElementById('col-labels');
+  const rowLbl=document.getElementById('row-labels');
+  colLbl.innerHTML=''; rowLbl.innerHTML='';
+  for(let c=0;c<C;c++){
+    const d=document.createElement('div');
     d.className='coord-label-col';
-    d.textContent = String.fromCharCode(65+c);
+    d.textContent=String.fromCharCode(65+c);
     colLbl.appendChild(d);
   }
-
-  for(let r=0;r<R;r++) {
-    // row label
-    const rl = document.createElement('div');
-    rl.className='coord-label-row';
-    rl.textContent = r+1;
+  for(let r=0;r<R;r++){
+    const rl=document.createElement('div');
+    rl.className='coord-label-row'; rl.textContent=r+1;
     rowLbl.appendChild(rl);
-
-    // row
-    const row = document.createElement('div');
-    row.className = 'grid-row';
-    for(let c=0;c<C;c++) {
-      const cell = document.createElement('div');
-      cell.className = 'cell';
-      cell.dataset.r = r;
-      cell.dataset.c = c;
-      // randomise soil texture pseudo-element via inline custom props
-      cell.style.setProperty('--tx', `${20+rand(60)}%`);
-      cell.style.setProperty('--ty', `${20+rand(60)}%`);
-      // relief shadows
-      const sz = rand(4);
-      if(sz===0) cell.style.setProperty('--cell-shadow','inset 0 1px 2px rgba(255,255,255,0.06)');
-      else if(sz===1) cell.style.setProperty('--cell-shadow','inset 0 -1px 3px rgba(0,0,0,0.5)');
-
-      cell.addEventListener('click', onCellClick);
-      cell.addEventListener('dblclick', onCellDblClick);
-      cell.addEventListener('contextmenu', onCellRight);
-      cell.addEventListener('touchstart', onCellTouch, {passive:false});
+    const row=document.createElement('div');
+    row.className='grid-row';
+    for(let c=0;c<C;c++){
+      const cell=document.createElement('div');
+      cell.className='cell'; cell.dataset.r=r; cell.dataset.c=c;
+      cell.style.setProperty('--tx',`${20+rand(60)}%`);
+      cell.style.setProperty('--ty',`${20+rand(60)}%`);
+      const sz=rand(4);
+      if(sz===0)cell.style.setProperty('--cell-shadow','inset 0 1px 2px rgba(255,255,255,0.06)');
+      else if(sz===1)cell.style.setProperty('--cell-shadow','inset 0 -1px 3px rgba(0,0,0,0.5)');
+      cell.addEventListener('click',onCellClick);
+      cell.addEventListener('dblclick',onCellDblClick);
+      cell.addEventListener('contextmenu',onCellRight);
+      cell.addEventListener('touchstart',onCellTouch,{passive:false});
       row.appendChild(cell);
     }
     gc.appendChild(row);
   }
 }
-
-/* ── CLICK HANDLERS ─────────────────────────────────────────── */
-let touchTimer = null;
-
-function onCellTouch(e) {
+let touchTimer=null;
+function onCellTouch(e){
   e.preventDefault();
-  const cell = e.currentTarget;
-  touchTimer = setTimeout(() => {
-    touchTimer = null;
-    toggleFlag(+cell.dataset.r, +cell.dataset.c, cell);
-  }, 400);
-  cell.addEventListener('touchend', () => {
-    if(touchTimer) { clearTimeout(touchTimer); touchTimer=null; onCellClick({currentTarget:cell}); }
-  }, {once:true});
+  const cell=e.currentTarget;
+  touchTimer=setTimeout(()=>{touchTimer=null;toggleFlag(+cell.dataset.r,+cell.dataset.c,cell)},400);
+  cell.addEventListener('touchend',()=>{
+    if(touchTimer){clearTimeout(touchTimer);touchTimer=null;onCellClick({currentTarget:cell})}
+  },{once:true});
 }
-
-function onCellClick(e) {
-  if(G.over) return;
-  const r = +e.currentTarget.dataset.r;
-  const c = +e.currentTarget.dataset.c;
-  if(G.flagMode) { toggleFlag(r,c,e.currentTarget); return; }
+function onCellClick(e){
+  if(G.over)return;
+  const r=+e.currentTarget.dataset.r,c=+e.currentTarget.dataset.c;
+  if(G.flagMode){toggleFlag(r,c,e.currentTarget);return}
   digCell(r,c);
 }
-
-function onCellRight(e) {
+function onCellRight(e){
   e.preventDefault();
-  if(G.over) return;
-  const r = +e.currentTarget.dataset.r;
-  const c = +e.currentTarget.dataset.c;
+  if(G.over)return;
+  const r=+e.currentTarget.dataset.r,c=+e.currentTarget.dataset.c;
   toggleFlag(r,c,e.currentTarget);
 }
-
-function onCellDblClick(e) {
+function onCellDblClick(e){
   e.preventDefault();
-  if(G.over || G.firstClick) return;
-  const r = +e.currentTarget.dataset.r;
-  const c = +e.currentTarget.dataset.c;
-  if(G.revealed[r][c] || G.flagged[r][c]) return;
-  // charge for this cell first, then flood
-  G.budget -= DIG_COST;
-  if(G.budget < 0) G.budget = 0;
+  if(G.over||G.firstClick)return;
+  const r=+e.currentTarget.dataset.r,c=+e.currentTarget.dataset.c;
+  if(G.revealed[r][c]||G.flagged[r][c])return;
+  G.budget-=DIG_COST;
+  if(G.budget<0)G.budget=0;
   updateHUD();
-  floodReveal(r, c);
-  if(G.budget <= 0 && !G.over) { endGame(false,'broke'); }
+  floodReveal(r,c);
+  if(G.budget<=0&&!G.over)endGame(false,'broke');
 }
-
-/* ── DIG ────────────────────────────────────────────────────── */
-function digCell(r,c) {
-  if(G.revealed[r][c] || G.flagged[r][c]) return;
-
-  if(G.firstClick) {
-    G.firstClick = false;
-    placeArtifacts(r,c);
-    startTimer();
-  }
-
-  G.budget -= DIG_COST;
-  if(G.budget < 0) G.budget = 0;
-  updateHUD();
-  SFX.dig();
-  revealCell(r,c);
-
-  if(G.budget <= 0 && !G.over) {
-    endGame(false, 'broke');
-    return;
-  }
+function digCell(r,c){
+  if(G.revealed[r][c]||G.flagged[r][c])return;
+  if(G.firstClick){G.firstClick=false;placeArtifacts(r,c);startTimer()}
+  G.budget-=DIG_COST;
+  if(G.budget<0)G.budget=0;
+  updateHUD(); SFX.dig(); revealCell(r,c);
+  if(G.budget<=0&&!G.over){endGame(false,'broke');return}
 }
-
-function revealCell(r,c) {
-  if(G.revealed[r][c] || G.flagged[r][c]) return;
-  G.revealed[r][c] = true;
-
-  const cell = getCellEl(r,c);
+function revealCell(r,c){
+  if(G.revealed[r][c]||G.flagged[r][c])return;
+  G.revealed[r][c]=true;
+  const cell=getCellEl(r,c);
   cell.classList.add('revealed','digging');
   setTimeout(()=>cell.classList.remove('digging'),280);
-
-  const artIdx = G.artifactAt[r][c];
-  if(artIdx >= 0) {
-    const art = ARTIFACTS[artIdx];
+  const artIdx=G.artifactAt[r][c];
+  if(artIdx>=0){
+    const art=ARTIFACTS[artIdx];
     cell.classList.add('artifact');
-    const span = document.createElement('span');
-    span.className = 'artifact-glyph';
-    span.textContent = art.glyph;
+    const span=document.createElement('span');
+    span.className='artifact-glyph'; span.textContent=art.glyph;
     cell.appendChild(span);
-    G.budget += art.budget;
-    G.points += art.pts;
-    G.artifactsFound++;
-    G.discoveries.push({...art, r, c});
-    addJournalEntry(art);
-    SFX.artifact();
-    setStatus(`${art.glyph} ${art.name} — ${art.period} — +$${art.budget} budget, +${art.pts} pts`, 'good');
+    G.budget+=art.budget; G.points+=art.pts; G.artifactsFound++;
+    G.discoveries.push({...art,r,c});
+    addJournalEntry(art); SFX.artifact();
+    setStatus(`${art.glyph} ${art.name} — ${art.period} — +$${art.budget} budget, +${art.pts} pts`,'good');
     updateHUD();
-    if(G.artifactsFound >= G.totalArtifacts) { endGame(true,'allArtifacts'); return; }
+    if(G.artifactsFound>=G.totalArtifacts){endGame(true,'allArtifacts');return}
     return;
   }
-
-  const n = G.board[r][c];
-  if(n > 0) {
-    cell.dataset.n = n;
-    cell.textContent = n;
-    setStatus(`${n} artifact${n>1?'s':''} in adjacent cells.`, '');
-  } else {
-    setStatus('Empty stratum — no artifacts nearby.', '');
-  }
-
+  const n=G.board[r][c];
+  if(n>0){cell.dataset.n=n;cell.textContent=n;setStatus(`${n} artifact${n>1?'s':''} in adjacent cells.`,'')}
+  else{setStatus('Empty stratum — no artifacts nearby.','')}
   checkWin();
 }
-
-/* ── FLOOD FILL (opt-in via double-click) ───────────────────── */
-function floodReveal(r, c) {
-  if(G.revealed[r][c] || G.flagged[r][c]) return;
-  const R=G.config.rows, C=G.config.cols;
-  const queue=[[r,c]];
-  const toReveal=[];
-
-  // BFS — collect all connected zero-adjacency cells and their numbered borders
-  while(queue.length) {
-    const [cr,cc]=queue.shift();
-    if(cr<0||cr>=R||cc<0||cc>=C) continue;
-    if(G.revealed[cr][cc]||G.flagged[cr][cc]) continue;
-    toReveal.push([cr,cc]);
-    G.revealed[cr][cc]=true; // mark during BFS to avoid revisiting
-    if(G.artifactAt[cr][cc]>=0) continue; // stop at artifact cells
-    if(G.board[cr][cc]===0) {
-      for(let dr=-1;dr<=1;dr++) for(let dc=-1;dc<=1;dc++) {
-        if(dr===0&&dc===0) continue;
-        const nr=cr+dr, nc=cc+dc;
-        if(nr>=0&&nr<R&&nc>=0&&nc<C&&!G.revealed[nr][nc]&&!G.flagged[nr][nc]) {
-          queue.push([nr,nc]);
-        }
+function floodReveal(r,c){
+  if(G.revealed[r][c]||G.flagged[r][c])return;
+  const R=G.config.rows,C=G.config.cols;
+  const queue=[[r,c]],toReveal=[];
+  while(queue.length){
+    const[cr,cc]=queue.shift();
+    if(cr<0||cr>=R||cc<0||cc>=C)continue;
+    if(G.revealed[cr][cc]||G.flagged[cr][cc])continue;
+    toReveal.push([cr,cc]); G.revealed[cr][cc]=true;
+    if(G.artifactAt[cr][cc]>=0)continue;
+    if(G.board[cr][cc]===0){
+      for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){
+        if(dr===0&&dc===0)continue;
+        const nr=cr+dr,nc=cc+dc;
+        if(nr>=0&&nr<R&&nc>=0&&nc<C&&!G.revealed[nr][nc]&&!G.flagged[nr][nc])queue.push([nr,nc]);
       }
     }
   }
-
-  // apply budget cost and DOM updates
-  let digs = 0;
-  for(const [fr,fc] of toReveal) {
-    const el = getCellEl(fr,fc);
+  let digs=0;
+  for(const[fr,fc]of toReveal){
+    const el=getCellEl(fr,fc);
     el.classList.add('revealed');
-    const ai = G.artifactAt[fr][fc];
-    if(ai >= 0) {
+    const ai=G.artifactAt[fr][fc];
+    if(ai>=0){
       const art=ARTIFACTS[ai];
       el.classList.add('artifact');
-      const sp=document.createElement('span'); sp.className='artifact-glyph'; sp.textContent=art.glyph;
+      const sp=document.createElement('span');sp.className='artifact-glyph';sp.textContent=art.glyph;
       el.appendChild(sp);
-      G.budget+=art.budget; G.points+=art.pts; G.artifactsFound++;
-      G.discoveries.push({...art,r:fr,c:fc});
-      addJournalEntry(art);
+      G.budget+=art.budget;G.points+=art.pts;G.artifactsFound++;
+      G.discoveries.push({...art,r:fr,c:fc});addJournalEntry(art);
     } else {
       const an=G.board[fr][fc];
-      if(an>0) { el.dataset.n=an; el.textContent=an; }
+      if(an>0){el.dataset.n=an;el.textContent=an}
       digs++;
     }
   }
-
-  // charge budget only for empty/numbered cells revealed (artifacts pay their own way)
-  G.budget -= digs * DIG_COST;
-  if(G.budget < 0) G.budget = 0;
-  updateHUD();
-  SFX.flood();
-  setStatus(`Quadrant cleared — ${toReveal.length} cells excavated.`, '');
-  if(G.budget <= 0 && !G.over) { endGame(false,'broke'); return; }
+  G.budget-=digs*DIG_COST;
+  if(G.budget<0)G.budget=0;
+  updateHUD(); SFX.flood();
+  setStatus(`Quadrant cleared — ${toReveal.length} cells excavated.`,'');
+  if(G.budget<=0&&!G.over){endGame(false,'broke');return}
   checkWin();
 }
-
-/* ── FLAG ────────────────────────────────────────────────────── */
-function toggleFlag(r,c,cell) {
-  if(G.revealed[r][c]) return;
-  G.flagged[r][c] = !G.flagged[r][c];
-  cell.innerHTML = '';
-  if(G.flagged[r][c]) {
+function toggleFlag(r,c,cell){
+  if(G.revealed[r][c])return;
+  G.flagged[r][c]=!G.flagged[r][c];
+  cell.innerHTML='';
+  if(G.flagged[r][c]){
     cell.classList.add('flagged');
-    const sp=document.createElement('span'); sp.className='flag-icon'; sp.textContent='⚑';
-    cell.appendChild(sp);
-    SFX.flag();
+    const sp=document.createElement('span');sp.className='flag-icon';sp.textContent='⚑';
+    cell.appendChild(sp); SFX.flag();
     setStatus(`Grid ${String.fromCharCode(65+c)}${r+1} marked as hazardous area.`,'warn');
   } else {
     cell.classList.remove('flagged');
     setStatus(`Marker removed from ${String.fromCharCode(65+c)}${r+1}.`,'');
   }
 }
-
-/* ── TIMER ───────────────────────────────────────────────────── */
-function startTimer() {
-  G.started = true;
-  G.timer = setInterval(() => {
-    G.timeLeft--;
-    G.timeElapsed++;
-    updateHUD();
-    if(G.timeLeft <= 30) {
-      document.getElementById('hud-timer').classList.add('danger');
-      SFX.warn();
-    }
-    if(G.timeLeft <= 0) { endGame(false,'time'); }
+function startTimer(){
+  G.started=true;
+  G.timer=setInterval(()=>{
+    G.timeLeft--; G.timeElapsed++; updateHUD();
+    if(G.timeLeft<=30){document.getElementById('hud-timer').classList.add('danger');SFX.warn()}
+    if(G.timeLeft<=0)endGame(false,'time');
   },1000);
 }
-
-/* ── HUD ─────────────────────────────────────────────────────── */
-function updateHUD() {
-  document.getElementById('hud-budget').textContent   = fmtBudget(G.budget);
-  document.getElementById('hud-points').textContent   = G.points.toLocaleString();
-  document.getElementById('hud-artifacts').textContent= `${G.artifactsFound} / ${G.totalArtifacts||'?'}`;
-  document.getElementById('hud-timer').textContent    = fmtTime(G.timeLeft);
+function updateHUD(){
+  document.getElementById('hud-budget').textContent=fmtBudget(G.budget);
+  document.getElementById('hud-points').textContent=G.points.toLocaleString();
+  document.getElementById('hud-artifacts').textContent=`${G.artifactsFound} / ${G.totalArtifacts||'?'}`;
+  document.getElementById('hud-timer').textContent=fmtTime(G.timeLeft);
 }
-
-/* ── STATUS ──────────────────────────────────────────────────── */
-function setStatus(msg, cls) {
-  const el = document.getElementById('status-msg');
-  el.textContent = msg;
-  el.className = cls;
+function setStatus(msg,cls){
+  const el=document.getElementById('status-msg');
+  el.textContent=msg; el.className=cls;
 }
-
-/* ── JOURNAL ─────────────────────────────────────────────────── */
-function clearJournal() {
-  const jg = document.getElementById('journal-grid');
-  jg.innerHTML = '<span style="font-family:var(--serif);font-style:italic;font-size:0.8rem;color:var(--earth-hi);">No discoveries yet.</span>';
-  document.getElementById('journal-count').textContent = '0 found';
+function clearJournal(){
+  const jg=document.getElementById('journal-grid');
+  jg.innerHTML='<span style="font-family:var(--serif);font-style:italic;font-size:0.8rem;color:var(--earth-hi);">No discoveries yet.</span>';
+  document.getElementById('journal-count').textContent='0 found';
 }
-
-function addJournalEntry(art) {
-  const jg = document.getElementById('journal-grid');
-  // remove placeholder
-  const ph = jg.querySelector('span');
-  if(ph && ph.style.color==='var(--earth-hi)') ph.remove();
-
-  const chip = document.createElement('div');
-  chip.className = 'find-chip';
-  chip.innerHTML = `<span class="chip-glyph">${art.glyph}</span><span class="chip-name">${art.name}</span><span class="chip-pts">+${art.pts}pts</span>`;
+function addJournalEntry(art){
+  const jg=document.getElementById('journal-grid');
+  const ph=jg.querySelector('span');
+  if(ph&&ph.style.color==='var(--earth-hi)')ph.remove();
+  const chip=document.createElement('div');
+  chip.className='find-chip';
+  chip.innerHTML=`<span class="chip-glyph">${art.glyph}</span><span class="chip-name">${art.name}</span><span class="chip-pts">+${art.pts}pts</span>`;
   jg.appendChild(chip);
-  document.getElementById('journal-count').textContent = `${G.artifactsFound} found`;
+  document.getElementById('journal-count').textContent=`${G.artifactsFound} found`;
 }
-
-/* ── CHECK WIN ───────────────────────────────────────────────── */
-function checkWin() {
-  const R=G.config.rows, C=G.config.cols;
-  let unrevealed=0;
-  for(let r=0;r<R;r++) for(let c=0;c<C;c++) {
-    if(!G.revealed[r][c]) unrevealed++;
-  }
-  if(unrevealed===0) endGame(true,'cleared');
+function checkWin(){
+  const R=G.config.rows,C=G.config.cols;
+  let u=0;
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++)if(!G.revealed[r][c])u++;
+  if(u===0)endGame(true,'cleared');
 }
-
-/* ── END GAME ────────────────────────────────────────────────── */
-function endGame(won, reason) {
-  if(G.over) return;
-  G.over = true;
-  clearInterval(G.timer);
-
-  // play end sound
-  if(won) SFX.win();
-  else if(reason==='broke') SFX.broke();
-  else if(reason==='time') SFX.time();
-
-  // populate end screen
-  const glyphs = {
-    allArtifacts:'🏆', cleared:'✅', time:'⏳', broke:'💸'
-  };
-  const titles = {
-    allArtifacts:'ALL ARTIFACTS RECOVERED',
-    cleared:'SITE FULLY EXCAVATED',
-    time:'TIME EXPIRED',
-    broke:'BUDGET EXHAUSTED'
-  };
-  const subs = {
-    allArtifacts:'Exceptional fieldwork. The collection is complete.',
-    cleared:'Every context recorded. Exemplary excavation.',
-    time:'The permit window closed before the work was done.',
-    broke:'The dig fund ran dry. The past remains buried.'
-  };
-
-  document.getElementById('end-glyph').textContent  = glyphs[reason]||'🏺';
-  document.getElementById('end-title').textContent  = titles[reason]||'EXCAVATION ENDED';
-  document.getElementById('end-sub').textContent    = subs[reason]||'';
-  document.getElementById('end-pts').textContent    = G.points.toLocaleString();
-  document.getElementById('end-art').textContent    = G.artifactsFound;
-  document.getElementById('end-time').textContent   = fmtTime(G.timeElapsed);
-  document.getElementById('end-budget').textContent = fmtBudget(G.budget);
-
-  const es = document.getElementById('end-screen');
-  es.style.display = 'flex';
+function endGame(won,reason){
+  if(G.over)return;
+  G.over=true; clearInterval(G.timer);
+  if(won)SFX.win();
+  else if(reason==='broke')SFX.broke();
+  else if(reason==='time')SFX.time();
+  const glyphs={allArtifacts:'🏆',cleared:'✅',time:'⏳',broke:'💸'};
+  const titles={allArtifacts:'ALL ARTIFACTS RECOVERED',cleared:'SITE FULLY EXCAVATED',time:'TIME EXPIRED',broke:'BUDGET EXHAUSTED'};
+  const subs={allArtifacts:'Exceptional fieldwork. The collection is complete.',cleared:'Every context recorded. Exemplary excavation.',time:'The permit window closed before the work was done.',broke:'The dig fund ran dry. The past remains buried.'};
+  document.getElementById('end-glyph').textContent=glyphs[reason]||'🏺';
+  document.getElementById('end-title').textContent=titles[reason]||'EXCAVATION ENDED';
+  document.getElementById('end-sub').textContent=subs[reason]||'';
+  document.getElementById('end-pts').textContent=G.points.toLocaleString();
+  document.getElementById('end-art').textContent=G.artifactsFound;
+  document.getElementById('end-time').textContent=fmtTime(G.timeElapsed);
+  document.getElementById('end-budget').textContent=fmtBudget(G.budget);
+  document.getElementById('end-screen').style.display='flex';
 }
-
-/* ── MODE ────────────────────────────────────────────────────── */
-function updateModeUI() {
-  const dot   = document.getElementById('mode-dot');
-  const label = document.getElementById('mode-label');
-  if(G.flagMode) {
-    dot.classList.add('flag');
-    label.textContent = 'Flag mode';
-  } else {
-    dot.classList.remove('flag');
-    label.textContent = 'Dig mode';
-  }
+function updateModeUI(){
+  const dot=document.getElementById('mode-dot'),label=document.getElementById('mode-label');
+  if(G.flagMode){dot.classList.add('flag');label.textContent='Flag mode'}
+  else{dot.classList.remove('flag');label.textContent='Dig mode'}
 }
-
-/* ── DOM HELPERS ─────────────────────────────────────────────── */
-function getCellEl(r,c) {
-  return document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
-}
-
-/* ── EVENT WIRING ────────────────────────────────────────────── */
-document.querySelectorAll('.diff-card').forEach(card => {
-  card.addEventListener('click', () => initGame(card.dataset.diff));
-  card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') initGame(card.dataset.diff); });
+function getCellEl(r,c){return document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`)}
+document.querySelectorAll('.diff-card').forEach(card=>{
+  card.addEventListener('click',()=>initGame(card.dataset.diff));
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')initGame(card.dataset.diff)});
 });
-
-document.getElementById('btn-toggle-mode').addEventListener('click', () => {
-  G.flagMode = !G.flagMode;
-  updateModeUI();
+document.getElementById('btn-toggle-mode').addEventListener('click',()=>{G.flagMode=!G.flagMode;updateModeUI()});
+document.getElementById('btn-restart').addEventListener('click',()=>{
+  if(G.config)initGame(Object.keys(CONFIGS).find(k=>CONFIGS[k].label===G.config.label)||'survey');
 });
-
-document.getElementById('btn-restart').addEventListener('click', () => {
-  if(G.config) initGame(Object.keys(CONFIGS).find(k=>CONFIGS[k].label===G.config.label) || 'survey');
+document.getElementById('btn-menu').addEventListener('click',()=>{
+  clearInterval(G.timer);G.over=true;
+  document.getElementById('game-screen').style.display='none';
+  document.getElementById('difficulty-screen').style.display='flex';
 });
-
-document.getElementById('btn-menu').addEventListener('click', () => {
-  clearInterval(G.timer);
-  G.over = true;
-  document.getElementById('game-screen').style.display = 'none';
-  document.getElementById('difficulty-screen').style.display = 'flex';
-});
-
-document.getElementById('end-play-again').addEventListener('click', () => {
+document.getElementById('end-play-again').addEventListener('click',()=>{
   document.getElementById('end-screen').style.display='none';
-  if(G.config) initGame(Object.keys(CONFIGS).find(k=>CONFIGS[k].label===G.config.label)||'survey');
+  if(G.config)initGame(Object.keys(CONFIGS).find(k=>CONFIGS[k].label===G.config.label)||'survey');
 });
-
-document.getElementById('end-menu').addEventListener('click', () => {
+document.getElementById('end-menu').addEventListener('click',()=>{
   document.getElementById('end-screen').style.display='none';
   document.getElementById('game-screen').style.display='none';
   document.getElementById('difficulty-screen').style.display='flex';
 });
-/* ── WEB AUDIO ENGINE ────────────────────────────────────────── */
-let audioCtx = null;
 
-function getAudioCtx() {
-  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if(audioCtx.state === 'suspended') audioCtx.resume();
+/* ── WEB AUDIO ENGINE ───────────────────────────────────────── */
+let audioCtx=null;
+function getAudioCtx(){
+  if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==='suspended')audioCtx.resume();
   return audioCtx;
 }
-
-// A single reusable helper: envelope an oscillator + optional noise layer
-function playTone({ freq=220, type='sine', duration=0.18, gain=0.18,
-                    attack=0.005, decay=0.08, freqEnd=null,
-                    noiseGain=0, filterFreq=800 } = {}) {
-  try {
-    const ctx = getAudioCtx();
-    const now = ctx.currentTime;
-
-    // oscillator
-    const osc = ctx.createOscillator();
-    const env = ctx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, now);
-    if(freqEnd !== null) osc.frequency.exponentialRampToValueAtTime(freqEnd, now + duration);
-    env.gain.setValueAtTime(0, now);
-    env.gain.linearRampToValueAtTime(gain, now + attack);
-    env.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-    osc.connect(env);
-    env.connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + duration);
-
-    // optional noise layer (for earthy thud)
-    if(noiseGain > 0) {
-      const bufSize = ctx.sampleRate * 0.15;
-      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
-      const data = buf.getChannelData(0);
-      for(let i=0;i<bufSize;i++) data[i] = Math.random()*2-1;
-      const noise = ctx.createBufferSource();
-      noise.buffer = buf;
-      const nFilter = ctx.createBiquadFilter();
-      nFilter.type = 'bandpass';
-      nFilter.frequency.value = filterFreq;
-      nFilter.Q.value = 0.8;
-      const nEnv = ctx.createGain();
-      nEnv.gain.setValueAtTime(noiseGain, now);
-      nEnv.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-      noise.connect(nFilter);
-      nFilter.connect(nEnv);
-      nEnv.connect(ctx.destination);
-      noise.start(now);
-      noise.stop(now + 0.15);
+function playTone({freq=220,type='sine',duration=0.18,gain=0.18,attack=0.005,freqEnd=null,noiseGain=0,filterFreq=800}={}){
+  try{
+    const ctx=getAudioCtx(),now=ctx.currentTime;
+    const osc=ctx.createOscillator(),env=ctx.createGain();
+    osc.type=type;osc.frequency.setValueAtTime(freq,now);
+    if(freqEnd!==null)osc.frequency.exponentialRampToValueAtTime(freqEnd,now+duration);
+    env.gain.setValueAtTime(0,now);env.gain.linearRampToValueAtTime(gain,now+attack);
+    env.gain.exponentialRampToValueAtTime(0.0001,now+duration);
+    osc.connect(env);env.connect(ctx.destination);osc.start(now);osc.stop(now+duration);
+    if(noiseGain>0){
+      const bufSize=ctx.sampleRate*0.15,buf=ctx.createBuffer(1,bufSize,ctx.sampleRate);
+      const data=buf.getChannelData(0);for(let i=0;i<bufSize;i++)data[i]=Math.random()*2-1;
+      const noise=ctx.createBufferSource();noise.buffer=buf;
+      const nFilter=ctx.createBiquadFilter();nFilter.type='bandpass';nFilter.frequency.value=filterFreq;nFilter.Q.value=0.8;
+      const nEnv=ctx.createGain();nEnv.gain.setValueAtTime(noiseGain,now);nEnv.gain.exponentialRampToValueAtTime(0.0001,now+0.12);
+      noise.connect(nFilter);nFilter.connect(nEnv);nEnv.connect(ctx.destination);noise.start(now);noise.stop(now+0.15);
     }
-  } catch(e) { /* audio not available — silent fallback */ }
+  }catch(e){}
 }
-
-const SFX = {
-  // earthy thud: low sine + filtered noise
-  dig() {
-    playTone({ freq:90, type:'sine', duration:0.22, gain:0.22,
-               attack:0.003, freqEnd:55, noiseGain:0.18, filterFreq:320 });
+const SFX={
+  dig(){playTone({freq:90,type:'sine',duration:0.22,gain:0.22,attack:0.003,freqEnd:55,noiseGain:0.18,filterFreq:320})},
+  artifact(){
+    playTone({freq:660,type:'triangle',duration:0.45,gain:0.20,attack:0.005,freqEnd:880});
+    setTimeout(()=>playTone({freq:990,type:'triangle',duration:0.35,gain:0.12,attack:0.005,freqEnd:1320}),80);
   },
-  // bright upward chime: triangle sweep + harmonic fifth
-  artifact() {
-    playTone({ freq:660, type:'triangle', duration:0.45, gain:0.20,
-               attack:0.005, freqEnd:880 });
-    setTimeout(() =>
-      playTone({ freq:990, type:'triangle', duration:0.35, gain:0.12,
-                 attack:0.005, freqEnd:1320 }), 80);
+  flood(){playTone({freq:440,type:'sine',duration:0.3,gain:0.12,attack:0.003,freqEnd:330})},
+  flag(){playTone({freq:180,type:'square',duration:0.08,gain:0.08,attack:0.002,freqEnd:160})},
+  warn(){playTone({freq:220,type:'sawtooth',duration:0.12,gain:0.07,attack:0.002,freqEnd:200})},
+  broke(){
+    playTone({freq:330,type:'triangle',duration:0.4,gain:0.18,attack:0.005,freqEnd:110});
+    setTimeout(()=>playTone({freq:220,type:'triangle',duration:0.5,gain:0.14,attack:0.005,freqEnd:80}),200);
   },
-  // crystalline ping for flood-clear
-  flood() {
-    playTone({ freq:440, type:'sine', duration:0.3, gain:0.12,
-               attack:0.003, freqEnd:330 });
-  },
-  // soft tap for flag plant
-  flag() {
-    playTone({ freq:180, type:'square', duration:0.08, gain:0.08,
-               attack:0.002, freqEnd:160 });
-  },
-  // low warning pulse (called every tick when ≤30s)
-  warn() {
-    playTone({ freq:220, type:'sawtooth', duration:0.12, gain:0.07,
-               attack:0.002, freqEnd:200 });
-  },
-  // descending tone pair for budget exhausted
-  broke() {
-    playTone({ freq:330, type:'triangle', duration:0.4, gain:0.18,
-               attack:0.005, freqEnd:110 });
-    setTimeout(() =>
-      playTone({ freq:220, type:'triangle', duration:0.5, gain:0.14,
-                 attack:0.005, freqEnd:80 }), 200);
-  },
-  // ascending fanfare for win
-  win() {
-    [0,100,200,320].forEach((delay,i) => {
+  win(){
+    [0,100,200,320].forEach((delay,i)=>{
       const notes=[523,659,784,1047];
-      setTimeout(() =>
-        playTone({ freq:notes[i], type:'triangle', duration:0.4, gain:0.16,
-                   attack:0.005, freqEnd:notes[i]*1.02 }), delay);
+      setTimeout(()=>playTone({freq:notes[i],type:'triangle',duration:0.4,gain:0.16,attack:0.005,freqEnd:notes[i]*1.02}),delay);
     });
   },
-  // slow descending pair for time out
-  time() {
-    playTone({ freq:440, type:'sine', duration:0.5, gain:0.16,
-               attack:0.01, freqEnd:220 });
-    setTimeout(() =>
-      playTone({ freq:330, type:'sine', duration:0.6, gain:0.12,
-                 attack:0.01, freqEnd:165 }), 350);
+  time(){
+    playTone({freq:440,type:'sine',duration:0.5,gain:0.16,attack:0.01,freqEnd:220});
+    setTimeout(()=>playTone({freq:330,type:'sine',duration:0.6,gain:0.12,attack:0.01,freqEnd:165}),350);
   },
 };
-
-/* ── PWA SERVICE WORKER ──────────────────────────────────────── */
-if('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {
-      // sw.js not present yet — silent fail, game works fine without it
-    });
-  });
-}
 </script>
-</body>
-</html>
