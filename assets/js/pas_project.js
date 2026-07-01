@@ -6,7 +6,7 @@ const ByCounty_labels = [];
 const ByCounty_numbers = [];
 const Objecttype_labels = [];
 const Objecttype_numbers = [];
-var counties_data;
+var counties_data = {};
 
 const pas_url_1300_700 = "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json";
 

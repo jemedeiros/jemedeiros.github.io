@@ -28,14 +28,22 @@ async function get_shapes() {
     } else {
         const response = await fetch("/assets/js/geojs/Counties_shp_1.geojson");
         const data = await response.json();
-        var counties_shp = L.geoJson(data);
-        for (var x in counties_shp._layers) {
+        
+        // Wir gehen direkt durch die Rohdaten (features) durch
+        data.features.forEach(feature => {
+            let countyName = feature.properties['NAME'];
+            feature.properties.pasrecords = 0; // Standardwert setzen
+            
+            // Passenden Wert aus den API-Daten (counties_data) suchen
             for (var y in counties_data) {
-                if (y.startsWith(counties_shp._layers[x].feature.properties['NAME'])) {
-                    counties_shp._layers[x].feature.properties.pasrecords = counties_data[y];
-                        }
+                if (y.startsWith(countyName)) {
+                    feature.properties.pasrecords = counties_data[y];
+                    break; 
+                }
             }
-        }
+        });
+
+        // Jetzt erstellen wir das Leaflet-Layer EINMALIG mit den modifizierten Daten
         counties_shp = L.geoJson(data, {style: style});
         shp_uk_lba_eia_id = counties_shp.addTo(mymap);
     } 
