@@ -221,6 +221,109 @@ title: PA Projects
     </div>
   </section>
 
+  <!-- ── COMPARISON DASHBOARD ───────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Step 13 · Scheme comparison</p>
+    <h2 class="dm-section-title">Three countries, one period</h2>
+    <p class="dm-section-intro">
+      How do the three schemes compare for the Late Bronze Age and Early
+      Iron Age (1300–700 BC)? The honest answer is: we don't fully know yet.
+      The PAS UK figure comes from live data. The PAN and DIME figures reflect
+      total database sizes from published sources — period-specific counts
+      comparable to the UK query are not yet publicly queryable from either scheme.
+      This gap is itself a research finding.
+    </p>
+
+    <div class="dm-scheme-grid">
+
+      <!-- UK -->
+      <div class="dm-scheme-card dm-scheme-card--live">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇬🇧</span>
+          <div>
+            <div class="dm-scheme-name">PAS UK</div>
+            <div class="dm-scheme-org">British Museum</div>
+          </div>
+          <span class="dm-scheme-badge dm-scheme-badge--live">Live data</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n" id="comp-uk-total">—</span>
+          <span class="dm-scheme-l">LBA &amp; EIA finds<br>1300–700 BC</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 1997</li>
+          <li>1.6M+ total records (Apr 2023)</li>
+          <li>Professional Finds Liaison Officers</li>
+          <li>Qualitatively strong records</li>
+          <li>Public JSON API available</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://finds.org.uk"
+           target="_blank" rel="noopener">finds.org.uk &rarr;</a>
+      </div>
+
+      <!-- NL -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇳🇱</span>
+          <div>
+            <div class="dm-scheme-name">PAN</div>
+            <div class="dm-scheme-org">Portable Antiquities of the Netherlands</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2022</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">~93</span>
+          <span class="dm-scheme-l">Bronze Age metal finds<br>documented to 2020</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016</li>
+          <li>100,000+ total records (May 2022)</li>
+          <li>7,000+ active detectorists</li>
+          <li>No public period-filtered API</li>
+          <li>Source: Arnoldussen et al. 2020</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://portable-antiquities.nl"
+           target="_blank" rel="noopener">portable-antiquities.nl &rarr;</a>
+      </div>
+
+      <!-- DK -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇩🇰</span>
+          <div>
+            <div class="dm-scheme-name">DIME</div>
+            <div class="dm-scheme-org">Digitale Metaldetektorfund, Denmark</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2021</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">30,633</span>
+          <span class="dm-scheme-l">All-period Danefæ finds<br>submitted 2021</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016 (portal launched 2018)</li>
+          <li>Liberal metal detecting model</li>
+          <li>Finder-driven records, museum-verified</li>
+          <li>Quantitatively strong records</li>
+          <li>Source: Nationalmuseet 2021</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://www.metaldetektorfund.dk"
+           target="_blank" rel="noopener">metaldetektorfund.dk &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="dm-comparison-note">
+      <strong>Why can't we compare directly?</strong>
+      The PAS UK figure is period-filtered (1300–700 BC, queried live).
+      The PAN figure reflects Bronze Age metalwork specifically but is drawn
+      from a 2020 published study, not a live query. The DIME figure is an
+      annual total across all periods. Making these numbers directly comparable
+      would require all three schemes to expose period-filtered public APIs —
+      which remains an open challenge in the field.
+    </div>
+  </section>
+
   <!-- ── BACK LINK ───────────────────────────────────────────── -->
   <div class="dm-back-link">
     <a class="dm-cta" href="/projects.html">&larr; Back to Projects</a>
@@ -535,12 +638,156 @@ title: PA Projects
 }
 .dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
 
+/* ── COMPARISON SCHEME GRID ─────────────────────────────────── */
+.dm-scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.dm-scheme-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.dm-scheme-card--live {
+  border-color: var(--color-rust-dim, #C47A5A);
+  background: #FBF8F4;
+}
+
+.dm-scheme-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.dm-scheme-flag { font-size: 1.4rem; flex-shrink: 0; }
+
+.dm-scheme-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.2;
+}
+
+.dm-scheme-org {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 0.1rem;
+  line-height: 1.4;
+}
+
+.dm-scheme-badge {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 2px;
+  padding: 1px 5px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.dm-scheme-badge--live {
+  color: var(--color-success, #2D6A4F);
+  border-color: var(--color-success, #2D6A4F);
+}
+
+.dm-scheme-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
+
+.dm-scheme-n {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-rust, #9B4A2C);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dm-scheme-l {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  line-height: 1.5;
+}
+
+.dm-scheme-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.dm-scheme-facts li {
+  font-size: 0.8rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.65;
+  padding: 0.1rem 0;
+  padding-left: 0.8rem;
+  position: relative;
+}
+
+.dm-scheme-facts li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-rust-dim, #C47A5A);
+}
+
+.dm-scheme-link {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  align-self: flex-start;
+  margin-top: auto;
+}
+.dm-scheme-link:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+.dm-comparison-note {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  background: var(--color-paper-mid, #EDE8DF);
+  border-left: 3px solid var(--color-rust-dim, #C47A5A);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.85rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.7;
+  max-width: 680px;
+}
+.dm-comparison-note strong { color: var(--color-ink, #1A1612); }
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media screen and (max-width: 640px) {
-  .dm-chart-grid { grid-template-columns: 1fr; }
+  .dm-chart-grid  { grid-template-columns: 1fr; }
+  .dm-scheme-grid { grid-template-columns: 1fr; }
   .dm-stat { min-width: calc(33% - 1px); border-bottom: 1px solid var(--color-rule, #DDD5C4); }
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+
 <script src="/assets/js/map.js"></script>
 <script src="/assets/js/pas_project.js" async defer></script>

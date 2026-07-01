@@ -40,16 +40,19 @@
   {% case handle %}
 
     {% when "PA Projects" %}
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.css">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-      <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+      <!-- Leaflet 1.9 -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+      <!-- Leaflet.loading control — jsDelivr (replaces dead rawgithub.com) -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.css">
+      <!-- Chart.js 4 — replaces v2.9.3 (fixes deprecated horizontalBar / yAxes) -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+      <!-- Plotly v2 fixed version (replaces broken plotly-latest.min.js) -->
+      <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.32.0/plotly.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.js"></script>
+
     {% when "Archaeosweeper" %}
       <!-- Legacy game assets — will be replaced in Step 9 -->
       <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/8bit-wonder" type="text/css">
