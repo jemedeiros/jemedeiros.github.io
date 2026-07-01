@@ -1,0 +1,23 @@
+name: Update PAS Live Data
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs automatically every day at midnight
+  workflow_dispatch: # Allows you to also trigger it manually with a button click on GitHub
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch live data bypassing CORS
+        run: |
+          curl -s "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json" > assets/js/geojs/pas_data.json
+
+      - name: Commit and push if data changed
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add assets/js/geojs/pas_data.json
+          git diff-index --quiet HEAD || (git commit -m "Automated live data update" && git push)

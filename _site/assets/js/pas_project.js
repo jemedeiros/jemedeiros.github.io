@@ -8,7 +8,11 @@ const Objecttype_labels = [];
 const Objecttype_numbers = [];
 var counties_data = {};
 
-const pas_url_1300_700 = "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json";
+
+// const pas_url_1300_700 = "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json"; 
+// Error CORS above line. To repair new line here:
+
+const pas_url_1300_700 = "/assets/js/geojs/pas_data.json";
 
 async function getHorte_SBZ_FEZ() {
     const response = await fetch(pas_url_1300_700);
