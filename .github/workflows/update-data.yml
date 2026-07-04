@@ -1,8 +1,8 @@
 name: Update PAS Live Data
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs automatically every day at midnight
-  workflow_dispatch: # Allows you to also trigger it manually with a button click on GitHub
+    - cron: '0 3 * * *' # Runs daily at 3am UTC (avoids peak Cloudflare traffic)
+  workflow_dispatch: # Allows manual trigger via GitHub Actions button
 
 jobs:
   update-data:
@@ -11,13 +11,38 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch live data bypassing CORS
+      - name: Fetch live data from PAS UK
         run: |
-          curl -s "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json" > assets/js/geojs/pas_data.json
+          curl -s \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            -H "Accept: application/json, text/plain, */*" \
+            -H "Accept-Language: en-GB,en;q=0.9" \
+            -H "Referer: https://finds.org.uk/" \
+            -H "Connection: keep-alive" \
+            -L \
+            --retry 3 \
+            --retry-delay 5 \
+            "https://finds.org.uk/database/search/results/fromdate/-1300/todate/-700/format/json" \
+            -o assets/js/geojs/pas_data.json
+
+      - name: Validate fetched data
+        run: |
+          # Fail the workflow if the file is empty or contains an HTML error page
+          if [ ! -s assets/js/geojs/pas_data.json ]; then
+            echo "ERROR: pas_data.json is empty"
+            exit 1
+          fi
+          if grep -q "<!DOCTYPE" assets/js/geojs/pas_data.json; then
+            echo "ERROR: Got an HTML page instead of JSON (Cloudflare block)"
+            cat assets/js/geojs/pas_data.json
+            exit 1
+          fi
+          echo "Data looks valid:"
+          head -c 200 assets/js/geojs/pas_data.json
 
       - name: Commit and push if data changed
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           git add assets/js/geojs/pas_data.json
-          git diff-index --quiet HEAD || (git commit -m "Automated live data update" && git push)
+          git diff-index --quiet HEAD || (git commit -m "Automated PAS data update $(date -u +%Y-%m-%d)" && git push)
