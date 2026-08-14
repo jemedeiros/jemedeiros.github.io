@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+
+  <!-- Page-specific assets -->
+  
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>A new homie | J. E. de Medeiros</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="A new homie" />
+<meta name="author" content="de Medeiros, J. E. M." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A New Homie There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring the weekend’s normalcy. However, I’m in the midst of redefining this “normal,” which now includes a four-wheeled wall and a wooden board for a roof." />
+<meta name="twitter:description" property="og:description" content="A New Homie There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring the weekend’s normalcy. However, I’m in the midst of redefining this “normal,” which now includes a four-wheeled wall and a wooden board for a roof." />
+<link rel="canonical" href="http://localhost:4000/surfskate/2024/05/13/A-new-homie.html" />
+<meta property="og:url" content="http://localhost:4000/surfskate/2024/05/13/A-new-homie.html" />
+<meta property="og:site_name" content="J. E. de Medeiros" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-13T00:00:00+02:00" />
+<meta property="article:modified_time" content="2024-05-13T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="A new homie" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"de Medeiros, J. E. M."},"dateModified":"2024-05-13T00:00:00+02:00","datePublished":"2024-05-13T00:00:00+02:00","description":"A New Homie There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring the weekend’s normalcy. However, I’m in the midst of redefining this “normal,” which now includes a four-wheeled wall and a wooden board for a roof.","headline":"A new homie","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/surfskate/2024/05/13/A-new-homie.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"de Medeiros, J. E. M."},"url":"http://localhost:4000/surfskate/2024/05/13/A-new-homie.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
+</head>
+  <body>
+    <nav class="dm-nav" id="myTopnav">
+  <a class="dm-nav-brand" href="/">
+    <span class="dm-nav-brand-name">de Medeiros</span>
+  </a>
+
+  <div class="dm-nav-links" id="dm-nav-links">
+    
+    <a href="/"
+       class="dm-nav-link">
+      Home
+    </a>
+    
+    <a href="/publications.html"
+       class="dm-nav-link">
+      Publications
+    </a>
+    
+    <a href="/cv.html"
+       class="dm-nav-link">
+      CV
+    </a>
+    
+    <a href="/projects.html"
+       class="dm-nav-link">
+      Projects
+    </a>
+    
+    <a href="/blog.html"
+       class="dm-nav-link">
+      Blog
+    </a>
+    
+  </div>
+
+  <button class="dm-nav-toggle" onclick="menuFnc()" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<style>
+/* ── NAV ────────────────────────────────────────────────────── */
+.dm-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-ink, #1A1612);
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-raised, 10);
+  border-bottom: 1px solid #2D2520;
+}
+
+.dm-nav-brand {
+  text-decoration: none;
+  padding: 0.85rem 0;
+  flex-shrink: 0;
+}
+
+.dm-nav-brand-name {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C8873A;
+}
+
+.dm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dm-nav-link {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #A8935A;
+  text-decoration: none;
+  padding: 1rem 0.9rem;
+  display: block;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.dm-nav-link:hover {
+  color: #E8D5A3;
+  border-bottom-color: #C8873A;
+}
+
+.dm-nav-link--active {
+  color: #E8D5A3;
+  border-bottom-color: #C8873A;
+}
+
+/* ── HAMBURGER ──────────────────────────────────────────────── */
+.dm-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #4A3218;
+  color: #A8935A;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.dm-nav-toggle:hover { border-color: #C8873A; color: #E8D5A3; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-nav { flex-wrap: wrap; padding: 0 1rem; }
+  .dm-nav-brand { padding: 0.75rem 0; }
+  .dm-nav-toggle { display: block; margin: 0.5rem 0; }
+
+  .dm-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border-top: 1px solid #2D2520;
+    padding: 0.5rem 0 0.75rem;
+    gap: 0;
+  }
+
+  .dm-nav-links.dm-nav-open { display: flex; }
+
+  .dm-nav-link {
+    width: 100%;
+    padding: 0.6rem 0;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+  }
+
+  .dm-nav-link:hover,
+  .dm-nav-link--active {
+    border-bottom: none;
+    border-left-color: #C8873A;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .dm-nav-links { display: flex !important; }
+}
+</style>
+
+    <div class="content">
+      <style>
+    p {
+        padding-right: 20%;
+    }
+</style>
+
+<h1>A new homie</h1>
+<p>13 May 2024 - de Medeiros, J. E. M.</p>
+
+<h1 id="a-new-homie">A New Homie</h1>
+
+<p>There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring the weekend’s normalcy. However, I’m in the midst of redefining this “normal,” which now includes a four-wheeled wall and a wooden board for a roof.
+<!--more-->
+Heading to work on such a beautiful day can be challenging when the weather beckons you outside for fun. Once at work, my colleague and I struck up a conversation, and he reiterated his desire to purchase a skateboard. Having skated in his teenage years, he saw it as the perfect hobby to balance his work life and other pastimes, which also involve computers and screen time — echoing aspects of our job.</p>
+
+<p>Initially, we planned to visit the board shop in our city — none other than literally <a href="https://www.boardshop.de">Boardshop</a> Freiburg — by Wednesday. But as Monday morphed into an obnoxiously mature day that Garfield would despise, my new homie, buoyed by accrued overtime hours, decided to make the trip today. What a thrill!</p>
+
+<h1 id="including-and-feeling-included">Including and Feeling Included</h1>
+
+<p>Throughout my early life, integration into various environments was not always seamless, especially post-puberty when I attended an educational institution ill-suited for my character and aptitudes. A friend once remarked on my life choices — settling in Germany and marrying someone from a different country — as emblematic of a life spent among those who don’t “speak my language,” metaphorically speaking. This notion of being misunderstood was further cemented during my academic pursuits, transitioning from philosophy to archaeology, where I remained an enigma as a philosophically inclined thinker.</p>
+
+<p>Nonetheless, since taking up surfskate and venturing into the park, I’ve felt as though I’ve entered a new, uncharted domain. The Sensei commanded immense respect, and initially, I was apprehensive about engaging with him. Fortuitously, I soon encountered the Senpai, who facilitated introductions and nudged me towards new tricks. What I anticipated being a solitary sport quickly evolved into a collective endeavor — individual yet united. The initial trepidation of approaching seasoned skaters gave way to a more mature — and let’s be candid, age-appropriate—confidence in conversing with fellow park-goers. Within weeks, I was not just conversing; I had become one of them — a novice, yes, but a member of the community, and that instilled in me immense joy.</p>
+
+<p>This same sense of joy and fulfillment spurred me on today as I accompanied my work colleague to the boardshop, where he was finally able to select his deck and assemble his first skateboard setup. Witnessing the creation of a new board — the crisp grip tape being trimmed, the wheels and bearings meticulously installed — was an exhilarating experience. These rituals of acceptance within the skateboarding community have illuminated the profound connection between the desire for inclusion and the impulse to include others.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This Monday transcended the ordinary confines of a day at the Computer Center. It was a day etched in memory, a day that delivered a clear message: Skate is life! Sure, I could recount the delectable sushi savored during lunchtime or the ice cream indulged in at my workplace’s social room — pleasant, yet minor events that contributed to an agreeable Monday. However, these pale in comparison to the joy of converting a coworker into a skateboarding enthusiast, anticipating the shared rides to come.</p>
+
+<h2 id="next-post-ideas">Next post ideas</h2>
+
+<p><strong>Some points to continue on the next posts are:</strong></p>
+<ul>
+  <li>A (philosophical) reflection on normality and my new normal</li>
+  <li>An anthropological reflection on inclusion in the skateboard community.</li>
+</ul>
+
+<p><strong>Backlog:</strong></p>
+<ul>
+  <li>The reasons for publishing independently</li>
+  <li>The content of my posts in LinkedIn</li>
+  <li>The effects of learning surfskate (at my age or in general)</li>
+  <li>The reasons why last year was tough or maybe all the years since 2018-19.</li>
+</ul>
+
+<p><br /></p>
+<hr />
+
+<h3 id="brief-summary-of-characters">Brief summary of characters:</h3>
+<p>As I delve into these skateboarding and surfskate stories, I find myself walking a fine line between revealing too much and protecting the identities of those involved — especially minors or individuals who prefer to remain out of the public eye. Allow me, my imaginary reader, to introduce you to the key characters in this thrilling narrative:</p>
+<ol>
+  <li><strong>Senpais</strong>: These are the seasoned skaters, the ones who’ve mastered the art of gliding across concrete waves. I’ve affectionately dubbed them “Senpais.” When multiple Senpais appear in a story, I’ll distinguish them as Senpai1, Senpai2, and so forth.</li>
+  <li><strong>Sensei</strong>: Picture a skater with skills that transcend the ordinary. This individual isn’t just a Senpai; they’re a Sensei. Their wisdom, advice, and teachings elevate the entire skating experience. They’re the ones who can turn a simple kickturn into poetry in motion.</li>
+  <li><strong>Senpai-Sensei</strong>: Now, this character is a delightful blend of both Senpai and Sensei. They possess the skills of a seasoned skater but also offer valuable guidance to others. Think of them as the bridge between experience and mentorship.
+Remember, these characters aren’t just names — they’re the heartbeat of my skateboarding experiences. As we ride through twists, turns, and gravity-defying tricks, keep an eye out for their distinctive styles and personalities. These are real people.</li>
+</ol>
+<hr />
+
+<p><br /></p>
+
+
+<p>Categories: <a href="/categories/#Surfskate">Surfskate</a></p>
+<p>Tags: <a href="/tags/Skateboard">Skateboard</a>, <a href="/tags/Monday">Monday</a>, <a href="/tags/Sensei">Sensei</a>, <a href="/tags/Senpai">Senpai</a>, <a href="/tags/Community">Community</a>, <a href="/tags/Friends">Friends</a>, <a href="/tags/Skatepark">Skatepark</a>, <a href="/tags/Boardshop.de">Boardshop.de</a></p>
+
+    </div>
+
+    <!-- Load main.js synchronously so menuFnc() is available for onclick -->
+    <script src="/assets/js/main.js"></script>
+    <footer class="dm-footer h-card">
+  <div class="dm-footer-inner">
+    <!-- Col 1: Identity -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-name p-name">J. E. de Medeiros</div>
+      <div class="dm-footer-tagline">
+        Archaeologist &amp; writer.<br>
+        Freiburg im Breisgau, Germany.
+      </div>
+      <a class="dm-footer-email u-email"
+         href="mailto:post@de-medeiros.com">
+        post@de-medeiros.com
+      </a>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Pages</div>
+      <ul class="dm-footer-nav">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/publications.html">Publications</a>
+        </li>
+        
+        <li>
+          <a href="/cv.html">CV</a>
+        </li>
+        
+        <li>
+          <a href="/projects.html">Projects</a>
+        </li>
+        
+        <li>
+          <a href="/blog.html">Blog</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Col 3: Social -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Elsewhere</div>
+      <div id="social-media" class="dm-social">
+  
+  <a href="https://github.com/jemedeiros"
+     title="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-github-square"></i>
+    <span class="dm-social-label">GitHub</span>
+  </a>
+  
+  <a href="https://de.linkedin.com/in/imdemedeiros"
+     title="Linkedin"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-linkedin"></i>
+    <span class="dm-social-label">Linkedin</span>
+  </a>
+  
+  <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros"
+     title="academia"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-solid fa-graduation-cap"></i>
+    <span class="dm-social-label">academia</span>
+  </a>
+  
+  <a href="https://www.instagram.com/imdemedeiros"
+     title="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-instagram"></i>
+    <span class="dm-social-label">Instagram</span>
+  </a>
+  
+  <a href="https://www.bsky.app/profile/imdemedeiros.bsky.social"
+     title="BlueSky"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-bluesky"></i>
+    <span class="dm-social-label">BlueSky</span>
+  </a>
+  
+</div>
+
+<style>
+.dm-social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dm-social--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.dm-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #A8935A;
+  text-decoration: none;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  transition: color 0.15s ease;
+}
+.dm-social a:hover { color: #E8D5A3; }
+
+.dm-social a i {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Hide text labels in horizontal compact mode */
+.dm-social--horizontal .dm-social-label { display: none; }
+
+/* In footer the label shows via parent ::after — keep label hidden there too */
+#social-media.dm-social a .dm-social-label { display: none; }
+</style>
+    </div>
+
+  </div>
+
+  <div class="dm-footer-bottom">
+    <span>
+      &copy; 2025 José Eduardo M. de Medeiros.
+      Built with Jekyll &amp; GitHub Pages.
+    </span>
+    <span class="dm-footer-bottom-links">
+      <a href="/publications.html">Publications</a>
+      &nbsp;·&nbsp;
+      <a href="/projects.html">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="/archaeosweeper.html">Archaeosweeper</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.dm-footer {
+  background: var(--color-ink, #1A1612);
+  color: #A8935A;
+  border-top: 1px solid #2D2520;
+  margin-top: 3rem;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+}
+
+.dm-footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2rem;
+}
+
+/* ── COL 1 ──────────────────────────────────────────────────── */
+.dm-footer-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #E8D5A3;
+  margin-bottom: 0.4rem;
+}
+
+.dm-footer-tagline {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #6B5E54;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.dm-footer-email {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #C8873A;
+  text-decoration: none;
+  border-bottom: 1px solid #4A3218;
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-footer-email:hover { color: #E8D5A3; border-color: #C8873A; }
+
+/* ── COL LABELS ─────────────────────────────────────────────── */
+.dm-footer-col-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4A3218;
+  margin-bottom: 0.75rem;
+}
+
+/* ── COL 2: NAV ─────────────────────────────────────────────── */
+.dm-footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dm-footer-nav a {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: #A8935A;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.dm-footer-nav a:hover { color: #E8D5A3; }
+
+/* ── COL 3: SOCIAL ──────────────────────────────────────────── */
+/* social.html renders .dm-social — override for dark footer context */
+.dm-footer-col #social-media a {
+  color: #A8935A;
+}
+.dm-footer-col #social-media a:hover { color: #E8D5A3; }
+
+/* Show labels in footer vertical mode */
+.dm-footer-col #social-media .dm-social-label {
+  display: inline;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: #6B5E54;
+}
+.dm-footer-col #social-media a:hover .dm-social-label { color: #A8935A; }
+
+/* ── BOTTOM BAR ─────────────────────────────────────────────── */
+.dm-footer-bottom {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  border-top: 1px solid #2D2520;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: #4A3218;
+}
+
+.dm-footer-bottom-links a {
+  color: #6B5E54;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.dm-footer-bottom-links a:hover { color: #A8935A; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.2rem 1.5rem;
+  }
+  .dm-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  #social-media { flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+  </body>
+</html>

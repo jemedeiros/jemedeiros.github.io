@@ -1,0 +1,1304 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon_pas.ico" type="image/x-icon">
+    
+
+  <!-- Page-specific assets -->
+  
+      <!-- Leaflet 1.9 -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+      <!-- Leaflet.loading control — jsDelivr (replaces dead rawgithub.com) -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.css">
+      <!-- Chart.js 4 — replaces v2.9.3 (fixes deprecated horizontalBar / yAxes) -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+      <!-- Plotly v2 fixed version (replaces broken plotly-latest.min.js) -->
+      <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.32.0/plotly.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.js"></script>
+
+    
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>PA Projects | J. E. de Medeiros</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="PA Projects" />
+<meta name="author" content="José Eduardo M. de Medeiros" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<link rel="canonical" href="http://localhost:4000/pasproject.html" />
+<meta property="og:url" content="http://localhost:4000/pasproject.html" />
+<meta property="og:site_name" content="J. E. de Medeiros" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="PA Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"PA Projects","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/pasproject.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
+</head>
+  <body>
+    <nav class="dm-nav" id="myTopnav">
+  <a class="dm-nav-brand" href="/">
+    <span class="dm-nav-brand-name">de Medeiros</span>
+  </a>
+
+  <div class="dm-nav-links" id="dm-nav-links">
+    
+    <a href="/"
+       class="dm-nav-link">
+      Home
+    </a>
+    
+    <a href="/publications.html"
+       class="dm-nav-link">
+      Publications
+    </a>
+    
+    <a href="/cv.html"
+       class="dm-nav-link">
+      CV
+    </a>
+    
+    <a href="/projects.html"
+       class="dm-nav-link">
+      Projects
+    </a>
+    
+    <a href="/blog.html"
+       class="dm-nav-link">
+      Blog
+    </a>
+    
+  </div>
+
+  <button class="dm-nav-toggle" onclick="menuFnc()" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<style>
+/* ── NAV ────────────────────────────────────────────────────── */
+.dm-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-ink, #1A1612);
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-raised, 10);
+  border-bottom: 1px solid #2D2520;
+}
+
+.dm-nav-brand {
+  text-decoration: none;
+  padding: 0.85rem 0;
+  flex-shrink: 0;
+}
+
+.dm-nav-brand-name {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C8873A;
+}
+
+.dm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dm-nav-link {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #A8935A;
+  text-decoration: none;
+  padding: 1rem 0.9rem;
+  display: block;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.dm-nav-link:hover {
+  color: #E8D5A3;
+  border-bottom-color: #C8873A;
+}
+
+.dm-nav-link--active {
+  color: #E8D5A3;
+  border-bottom-color: #C8873A;
+}
+
+/* ── HAMBURGER ──────────────────────────────────────────────── */
+.dm-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #4A3218;
+  color: #A8935A;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.dm-nav-toggle:hover { border-color: #C8873A; color: #E8D5A3; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-nav { flex-wrap: wrap; padding: 0 1rem; }
+  .dm-nav-brand { padding: 0.75rem 0; }
+  .dm-nav-toggle { display: block; margin: 0.5rem 0; }
+
+  .dm-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border-top: 1px solid #2D2520;
+    padding: 0.5rem 0 0.75rem;
+    gap: 0;
+  }
+
+  .dm-nav-links.dm-nav-open { display: flex; }
+
+  .dm-nav-link {
+    width: 100%;
+    padding: 0.6rem 0;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+  }
+
+  .dm-nav-link:hover,
+  .dm-nav-link--active {
+    border-bottom: none;
+    border-left-color: #C8873A;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .dm-nav-links { display: flex !important; }
+}
+</style>
+
+    <div class="content">
+      <div class="dm-page">
+
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Research tool</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      PAS Schemes Monitor
+    </h1>
+    <p class="dm-hero-sub">
+      Comparing how England, the Netherlands, and Denmark track
+      archaeological finds made by the public — with live data
+      from the Portable Antiquities Scheme.
+    </p>
+    <div class="dm-badge-row">
+      <span class="dm-badge">Live · PAS UK</span>
+      <span class="dm-badge dm-badge--muted">PAN &amp; DIME · boundaries only</span>
+      <span class="dm-badge dm-badge--muted">Updates automatically</span>
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ───────────────────────────────────────────── -->
+  <section class="dm-section dm-section--tight">
+    <div class="dm-stats-bar">
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="total_ba_ea">—</span>
+        <span class="dm-stat-l">Total Records</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ba_nr">—</span>
+        <span class="dm-stat-l">Bronze Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ea_nr">—</span>
+        <span class="dm-stat-l">Iron Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="published_ba_ia">—</span>
+        <span class="dm-stat-l">Published</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="validation_ba_ia">—</span>
+        <span class="dm-stat-l">Awaiting Validation</span>
+      </div>
+    </div>
+    <p class="dm-stats-caption">1300–700 BC · live from finds.org.uk</p>
+  </section>
+
+  <!-- ── ABOUT ───────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">About this project</p>
+    <h2 class="dm-section-title">Comparing how nations track public finds</h2>
+
+    <div class="dm-about-text">
+      <p>
+        Professional archaeology doesn't have a monopoly on finding the past.
+        Across England, Wales, and Northern Ireland, metal detectorists and
+        other members of the public report their discoveries to the
+        <em>Portable Antiquities Scheme</em> (PAS) — a voluntary programme
+        run by the British Museum that, for the first time, gave this activity
+        real numbers. The Netherlands followed with PAN, Denmark with DIME,
+        and Finland with SuALT. This project compares them.
+      </p>
+      <p>
+        Most of what these programmes find never reaches academic archaeology.
+        PAS exists to change that — crowdsourcing find locations and object
+        types into a public database, while keeping exact findspots
+        confidential. It's as much a pedagogical project as a research one,
+        and not without its critics; the Annual Reports and the literature
+        below cover that debate in more depth.
+      </p>
+      <p>
+        I started with PAS data on Late Bronze Age and Early Iron Age finds —
+        the period I worked on for my MA thesis — because I already know the
+        material. The map below shows finds by English county, drawn live
+        from the PAS API. I now have access to PAN's Dutch data as well, but
+        their public interface doesn't yet expose a JSON endpoint I can fetch
+        automatically, so for now their map layer shows administrative
+        boundaries only, without a count overlay. The same is true for DIME.
+        Both will get proper data layers as their public APIs allow it —
+        or as I find a reasonable workaround.
+      </p>
+    </div>
+
+    <details class="dm-details">
+      <summary class="dm-details-summary">
+        <span class="dm-details-arrow">&#9656;</span>
+        Further reading &amp; related programmes
+      </summary>
+      <div class="dm-details-body">
+        <p class="dm-details-intro">
+          More on the PAS programme and the debates around it: the
+          <a href="https://finds.org.uk/publications/reports/2017"
+             target="_blank" rel="noopener">Annual Reports</a>
+          and the literature below.
+        </p>
+        <ul class="dm-pub-list">
+          <li>
+            <span class="dm-pub-year">2009</span>
+            <span class="dm-pub-entry">
+              Thomas, S. and Stone, P.G. (eds.)
+              <em>Metal Detecting and Archaeology.</em>
+              Woodbridge: Boydell Press.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Worrell, S., Egan, G., Naylor, J., Leahy, K. &amp; Lewis, M.
+              <em>A Decade of Discovery: Proceedings of the Portable
+              Antiquities Scheme Conference 2007.</em>
+              BAR Brit. Ser. 520. Oxford: Archaeopress.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Gill, D.W.J. The Portable Antiquities Scheme and the Treasure
+              Act: Protecting the Archaeology of England and Wales?
+              <em>Papers from the Institute of Archaeology</em> 20, 1–11.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Compagnon, G. (Hrsg.) <em>Halte au pillage!</em>
+              Arles: Errance.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2013</span>
+            <span class="dm-pub-entry">
+              <a href="https://journals.ub.uni-heidelberg.de/index.php/arch-inf/article/view/15327"
+                 target="_blank" rel="noopener">
+                Huth, C. Vom rechten Umgang mit Sondengänger: Das
+                „Portable Antiquities Scheme" in England und Wales
+                und seine Folgen.
+              </a>
+              <em>Archäologische Informationen</em> 36, 129–137.
+            </span>
+          </li>
+        </ul>
+        <p class="dm-details-links">
+          Related programmes:
+          <a href="https://portable-antiquities.nl/pan/#/public"
+             target="_blank" rel="noopener">PAN (Netherlands)</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.metaldetektorfund.dk/"
+             target="_blank" rel="noopener">DIME (Denmark)</a>
+          &nbsp;·&nbsp;
+          <a href="https://blogs.helsinki.fi/sualt-project/"
+             target="_blank" rel="noopener">SuALT / Find Sampo (Finland)</a>
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ── MAP ─────────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Interactive map</p>
+    <h2 class="dm-section-title">Finds by county</h2>
+    <p class="dm-section-intro">
+      Toggle layers on or off. UK counties are coloured by find density;
+      Netherlands and Denmark currently show boundaries only.
+    </p>
+
+    <div id="checkboxdiv" class="dm-layer-toggles">
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pas_uk_lba_eia" onchange="get_shapes();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">UK</span>
+          <span class="dm-layer-sub">PAS · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pan_lba_eia" onchange="get_shapes_nld();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Netherlands</span>
+          <span class="dm-layer-sub">PAN · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="dime_lba_eia" onchange="get_shapes_dnk();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Denmark</span>
+          <span class="dm-layer-sub">DIME · LBA &amp; EIA</span>
+        </span>
+      </label>
+    </div>
+
+    <div class="dm-map-card">
+      <div id="Map"></div>
+    </div>
+    <p class="dm-map-caption">
+      Map data may take a moment to load, especially in Firefox.
+    </p>
+  </section>
+
+  <!-- ── UK DETAIL CHARTS ────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">UK in detail</p>
+    <h2 class="dm-section-title">Late Bronze Age &amp; Early Iron Age finds</h2>
+    <p class="dm-section-intro">
+      Breakdown of the same dataset by county and by object type.
+    </p>
+
+    <div class="dm-chart-grid">
+      <div class="dm-chart-card">
+        <div class="dm-chart-label">By county</div>
+        <canvas id="chart" width="100%" height="100%"></canvas>
+      </div>
+      <div class="dm-chart-card">
+        <div class="dm-chart-label">By object type</div>
+        <canvas id="chart1" width="100%" height="100%"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON DASHBOARD ───────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Step 13 · Scheme comparison</p>
+    <h2 class="dm-section-title">Three countries, one period</h2>
+    <p class="dm-section-intro">
+      How do the three schemes compare for the Late Bronze Age and Early
+      Iron Age (1300–700 BC)? The honest answer is: we don't fully know yet.
+      The PAS UK figure comes from live data. The PAN and DIME figures reflect
+      total database sizes from published sources — period-specific counts
+      comparable to the UK query are not yet publicly queryable from either scheme.
+      This gap is itself a research finding.
+    </p>
+
+    <div class="dm-scheme-grid">
+
+      <!-- UK -->
+      <div class="dm-scheme-card dm-scheme-card--live">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇬🇧</span>
+          <div>
+            <div class="dm-scheme-name">PAS UK</div>
+            <div class="dm-scheme-org">British Museum</div>
+          </div>
+          <span class="dm-scheme-badge dm-scheme-badge--live">Live data</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n" id="comp-uk-total">—</span>
+          <span class="dm-scheme-l">LBA &amp; EIA finds<br>1300–700 BC</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 1997</li>
+          <li>1.6M+ total records (Apr 2023)</li>
+          <li>Professional Finds Liaison Officers</li>
+          <li>Qualitatively strong records</li>
+          <li>Public JSON API available</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://finds.org.uk"
+           target="_blank" rel="noopener">finds.org.uk &rarr;</a>
+      </div>
+
+      <!-- NL -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇳🇱</span>
+          <div>
+            <div class="dm-scheme-name">PAN</div>
+            <div class="dm-scheme-org">Portable Antiquities of the Netherlands</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2022</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">~93</span>
+          <span class="dm-scheme-l">Bronze Age metal finds<br>documented to 2020</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016</li>
+          <li>100,000+ total records (May 2022)</li>
+          <li>7,000+ active detectorists</li>
+          <li>No public period-filtered API</li>
+          <li>Source: Arnoldussen et al. 2020</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://portable-antiquities.nl"
+           target="_blank" rel="noopener">portable-antiquities.nl &rarr;</a>
+      </div>
+
+      <!-- DK -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇩🇰</span>
+          <div>
+            <div class="dm-scheme-name">DIME</div>
+            <div class="dm-scheme-org">Digitale Metaldetektorfund, Denmark</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2021</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">30,633</span>
+          <span class="dm-scheme-l">All-period Danefæ finds<br>submitted 2021</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016 (portal launched 2018)</li>
+          <li>Liberal metal detecting model</li>
+          <li>Finder-driven records, museum-verified</li>
+          <li>Quantitatively strong records</li>
+          <li>Source: Nationalmuseet 2021</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://www.metaldetektorfund.dk"
+           target="_blank" rel="noopener">metaldetektorfund.dk &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="dm-comparison-note">
+      <strong>Why can't we compare directly?</strong>
+      The PAS UK figure is period-filtered (1300–700 BC, queried live).
+      The PAN figure reflects Bronze Age metalwork specifically but is drawn
+      from a 2020 published study, not a live query. The DIME figure is an
+      annual total across all periods. Making these numbers directly comparable
+      would require all three schemes to expose period-filtered public APIs —
+      which remains an open challenge in the field.
+    </div>
+  </section>
+
+  <!-- ── BACK LINK ───────────────────────────────────────────── -->
+  <div class="dm-back-link">
+    <a class="dm-cta" href="/projects.html">&larr; Back to Projects</a>
+  </div>
+
+</div>
+
+<style>
+/* ── HERO ───────────────────────────────────────────────────── */
+.dm-page {
+  max-width: var(--max-width-content, 860px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1A1612);
+}
+.dm-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-hero--slim { padding: 2.5rem 0 1.8rem; }
+.dm-hero-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--color-ink, #1A1612);
+  margin: 0 0 0.8rem;
+}
+.dm-hero-statement--sm { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+.dm-hero-sub {
+  font-size: 1rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  line-height: 1.7;
+  margin: 0 0 1.1rem;
+}
+
+/* ── BADGES ─────────────────────────────────────────────────── */
+.dm-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.dm-badge {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-success, #2D6A4F);
+  border: 1px solid var(--color-success, #2D6A4F);
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+.dm-badge--muted {
+  color: var(--color-ink-faint, #6B5E54);
+  border-color: var(--color-rule, #DDD5C4);
+}
+
+/* ── SECTIONS ───────────────────────────────────────────────── */
+.dm-section { padding: 2.5rem 0; border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+.dm-section--tight { padding: 1.6rem 0; }
+.dm-section:last-of-type { border-bottom: none; }
+.dm-section-eyebrow {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0 0 0.4rem;
+}
+.dm-section-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
+}
+.dm-section-intro {
+  font-size: 0.95rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  line-height: 1.6;
+}
+
+/* ── STATS BAR ──────────────────────────────────────────────── */
+.dm-stats-bar {
+  display: flex;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.dm-stat {
+  flex: 1;
+  min-width: 110px;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.dm-stat:last-child { border-right: none; }
+.dm-stat-n {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-rust, #9B4A2C);
+  line-height: 1;
+}
+.dm-stat-l {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  text-align: center;
+}
+.dm-stats-caption {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin: 0.6rem 0 0;
+  text-align: center;
+}
+
+/* ── ABOUT TEXT ─────────────────────────────────────────────── */
+.dm-about-text p {
+  font-size: 0.96rem;
+  color: var(--color-ink-mid, #3D342C);
+  max-width: 620px;
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+.dm-about-text p:last-child { margin-bottom: 0; }
+.dm-about-text em { font-style: italic; }
+
+/* ── DETAILS / FURTHER READING ──────────────────────────────── */
+.dm-details {
+  margin-top: 1.3rem;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  padding-top: 1rem;
+}
+.dm-details-summary {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.dm-details-summary::-webkit-details-marker { display: none; }
+.dm-details-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast, 0.15s ease);
+  font-size: 0.7rem;
+}
+.dm-details[open] .dm-details-arrow { transform: rotate(90deg); }
+.dm-details-body { padding-top: 1rem; }
+.dm-details-intro {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin: 0 0 1rem;
+  max-width: 580px;
+  line-height: 1.6;
+}
+.dm-details-links {
+  font-size: 0.82rem;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 1rem;
+}
+.dm-details-links a { color: var(--color-rust, #9B4A2C); text-underline-offset: 3px; }
+
+/* ── PUBLICATIONS LIST (reused pattern) ─────────────────────── */
+.dm-pub-list { list-style: none; padding: 0; margin: 0; }
+.dm-pub-list li {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.dm-pub-list li:first-child { border-top: none; }
+.dm-pub-year {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  color: var(--color-ink-faint, #6B5E54);
+  flex-shrink: 0;
+  width: 2.6rem;
+}
+.dm-pub-entry {
+  font-size: 0.85rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.55;
+}
+.dm-pub-entry a { color: var(--color-ink, #1A1612); text-underline-offset: 3px; }
+.dm-pub-entry a:hover { color: var(--color-rust, #9B4A2C); }
+
+/* ── LAYER TOGGLES ──────────────────────────────────────────── */
+.dm-layer-toggles {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.dm-layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 3px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast, 0.15s ease),
+              background var(--transition-fast, 0.15s ease);
+}
+.dm-layer-toggle:hover {
+  border-color: var(--color-rust-dim, #C47A5A);
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-layer-toggle input[type="checkbox"] {
+  accent-color: var(--color-rust, #9B4A2C);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.dm-layer-text { display: flex; flex-direction: column; gap: 0.05rem; }
+.dm-layer-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+}
+.dm-layer-sub {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+}
+
+/* ── MAP CARD ───────────────────────────────────────────────── */
+.dm-map-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1.2rem;
+  background: var(--color-paper-mid, #EDE8DF);
+}
+.dm-map-card #Map {
+  width: 100%;
+  margin-left: 0;
+  border-radius: 2px;
+}
+.dm-map-caption {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint, #6B5E54);
+  font-style: italic;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+/* ── CHART CARDS ────────────────────────────────────────────── */
+.dm-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.dm-chart-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+.dm-chart-label {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-bottom: 0.6rem;
+}
+.dm-chart-card canvas { flex: 1; max-width: 100%; max-height: 100%; }
+
+/* ── BACK LINK ──────────────────────────────────────────────── */
+.dm-back-link { padding-top: 2rem; }
+.dm-cta {
+  display: inline-block;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast, 0.15s ease),
+              border-color var(--transition-fast, 0.15s ease);
+}
+.dm-cta:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+/* ── COMPARISON SCHEME GRID ─────────────────────────────────── */
+.dm-scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.dm-scheme-card {
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 4px;
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.dm-scheme-card--live {
+  border-color: var(--color-rust-dim, #C47A5A);
+  background: #FBF8F4;
+}
+
+.dm-scheme-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.dm-scheme-flag { font-size: 1.4rem; flex-shrink: 0; }
+
+.dm-scheme-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink, #1A1612);
+  line-height: 1.2;
+}
+
+.dm-scheme-org {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint, #6B5E54);
+  margin-top: 0.1rem;
+  line-height: 1.4;
+}
+
+.dm-scheme-badge {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  border: 1px solid var(--color-rule, #DDD5C4);
+  border-radius: 2px;
+  padding: 1px 5px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.dm-scheme-badge--live {
+  color: var(--color-success, #2D6A4F);
+  border-color: var(--color-success, #2D6A4F);
+}
+
+.dm-scheme-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-rule, #DDD5C4);
+  border-bottom: 1px solid var(--color-rule, #DDD5C4);
+}
+
+.dm-scheme-n {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-rust, #9B4A2C);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dm-scheme-l {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint, #6B5E54);
+  line-height: 1.5;
+}
+
+.dm-scheme-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.dm-scheme-facts li {
+  font-size: 0.8rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.65;
+  padding: 0.1rem 0;
+  padding-left: 0.8rem;
+  position: relative;
+}
+
+.dm-scheme-facts li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-rust-dim, #C47A5A);
+}
+
+.dm-scheme-link {
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-rust, #9B4A2C);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rust-dim, #C47A5A);
+  padding-bottom: 1px;
+  align-self: flex-start;
+  margin-top: auto;
+}
+.dm-scheme-link:hover { color: var(--color-ink, #1A1612); border-color: var(--color-ink, #1A1612); }
+
+.dm-comparison-note {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  background: var(--color-paper-mid, #EDE8DF);
+  border-left: 3px solid var(--color-rust-dim, #C47A5A);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.85rem;
+  color: var(--color-ink-mid, #3D342C);
+  line-height: 1.7;
+  max-width: 680px;
+}
+.dm-comparison-note strong { color: var(--color-ink, #1A1612); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-chart-grid  { grid-template-columns: 1fr; }
+  .dm-scheme-grid { grid-template-columns: 1fr; }
+  .dm-stat { min-width: calc(33% - 1px); border-bottom: 1px solid var(--color-rule, #DDD5C4); }
+}
+</style>
+
+<script src="/assets/js/map.js"></script>
+<script src="/assets/js/pas_project.js" async defer></script>
+    </div>
+
+    <!-- Load main.js synchronously so menuFnc() is available for onclick -->
+    <script src="/assets/js/main.js"></script>
+    <footer class="dm-footer h-card">
+  <div class="dm-footer-inner">
+    <!-- Col 1: Identity -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-name p-name">J. E. de Medeiros</div>
+      <div class="dm-footer-tagline">
+        Archaeologist &amp; writer.<br>
+        Freiburg im Breisgau, Germany.
+      </div>
+      <a class="dm-footer-email u-email"
+         href="mailto:post@de-medeiros.com">
+        post@de-medeiros.com
+      </a>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Pages</div>
+      <ul class="dm-footer-nav">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/publications.html">Publications</a>
+        </li>
+        
+        <li>
+          <a href="/cv.html">CV</a>
+        </li>
+        
+        <li>
+          <a href="/projects.html">Projects</a>
+        </li>
+        
+        <li>
+          <a href="/blog.html">Blog</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Col 3: Social -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Elsewhere</div>
+      <div id="social-media" class="dm-social">
+  
+  <a href="https://github.com/jemedeiros"
+     title="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-github-square"></i>
+    <span class="dm-social-label">GitHub</span>
+  </a>
+  
+  <a href="https://de.linkedin.com/in/imdemedeiros"
+     title="Linkedin"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-linkedin"></i>
+    <span class="dm-social-label">Linkedin</span>
+  </a>
+  
+  <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros"
+     title="academia"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-solid fa-graduation-cap"></i>
+    <span class="dm-social-label">academia</span>
+  </a>
+  
+  <a href="https://www.instagram.com/imdemedeiros"
+     title="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-instagram"></i>
+    <span class="dm-social-label">Instagram</span>
+  </a>
+  
+  <a href="https://www.bsky.app/profile/imdemedeiros.bsky.social"
+     title="BlueSky"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-bluesky"></i>
+    <span class="dm-social-label">BlueSky</span>
+  </a>
+  
+</div>
+
+<style>
+.dm-social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dm-social--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.dm-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #A8935A;
+  text-decoration: none;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  transition: color 0.15s ease;
+}
+.dm-social a:hover { color: #E8D5A3; }
+
+.dm-social a i {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Hide text labels in horizontal compact mode */
+.dm-social--horizontal .dm-social-label { display: none; }
+
+/* In footer the label shows via parent ::after — keep label hidden there too */
+#social-media.dm-social a .dm-social-label { display: none; }
+</style>
+    </div>
+
+  </div>
+
+  <div class="dm-footer-bottom">
+    <span>
+      &copy; 2025 José Eduardo M. de Medeiros.
+      Built with Jekyll &amp; GitHub Pages.
+    </span>
+    <span class="dm-footer-bottom-links">
+      <a href="/publications.html">Publications</a>
+      &nbsp;·&nbsp;
+      <a href="/projects.html">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="/archaeosweeper.html">Archaeosweeper</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.dm-footer {
+  background: var(--color-ink, #1A1612);
+  color: #A8935A;
+  border-top: 1px solid #2D2520;
+  margin-top: 3rem;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+}
+
+.dm-footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2rem;
+}
+
+/* ── COL 1 ──────────────────────────────────────────────────── */
+.dm-footer-name {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #E8D5A3;
+  margin-bottom: 0.4rem;
+}
+
+.dm-footer-tagline {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #6B5E54;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.dm-footer-email {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #C8873A;
+  text-decoration: none;
+  border-bottom: 1px solid #4A3218;
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dm-footer-email:hover { color: #E8D5A3; border-color: #C8873A; }
+
+/* ── COL LABELS ─────────────────────────────────────────────── */
+.dm-footer-col-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4A3218;
+  margin-bottom: 0.75rem;
+}
+
+/* ── COL 2: NAV ─────────────────────────────────────────────── */
+.dm-footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dm-footer-nav a {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: #A8935A;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.dm-footer-nav a:hover { color: #E8D5A3; }
+
+/* ── COL 3: SOCIAL ──────────────────────────────────────────── */
+/* social.html renders .dm-social — override for dark footer context */
+.dm-footer-col #social-media a {
+  color: #A8935A;
+}
+.dm-footer-col #social-media a:hover { color: #E8D5A3; }
+
+/* Show labels in footer vertical mode */
+.dm-footer-col #social-media .dm-social-label {
+  display: inline;
+  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: #6B5E54;
+}
+.dm-footer-col #social-media a:hover .dm-social-label { color: #A8935A; }
+
+/* ── BOTTOM BAR ─────────────────────────────────────────────── */
+.dm-footer-bottom {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  border-top: 1px solid #2D2520;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: #4A3218;
+}
+
+.dm-footer-bottom-links a {
+  color: #6B5E54;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.dm-footer-bottom-links a:hover { color: #A8935A; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media screen and (max-width: 640px) {
+  .dm-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.2rem 1.5rem;
+  }
+  .dm-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  #social-media { flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+  </body>
+</html>
