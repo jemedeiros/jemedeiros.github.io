@@ -4,11 +4,11 @@
   <body>
     {% include navigation.html %}
 
-    <div class="content">
-      {{ content }}
-    </div>
+    {{ content }}
+    {% if page.show_linktiles %}
+      {% include linktiles.html %}
+    {% endif %}
 
-    <!-- Load main.js synchronously so menuFnc() is available for onclick -->
     <script src="/assets/js/main.js"></script>
     {% include footer.html %}
   </body>

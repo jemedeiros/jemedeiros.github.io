@@ -102,123 +102,38 @@
     
   </div>
 
-  <button class="dm-nav-toggle" onclick="menuFnc()" aria-label="Toggle navigation">
+  <button class="dm-nav-toggle"
+          onclick="(function(){var l=document.getElementById('dm-nav-links');if(l)l.classList.toggle('dm-nav-open');})()"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          id="dm-nav-toggle">
     <i class="fa fa-bars"></i>
   </button>
 </nav>
 
-<style>
-/* ── NAV ────────────────────────────────────────────────────── */
-.dm-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--color-ink, #1A1612);
-  padding: 0 1.5rem;
-  position: sticky;
-  top: 0;
-  z-index: var(--z-raised, 10);
-  border-bottom: 1px solid #2D2520;
-}
+<script>
+// Inline — guaranteed available before any external scripts load
+(function () {
+  var toggle = document.getElementById('dm-nav-toggle');
+  var links  = document.getElementById('dm-nav-links');
+  if (!toggle || !links) return;
 
-.dm-nav-brand {
-  text-decoration: none;
-  padding: 0.85rem 0;
-  flex-shrink: 0;
-}
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('dm-nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
 
-.dm-nav-brand-name {
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #C8873A;
-}
+  // Close nav when a link is tapped on mobile
+  links.querySelectorAll('.dm-nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('dm-nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
-.dm-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-
-.dm-nav-link {
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #A8935A;
-  text-decoration: none;
-  padding: 1rem 0.9rem;
-  display: block;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  white-space: nowrap;
-}
-
-.dm-nav-link:hover {
-  color: #E8D5A3;
-  border-bottom-color: #C8873A;
-}
-
-.dm-nav-link--active {
-  color: #E8D5A3;
-  border-bottom-color: #C8873A;
-}
-
-/* ── HAMBURGER ──────────────────────────────────────────────── */
-.dm-nav-toggle {
-  display: none;
-  background: transparent;
-  border: 1px solid #4A3218;
-  color: #A8935A;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-.dm-nav-toggle:hover { border-color: #C8873A; color: #E8D5A3; }
-
-/* ── RESPONSIVE ─────────────────────────────────────────────── */
-@media screen and (max-width: 640px) {
-  .dm-nav { flex-wrap: wrap; padding: 0 1rem; }
-  .dm-nav-brand { padding: 0.75rem 0; }
-  .dm-nav-toggle { display: block; margin: 0.5rem 0; }
-
-  .dm-nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    border-top: 1px solid #2D2520;
-    padding: 0.5rem 0 0.75rem;
-    gap: 0;
-  }
-
-  .dm-nav-links.dm-nav-open { display: flex; }
-
-  .dm-nav-link {
-    width: 100%;
-    padding: 0.6rem 0;
-    border-bottom: none;
-    border-left: 2px solid transparent;
-    padding-left: 0.75rem;
-  }
-
-  .dm-nav-link:hover,
-  .dm-nav-link--active {
-    border-bottom: none;
-    border-left-color: #C8873A;
-  }
-}
-
-@media screen and (min-width: 641px) {
-  .dm-nav-links { display: flex !important; }
-}
-</style>
-
-    <div class="content">
-      <div id="archives">
+    <div id="archives">
   <!-- Display Tags -->
   <h2> Search post by tags </h2>
   
@@ -575,7 +490,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -591,7 +506,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -607,7 +522,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -623,7 +538,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -639,7 +554,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -655,7 +570,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -671,7 +586,7 @@
         
           <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
-          <li><a href="/it/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
+          <li><a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a></li>
         
       </ul>
     </div>
@@ -684,6 +599,18 @@
       <ul>
         
           <li><a href="/surfskate/2024/11/23/Freeze.html">Freeze</a></li>
+        
+      </ul>
+    </div>
+  
+    <div class="archive-group">
+      
+      <div id="Verwaltung"></div>
+      <h3 class="tag-head">Verwaltung</h3>
+      <!-- Add links to individual posts with this tag -->
+      <ul>
+        
+          <li><a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a></li>
         
       </ul>
     </div>
@@ -718,6 +645,8 @@
       <h3 class="tag-head">GünterDux</h3>
       <!-- Add links to individual posts with this tag -->
       <ul>
+        
+          <li><a href="/notes/2026/08/15/Naturalisation.html">Naturalisation</a></li>
         
           <li><a href="/notes/2026/05/09/Note-on-g%C3%BCnter-dux.html">Note on Günter Dux</a></li>
         
@@ -799,12 +728,13 @@
     </div>
   
   </div>
-    </div>
+    
 
-    <!-- Load main.js synchronously so menuFnc() is available for onclick -->
     <script src="/assets/js/main.js"></script>
     <footer class="dm-footer h-card">
+
   <div class="dm-footer-inner">
+
     <!-- Col 1: Identity -->
     <div class="dm-footer-col">
       <div class="dm-footer-name p-name">J. E. de Medeiros</div>
@@ -892,45 +822,6 @@
   </a>
   
 </div>
-
-<style>
-.dm-social {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.dm-social--horizontal {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.dm-social a {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #A8935A;
-  text-decoration: none;
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  transition: color 0.15s ease;
-}
-.dm-social a:hover { color: #E8D5A3; }
-
-.dm-social a i {
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
-/* Hide text labels in horizontal compact mode */
-.dm-social--horizontal .dm-social-label { display: none; }
-
-/* In footer the label shows via parent ::after — keep label hidden there too */
-#social-media.dm-social a .dm-social-label { display: none; }
-</style>
     </div>
 
   </div>
@@ -949,136 +840,5 @@
     </span>
   </div>
 </footer>
-
-<style>
-/* ── FOOTER ─────────────────────────────────────────────────── */
-.dm-footer {
-  background: var(--color-ink, #1A1612);
-  color: #A8935A;
-  border-top: 1px solid #2D2520;
-  margin-top: 3rem;
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-}
-
-.dm-footer-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem 2rem;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 2rem;
-}
-
-/* ── COL 1 ──────────────────────────────────────────────────── */
-.dm-footer-name {
-  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-  font-size: 1rem;
-  font-weight: 700;
-  color: #E8D5A3;
-  margin-bottom: 0.4rem;
-}
-
-.dm-footer-tagline {
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  color: #6B5E54;
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-
-.dm-footer-email {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: #C8873A;
-  text-decoration: none;
-  border-bottom: 1px solid #4A3218;
-  padding-bottom: 1px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-.dm-footer-email:hover { color: #E8D5A3; border-color: #C8873A; }
-
-/* ── COL LABELS ─────────────────────────────────────────────── */
-.dm-footer-col-label {
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #4A3218;
-  margin-bottom: 0.75rem;
-}
-
-/* ── COL 2: NAV ─────────────────────────────────────────────── */
-.dm-footer-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.dm-footer-nav a {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  color: #A8935A;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-.dm-footer-nav a:hover { color: #E8D5A3; }
-
-/* ── COL 3: SOCIAL ──────────────────────────────────────────── */
-/* social.html renders .dm-social — override for dark footer context */
-.dm-footer-col #social-media a {
-  color: #A8935A;
-}
-.dm-footer-col #social-media a:hover { color: #E8D5A3; }
-
-/* Show labels in footer vertical mode */
-.dm-footer-col #social-media .dm-social-label {
-  display: inline;
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  color: #6B5E54;
-}
-.dm-footer-col #social-media a:hover .dm-social-label { color: #A8935A; }
-
-/* ── BOTTOM BAR ─────────────────────────────────────────────── */
-.dm-footer-bottom {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0.9rem 1.5rem;
-  border-top: 1px solid #2D2520;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  color: #4A3218;
-}
-
-.dm-footer-bottom-links a {
-  color: #6B5E54;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-.dm-footer-bottom-links a:hover { color: #A8935A; }
-
-/* ── RESPONSIVE ─────────────────────────────────────────────── */
-@media screen and (max-width: 640px) {
-  .dm-footer-inner {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem 1.2rem 1.5rem;
-  }
-  .dm-footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-  #social-media { flex-direction: row; flex-wrap: wrap; }
-}
-</style>
   </body>
 </html>

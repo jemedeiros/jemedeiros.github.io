@@ -5,7 +5,6 @@ download: false
 excerpt_separator: <!--more-->
 categories: Surfskate
 tags: Surf Vacation Rio Socialmedia Instagram Goals Objectives
-
 ---
 
 *Images follow below*

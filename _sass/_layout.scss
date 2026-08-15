@@ -1,0 +1,268 @@
+// =============================================================================
+// _layout.scss
+// Structural layout patterns shared across all pages.
+// =============================================================================
+
+// ── PAGE WRAPPER ──────────────────────────────────────────────
+.dm-page {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--space-6) 4rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: var(--leading-normal);
+  color: $color-ink;
+}
+
+// ── HERO ──────────────────────────────────────────────────────
+.dm-hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid $color-rule;
+
+  &--slim { padding: 2.5rem 0 1.8rem; }
+}
+
+.dm-hero-eyebrow {
+  @include eyebrow;
+  margin: 0 0 1.2rem;
+}
+
+.dm-hero-statement {
+  @include display-heading;
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  max-width: var(--max-width-content);
+  margin: 0 0 1.4rem;
+
+  em {
+    font-style: italic;
+    color: $color-rust;
+  }
+
+  &--sm { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+}
+
+.dm-hero-sub {
+  font-size: var(--text-base);
+  color: $color-ink-mid;
+  max-width: 560px;
+  line-height: var(--leading-loose);
+  margin: 0 0 1.5rem;
+}
+
+.dm-hero-portrait {
+  float: right;
+  margin: 0 0 1.5rem 2.5rem;
+
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid $color-rule;
+  }
+}
+
+// ── SECTION ───────────────────────────────────────────────────
+.dm-section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid $color-rule;
+
+  &:last-child,
+  &:last-of-type { border-bottom: none; }
+
+  &--tight  { padding: 1.6rem 0; }
+  &--flush  { padding-top: 2rem; }
+
+  // Modifier for note/aside sections
+  &--note {
+    .dm-section-intro {
+      font-style: italic;
+      color: $color-ink-faint;
+
+      a { color: $color-rust; }
+    }
+  }
+}
+
+.dm-section-eyebrow {
+  @include eyebrow;
+  margin: 0 0 0.5rem;
+}
+
+.dm-section-title {
+  @include display-heading;
+  font-size: var(--text-xl);
+  margin: 0 0 0.8rem;
+}
+
+.dm-section-intro {
+  font-size: 0.98rem;
+  color: $color-ink-mid;
+  max-width: 580px;
+  margin: 0 0 1.2rem;
+  line-height: var(--leading-normal);
+}
+
+// ── CTA LINK ──────────────────────────────────────────────────
+.dm-cta {
+  @include cta-link;
+
+  &--print {
+    color: $color-ink-faint;
+    border-color: $color-rule;
+
+    &:hover {
+      color: $color-ink;
+      border-color: $color-ink;
+    }
+  }
+}
+
+// ── BACK LINK ─────────────────────────────────────────────────
+.dm-back-link {
+  padding-top: var(--space-8);
+}
+
+// ── BADGES ────────────────────────────────────────────────────
+.dm-badge-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dm-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-success;
+  border: 1px solid $color-success;
+  border-radius: var(--radius-sm);
+  padding: 2px 7px;
+
+  &--muted {
+    color: $color-ink-faint;
+    border-color: $color-rule;
+  }
+}
+
+// ── STATS BAR ─────────────────────────────────────────────────
+.dm-stats-bar {
+  display: flex;
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.dm-stat {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid $color-rule;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+
+  &:last-child { border-right: none; }
+}
+
+.dm-stat-n {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: $color-rust;
+  line-height: 1;
+}
+
+.dm-stat-l {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  text-align: center;
+}
+
+.dm-stats-caption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: $color-ink-faint;
+  margin: 0.6rem 0 0;
+  text-align: center;
+}
+
+// ── IDENTITY STRIPS (homepage) ────────────────────────────────
+.dm-strips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  clear: both;
+}
+
+.dm-strip {
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  border-right: 1px solid $color-rule;
+  transition: background var(--transition-fast);
+  display: block;
+
+  &:last-child { border-right: none; }
+  &:hover      { background: $color-paper-mid; }
+}
+
+.dm-strip-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-rust;
+  margin-bottom: 0.25rem;
+}
+
+.dm-strip-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $color-ink;
+  line-height: var(--leading-snug);
+}
+
+.dm-strip-hint {
+  font-size: 0.78rem;
+  color: $color-ink-faint;
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+
+// ── RESPONSIVE ────────────────────────────────────────────────
+@include below($bp-md) {
+  .dm-hero-portrait {
+    float: none;
+    margin: 0 0 1.5rem;
+
+    img { width: 90px; height: 90px; }
+  }
+
+  .dm-strips {
+    grid-template-columns: 1fr;
+  }
+
+  .dm-strip {
+    border-right: none;
+    border-bottom: 1px solid $color-rule;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  .dm-stat {
+    min-width: calc(33% - 1px);
+    border-bottom: 1px solid $color-rule;
+  }
+}

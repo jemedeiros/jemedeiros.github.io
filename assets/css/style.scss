@@ -1,4 +1,27 @@
 ---
 ---
+// =============================================================================
+// assets/css/style.scss
+// Master stylesheet for de-medeiros.com
+//
+// IMPORT ORDER MATTERS:
+//   1. _tokens   — variables and mixins (no output, must come first)
+//   2. _base     — reset and global element defaults
+//   3. _layout   — page structure, hero, sections, shared patterns
+//   4. _components — all .dm-* reusable components
+//   5. _nav      — navigation bar and footer
+//   6. _pas      — PAS monitor page specifics
+//   7. _game     — Archaeosweeper landing page specifics
+//
+// TO CHANGE THE COLOUR PALETTE:
+//   Edit the values at the top of _sass/_tokens.scss only.
+//   Everything else updates automatically.
+// =============================================================================
+
 @import "tokens";
-@import "main";
+@import "base";
+@import "layout";
+@import "components";
+@import "nav";
+@import "pas";
+@import "game";

@@ -1,0 +1,102 @@
+// =============================================================================
+// _base.scss
+// Global reset, body defaults, and base typography.
+// Replaces the old main.scss body/h1/h2/h3/p rules.
+// =============================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-paper;
+  color: $color-ink;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ── HEADINGS ──────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: $color-ink;
+}
+
+// ── BODY COPY ──────────────────────────────────────────────────
+p {
+  line-height: var(--leading-normal);
+}
+
+// ── LINKS ──────────────────────────────────────────────────────
+a {
+  color: $color-rust;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+
+  &:visited { color: $color-rust; }
+  &:hover   { color: $color-ink; }
+}
+
+// ── IMAGES ─────────────────────────────────────────────────────
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ── LISTS ──────────────────────────────────────────────────────
+ul, ol {
+  padding-left: 1.4em;
+}
+
+li {
+  line-height: var(--leading-normal);
+}
+
+// ── CODE ───────────────────────────────────────────────────────
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+// ── HR ─────────────────────────────────────────────────────────
+hr {
+  border: none;
+  border-top: 1px solid $color-rule;
+  margin: var(--space-8) 0;
+}
+
+// ── CONTENT WRAPPER ────────────────────────────────────────────
+// The Jekyll default layout wraps page content in .content
+// This ensures it doesn't fight with the new .dm-page layout
+.content {
+  // Remove old box-shadow and background from the legacy wrapper
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+// Leaflet bar links — prevent the base link hover from interfering
+.leaflet-touch .leaflet-bar a,
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  margin-left: unset;
+  text-decoration: none;
+  color: inherit;
+}

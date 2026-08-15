@@ -1,0 +1,217 @@
+// =============================================================================
+// _pas.scss
+// Components specific to the PAS Schemes Monitor page (pasproject.html).
+// =============================================================================
+
+
+// ── MAP CARD ──────────────────────────────────────────────────
+.dm-map-card {
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  background: $color-paper-mid;
+
+  #Map {
+    width: 100%;
+    height: 500px;
+    margin-left: 0;
+    border-radius: var(--radius-sm);
+    z-index: 1;
+  }
+}
+
+.dm-map-caption {
+  font-size: 0.78rem;
+  color: $color-ink-faint;
+  font-style: italic;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+
+// ── CHART CARDS ───────────────────────────────────────────────
+.dm-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.dm-chart-card {
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+
+  &--county      { min-height: 400px; }
+  &--objecttype  { min-height: 300px; }
+
+  canvas { width: 100% !important; }
+}
+
+.dm-chart-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  margin-bottom: 0.6rem;
+  flex-shrink: 0;
+}
+
+
+// ── SCHEME COMPARISON GRID ────────────────────────────────────
+.dm-scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.dm-scheme-card {
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+
+  &--live {
+    border-color: $color-rust-dim;
+    background: lighten($color-paper, 2%);
+  }
+}
+
+.dm-scheme-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.dm-scheme-flag { font-size: 1.4rem; flex-shrink: 0; }
+
+.dm-scheme-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: $color-ink;
+  line-height: var(--leading-tight);
+}
+
+.dm-scheme-org {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: $color-ink-faint;
+  margin-top: 0.1rem;
+  line-height: var(--leading-snug);
+}
+
+.dm-scheme-badge {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-sm);
+  padding: 1px 5px;
+  margin-left: auto;
+  white-space: nowrap;
+
+  &--live {
+    color: $color-success;
+    border-color: $color-success;
+  }
+}
+
+.dm-scheme-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid $color-rule;
+  border-bottom: 1px solid $color-rule;
+}
+
+.dm-scheme-n {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: $color-rust;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dm-scheme-l {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  line-height: var(--leading-snug);
+}
+
+.dm-scheme-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+
+  li {
+    font-size: 0.8rem;
+    color: $color-ink-mid;
+    line-height: var(--leading-normal);
+    padding: 0.1rem 0 0.1rem 0.8rem;
+    position: relative;
+    border-top: none;
+
+    &::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: $color-rust-dim;
+    }
+  }
+}
+
+.dm-scheme-link {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-rust;
+  text-decoration: none;
+  border-bottom: 1px solid $color-rust-dim;
+  padding-bottom: 1px;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover { color: $color-ink; border-color: $color-ink; }
+}
+
+.dm-comparison-note {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  background: $color-paper-mid;
+  border-left: 3px solid $color-rust-dim;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: $color-ink-mid;
+  line-height: var(--leading-loose);
+  max-width: 680px;
+
+  strong { color: $color-ink; }
+}
+
+
+// ── RESPONSIVE ────────────────────────────────────────────────
+@include below($bp-md) {
+  .dm-chart-grid  { grid-template-columns: 1fr; }
+  .dm-scheme-grid { grid-template-columns: 1fr; }
+
+  .dm-map-card #Map { height: 320px; }
+}

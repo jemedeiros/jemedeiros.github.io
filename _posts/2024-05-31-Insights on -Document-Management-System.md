@@ -3,7 +3,7 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: IT 
+categories: Digitalisierung
 tags: LinkedIn Work DMS Digitalisierung Documentmanagementsystem Digitalisierungindeutschland Digitalisierunginderverwaltung
 ---
 

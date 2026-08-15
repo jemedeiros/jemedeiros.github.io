@@ -1,0 +1,305 @@
+// =============================================================================
+// _nav.scss
+// Navigation bar and footer.
+// =============================================================================
+
+
+// ── NAVIGATION ────────────────────────────────────────────────
+.dm-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $color-paper;
+  padding: 0 var(--space-6);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-raised);
+  border-bottom: 1px solid $color-rule;
+  box-shadow: 0 1px 4px rgba(26, 22, 18, 0.06);
+}
+
+.dm-nav-brand {
+  text-decoration: none;
+  padding: 0.85rem 0;
+  flex-shrink: 0;
+}
+
+.dm-nav-brand-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: $color-rust;
+}
+
+.dm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dm-nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  text-decoration: none;
+  padding: 1rem 0.9rem;
+  display: block;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+
+  &:hover {
+    color: $color-ink;
+    border-bottom-color: $color-rust;
+  }
+
+  &--active {
+    color: $color-ink;
+    border-bottom-color: $color-rust;
+  }
+}
+
+.dm-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid $color-rule;
+  color: $color-ink-faint;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+
+  &:hover {
+    border-color: $color-rust;
+    color: $color-rust;
+  }
+}
+
+
+// ── FOOTER ────────────────────────────────────────────────────
+.dm-footer {
+  background: $color-dark-bg;
+  color: $color-dark-accent;
+  border-top: 1px solid $color-dark-mid;
+  margin-top: var(--space-12);
+  font-family: var(--font-mono);
+}
+
+.dm-footer-inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-6) var(--space-8);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.dm-footer-col { display: flex; flex-direction: column; gap: 0; }
+
+.dm-footer-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: $color-dark-text;
+  margin-bottom: 0.4rem;
+}
+
+.dm-footer-tagline {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: $color-ink-faint;
+  line-height: var(--leading-loose);
+  margin-bottom: 0.75rem;
+}
+
+.dm-footer-email {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #C8873A;
+  text-decoration: none;
+  border-bottom: 1px solid $color-dark-mid;
+  padding-bottom: 1px;
+  align-self: flex-start;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover { color: $color-dark-text; border-color: #C8873A; }
+}
+
+.dm-footer-col-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-dark-mid;
+  margin-bottom: 0.75rem;
+  // Override default dark mid to be more visible
+  color: #4A3218;
+}
+
+.dm-footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: $color-dark-accent;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+
+    &:hover { color: $color-dark-text; }
+  }
+}
+
+// Social icons in footer context
+.dm-footer-col {
+  #social-media,
+  .dm-social {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    a {
+      color: $color-dark-accent;
+
+      &:hover { color: $color-dark-text; }
+    }
+
+    .dm-social-label {
+      display: inline;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: $color-ink-faint;
+    }
+
+    a:hover .dm-social-label { color: $color-dark-accent; }
+  }
+}
+
+.dm-footer-bottom {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0.9rem var(--space-6);
+  border-top: 1px solid $color-dark-mid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: #4A3218;
+}
+
+.dm-footer-bottom-links {
+  a {
+    color: $color-ink-faint;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+
+    &:hover { color: $color-dark-accent; }
+  }
+}
+
+
+// ── SOCIAL COMPONENT ──────────────────────────────────────────
+.dm-social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+
+    .dm-social-label { display: none; }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: $color-dark-accent;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    transition: color var(--transition-fast);
+
+    &:hover { color: $color-dark-text; }
+
+    i { font-size: 1rem; flex-shrink: 0; }
+  }
+}
+
+// When social appears inline on a light page (homepage)
+.dm-social--light {
+  a { color: $color-rust; &:hover { color: $color-ink; } }
+}
+
+
+// ── RESPONSIVE ────────────────────────────────────────────────
+@include below($bp-md) {
+  .dm-nav {
+    flex-wrap: wrap;
+    padding: 0 var(--space-4);
+  }
+
+  .dm-nav-brand { padding: 0.75rem 0; }
+
+  .dm-nav-toggle { display: block; margin: 0.5rem 0; }
+
+  .dm-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border-top: 1px solid $color-rule;
+    padding: 0.5rem 0 0.75rem;
+    gap: 0;
+    background: $color-paper;
+
+    &.dm-nav-open { display: flex; }
+  }
+
+  .dm-nav-link {
+    width: 100%;
+    padding: 0.6rem 0;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+
+    &:hover,
+    &--active {
+      border-bottom: none;
+      border-left-color: $color-rust;
+    }
+  }
+
+  .dm-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  .dm-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .dm-social--horizontal { flex-direction: row; flex-wrap: wrap; }
+}
+
+@include above($bp-md) {
+  .dm-nav-links { display: flex !important; }
+}

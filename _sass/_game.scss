@@ -1,0 +1,160 @@
+// =============================================================================
+// _game.scss
+// Archaeosweeper landing page — light-side wrapper styles.
+// The dark game core (.as-game-wrapper) stays inline in archaeosweeper.html
+// because it's intentionally scoped to avoid conflicting with the site palette.
+// =============================================================================
+
+
+// ── PAGE INTRO (paper palette) ────────────────────────────────
+.as-intro {
+  background: $color-paper;
+  border-bottom: 3px solid $color-ink;
+  padding: var(--space-10) var(--space-6) var(--space-8);
+}
+
+.as-intro-inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.as-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: $color-ink-faint;
+  margin-bottom: 0.8rem;
+}
+
+.as-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #C8873A;
+  line-height: var(--leading-tight);
+  margin-bottom: 0.8rem;
+}
+
+.as-version {
+  font-size: 0.45em;
+  letter-spacing: 0.15em;
+  color: $color-ink-faint;
+  vertical-align: middle;
+}
+
+.as-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: $color-ink-mid;
+  max-width: 560px;
+  line-height: var(--leading-loose);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.as-meta-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.as-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C8873A;
+  border: 1px solid $color-rust-dim;
+  border-radius: var(--radius-sm);
+  padding: 2px 7px;
+}
+
+
+// ── PWA INSTALL (paper palette) ───────────────────────────────
+.as-install {
+  background: $color-paper;
+  border-top: 3px solid $color-ink;
+  padding: var(--space-10) var(--space-6);
+}
+
+.as-install-inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.as-install-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: $color-ink;
+  margin: 0.4rem 0 0.6rem;
+  line-height: var(--leading-snug);
+}
+
+.as-install-sub {
+  font-size: 0.95rem;
+  color: $color-ink-mid;
+  max-width: 520px;
+  line-height: var(--leading-normal);
+  margin-bottom: 1.5rem;
+}
+
+.as-install-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.as-install-card {
+  border: 1px solid $color-rule;
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.2rem;
+}
+
+.as-install-platform {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-rust;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.as-install-steps {
+  padding-left: 1.2rem;
+  margin: 0 0 0.6rem;
+
+  li {
+    font-size: 0.85rem;
+    color: $color-ink-mid;
+    line-height: var(--leading-normal);
+    margin-bottom: 0.2rem;
+
+    strong { color: $color-ink; }
+  }
+}
+
+.as-install-note {
+  font-size: 0.75rem;
+  color: $color-ink-faint;
+  font-style: italic;
+  margin: 0;
+}
+
+.as-back {
+  padding: 1.5rem var(--space-6) var(--space-10);
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+// ── RESPONSIVE ────────────────────────────────────────────────
+@include below($bp-md) {
+  .as-install-grid { grid-template-columns: 1fr; }
+}
