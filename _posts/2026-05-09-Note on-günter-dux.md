@@ -33,7 +33,7 @@ Once he said: "You know, me and angels - these are just two things that cannot h
 I could go on recounting these small anecdotes. But what I want to say is simply that Günter and Rosemarie Dux were friends to us. 
 In some way, they gave us something like a family and above all, friendship. 
 
-There was a large party for his ninetieth birthday, attended by scholars and friends. I was not among those invited, but a few days later, when I visited him, he kept repeating: "Why is Herr Medeiros not here...He is my friend." That phrase struck hard. 
+There was a large party for his ninetieth birthday, attended by scholars and friends. I was not among those invited, but a few days later, when I visited him, he kept repeating: "Why was Herr Medeiros not here...He is my friend." That phrase struck hard. 
 
 As the pandemic set in, visits became harder to arrange. At their age we simply could not risk it. We visited again after vaccinations and prior tests. Still, I carry an immense regret for not going more often. 
 
