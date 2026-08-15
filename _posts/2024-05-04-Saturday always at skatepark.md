@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Surfskate
-tags: Morning Skate Skateboard Friendship Friends Skatepark
+categories: Surfskate Skateboard
+tags: Morning Friendship Friends Skatepark
 ---
 
 # Saturday Morning ...at the Skatepark
