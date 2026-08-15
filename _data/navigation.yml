@@ -13,6 +13,3 @@
 - name: Blog
   link: /blog.html
   image: "/assets/images/blog.jpeg"
-- name: Support
-  link: /support.html
-  image: "/assets/images/support.jpeg"
