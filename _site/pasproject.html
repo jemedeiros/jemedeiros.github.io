@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon_pas.ico" type="image/x-icon">
+    
+
+  <!-- Page-specific assets -->
+  
+      <!-- Leaflet 1.9 -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+      <!-- Leaflet.loading control — jsDelivr (replaces dead rawgithub.com) -->
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.css">
+      <!-- Chart.js 4 — replaces v2.9.3 (fixes deprecated horizontalBar / yAxes) -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+      <!-- Plotly v2 fixed version (replaces broken plotly-latest.min.js) -->
+      <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.32.0/plotly.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/ebrelsford/Leaflet.loading@master/src/Control.Loading.js"></script>
+
+    
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>PA Projects | J. E. de Medeiros</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="PA Projects" />
+<meta name="author" content="José Eduardo M. de Medeiros" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<link rel="canonical" href="http://localhost:4000/pasproject.html" />
+<meta property="og:url" content="http://localhost:4000/pasproject.html" />
+<meta property="og:site_name" content="J. E. de Medeiros" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="PA Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"PA Projects","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/pasproject.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
+</head>
+  <body>
+    <nav class="dm-nav" id="myTopnav">
+  <a class="dm-nav-brand" href="/">
+    <span class="dm-nav-brand-name">de Medeiros</span>
+  </a>
+
+  <div class="dm-nav-links" id="dm-nav-links">
+    
+    <a href="/"
+       class="dm-nav-link">
+      Home
+    </a>
+    
+    <a href="/publications.html"
+       class="dm-nav-link">
+      Publications
+    </a>
+    
+    <a href="/cv.html"
+       class="dm-nav-link">
+      CV
+    </a>
+    
+    <a href="/projects.html"
+       class="dm-nav-link">
+      Projects
+    </a>
+    
+    <a href="/blog.html"
+       class="dm-nav-link">
+      Blog
+    </a>
+    
+    <a href="/support.html"
+       class="dm-nav-link">
+      Support
+    </a>
+    
+  </div>
+
+  <button class="dm-nav-toggle"
+          onclick="(function(){var l=document.getElementById('dm-nav-links');if(l)l.classList.toggle('dm-nav-open');})()"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          id="dm-nav-toggle">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<script>
+// Inline — guaranteed available before any external scripts load
+(function () {
+  var toggle = document.getElementById('dm-nav-toggle');
+  var links  = document.getElementById('dm-nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('dm-nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close nav when a link is tapped on mobile
+  links.querySelectorAll('.dm-nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('dm-nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+    <div class="dm-page">
+
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Research tool</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      PAS Schemes Monitor
+    </h1>
+    <p class="dm-hero-sub">
+      Comparing how England, the Netherlands, and Denmark track
+      archaeological finds made by the public — with live data
+      from the Portable Antiquities Scheme.
+    </p>
+    <div class="dm-badge-row">
+      <span class="dm-badge">Live · PAS UK</span>
+      <span class="dm-badge dm-badge--muted">PAN &amp; DIME · boundaries only</span>
+      <span class="dm-badge dm-badge--muted">Updates automatically</span>
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ───────────────────────────────────────────── -->
+  <section class="dm-section dm-section--tight">
+    <div class="dm-stats-bar">
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="total_ba_ea">—</span>
+        <span class="dm-stat-l">Total Records</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ba_nr">—</span>
+        <span class="dm-stat-l">Bronze Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="ea_nr">—</span>
+        <span class="dm-stat-l">Iron Age</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="published_ba_ia">—</span>
+        <span class="dm-stat-l">Published</span>
+      </div>
+      <div class="dm-stat">
+        <span class="dm-stat-n" id="validation_ba_ia">—</span>
+        <span class="dm-stat-l">Awaiting Validation</span>
+      </div>
+    </div>
+    <p class="dm-stats-caption">1300–700 BC · live from finds.org.uk</p>
+  </section>
+
+  <!-- ── ABOUT ───────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">About this project</p>
+    <h2 class="dm-section-title">Comparing how nations track public finds</h2>
+
+    <div class="dm-about-text">
+      <p>
+        Professional archaeology doesn't have a monopoly on finding the past.
+        Across England, Wales, and Northern Ireland, metal detectorists and
+        other members of the public report their discoveries to the
+        <em>Portable Antiquities Scheme</em> (PAS) — a voluntary programme
+        run by the British Museum that, for the first time, gave this activity
+        real numbers. The Netherlands followed with PAN, Denmark with DIME,
+        and Finland with SuALT. This project compares them.
+      </p>
+      <p>
+        Most of what these programmes find never reaches academic archaeology.
+        PAS exists to change that — crowdsourcing find locations and object
+        types into a public database, while keeping exact findspots
+        confidential. It's as much a pedagogical project as a research one,
+        and not without its critics; the Annual Reports and the literature
+        below cover that debate in more depth.
+      </p>
+      <p>
+        I started with PAS data on Late Bronze Age and Early Iron Age finds —
+        the period I worked on for my MA thesis — because I already know the
+        material. The map below shows finds by English county, drawn live
+        from the PAS API. I now have access to PAN's Dutch data as well, but
+        their public interface doesn't yet expose a JSON endpoint I can fetch
+        automatically, so for now their map layer shows administrative
+        boundaries only, without a count overlay. The same is true for DIME.
+        Both will get proper data layers as their public APIs allow it —
+        or as I find a reasonable workaround.
+      </p>
+    </div>
+
+    <details class="dm-details">
+      <summary class="dm-details-summary">
+        <span class="dm-details-arrow">&#9656;</span>
+        Further reading &amp; related programmes
+      </summary>
+      <div class="dm-details-body">
+        <p class="dm-details-intro">
+          More on the PAS programme and the debates around it: the
+          <a href="https://finds.org.uk/publications/reports/2017"
+             target="_blank" rel="noopener">Annual Reports</a>
+          and the literature below.
+        </p>
+        <ul class="dm-pub-list">
+          <li>
+            <span class="dm-pub-year">2009</span>
+            <span class="dm-pub-entry">
+              Thomas, S. and Stone, P.G. (eds.)
+              <em>Metal Detecting and Archaeology.</em>
+              Woodbridge: Boydell Press.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Worrell, S., Egan, G., Naylor, J., Leahy, K. &amp; Lewis, M.
+              <em>A Decade of Discovery: Proceedings of the Portable
+              Antiquities Scheme Conference 2007.</em>
+              BAR Brit. Ser. 520. Oxford: Archaeopress.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Gill, D.W.J. The Portable Antiquities Scheme and the Treasure
+              Act: Protecting the Archaeology of England and Wales?
+              <em>Papers from the Institute of Archaeology</em> 20, 1–11.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2010</span>
+            <span class="dm-pub-entry">
+              Compagnon, G. (Hrsg.) <em>Halte au pillage!</em>
+              Arles: Errance.
+            </span>
+          </li>
+          <li>
+            <span class="dm-pub-year">2013</span>
+            <span class="dm-pub-entry">
+              <a href="https://journals.ub.uni-heidelberg.de/index.php/arch-inf/article/view/15327"
+                 target="_blank" rel="noopener">
+                Huth, C. Vom rechten Umgang mit Sondengänger: Das
+                „Portable Antiquities Scheme" in England und Wales
+                und seine Folgen.
+              </a>
+              <em>Archäologische Informationen</em> 36, 129–137.
+            </span>
+          </li>
+        </ul>
+        <p class="dm-details-links">
+          Related programmes:
+          <a href="https://portable-antiquities.nl/pan/#/public"
+             target="_blank" rel="noopener">PAN (Netherlands)</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.metaldetektorfund.dk/"
+             target="_blank" rel="noopener">DIME (Denmark)</a>
+          &nbsp;·&nbsp;
+          <a href="https://blogs.helsinki.fi/sualt-project/"
+             target="_blank" rel="noopener">SuALT / Find Sampo (Finland)</a>
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ── MAP ─────────────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Interactive map</p>
+    <h2 class="dm-section-title">Finds by county</h2>
+    <p class="dm-section-intro">
+      Toggle layers on or off. UK counties are coloured by find density;
+      Netherlands and Denmark currently show boundaries only.
+    </p>
+
+    <div id="checkboxdiv" class="dm-layer-toggles">
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pas_uk_lba_eia" onchange="get_shapes();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">UK</span>
+          <span class="dm-layer-sub">PAS · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="pan_lba_eia" onchange="get_shapes_nld();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Netherlands</span>
+          <span class="dm-layer-sub">PAN · LBA &amp; EIA</span>
+        </span>
+      </label>
+      <label class="dm-layer-toggle">
+        <input type="checkbox" id="dime_lba_eia" onchange="get_shapes_dnk();">
+        <span class="dm-layer-text">
+          <span class="dm-layer-name">Denmark</span>
+          <span class="dm-layer-sub">DIME · LBA &amp; EIA</span>
+        </span>
+      </label>
+    </div>
+
+    <div class="dm-map-card">
+      <div id="Map"></div>
+    </div>
+    <p class="dm-map-caption">
+      Map data may take a moment to load, especially in Firefox.
+    </p>
+  </section>
+
+  <!-- ── UK DETAIL CHARTS ────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">UK in detail</p>
+    <h2 class="dm-section-title">Late Bronze Age &amp; Early Iron Age finds</h2>
+    <p class="dm-section-intro">
+      Breakdown of the same dataset by county and by object type.
+    </p>
+
+    <div class="dm-chart-grid">
+      <div class="dm-chart-card dm-chart-card--county">
+        <div class="dm-chart-label">By county</div>
+        <canvas id="chart"></canvas>
+      </div>
+      <div class="dm-chart-card dm-chart-card--objecttype">
+        <div class="dm-chart-label">By object type</div>
+        <canvas id="chart1"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON DASHBOARD ───────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Step 13 · Scheme comparison</p>
+    <h2 class="dm-section-title">Three countries, one period</h2>
+    <p class="dm-section-intro">
+      How do the three schemes compare for the Late Bronze Age and Early
+      Iron Age (1300–700 BC)? The honest answer is: we don't fully know yet.
+      The PAS UK figure comes from live data. The PAN and DIME figures reflect
+      total database sizes from published sources — period-specific counts
+      comparable to the UK query are not yet publicly queryable from either scheme.
+      This gap is itself a research finding.
+    </p>
+
+    <div class="dm-scheme-grid">
+
+      <!-- UK -->
+      <div class="dm-scheme-card dm-scheme-card--live">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇬🇧</span>
+          <div>
+            <div class="dm-scheme-name">PAS UK</div>
+            <div class="dm-scheme-org">British Museum</div>
+          </div>
+          <span class="dm-scheme-badge dm-scheme-badge--live">Live data</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n" id="comp-uk-total">—</span>
+          <span class="dm-scheme-l">LBA &amp; EIA finds<br>1300–700 BC</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 1997</li>
+          <li>1.6M+ total records (Apr 2023)</li>
+          <li>Professional Finds Liaison Officers</li>
+          <li>Qualitatively strong records</li>
+          <li>Public JSON API available</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://finds.org.uk"
+           target="_blank" rel="noopener">finds.org.uk &rarr;</a>
+      </div>
+
+      <!-- NL -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇳🇱</span>
+          <div>
+            <div class="dm-scheme-name">PAN</div>
+            <div class="dm-scheme-org">Portable Antiquities of the Netherlands</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2022</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">~93</span>
+          <span class="dm-scheme-l">Bronze Age metal finds<br>documented to 2020</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016</li>
+          <li>100,000+ total records (May 2022)</li>
+          <li>7,000+ active detectorists</li>
+          <li>No public period-filtered API</li>
+          <li>Source: Arnoldussen et al. 2020</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://portable-antiquities.nl"
+           target="_blank" rel="noopener">portable-antiquities.nl &rarr;</a>
+      </div>
+
+      <!-- DK -->
+      <div class="dm-scheme-card">
+        <div class="dm-scheme-card-header">
+          <span class="dm-scheme-flag">🇩🇰</span>
+          <div>
+            <div class="dm-scheme-name">DIME</div>
+            <div class="dm-scheme-org">Digitale Metaldetektorfund, Denmark</div>
+          </div>
+          <span class="dm-scheme-badge">Static · 2021</span>
+        </div>
+        <div class="dm-scheme-stat">
+          <span class="dm-scheme-n">30,633</span>
+          <span class="dm-scheme-l">All-period Danefæ finds<br>submitted 2021</span>
+        </div>
+        <ul class="dm-scheme-facts">
+          <li>Founded 2016 (portal launched 2018)</li>
+          <li>Liberal metal detecting model</li>
+          <li>Finder-driven records, museum-verified</li>
+          <li>Quantitatively strong records</li>
+          <li>Source: Nationalmuseet 2021</li>
+        </ul>
+        <a class="dm-scheme-link" href="https://www.metaldetektorfund.dk"
+           target="_blank" rel="noopener">metaldetektorfund.dk &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="dm-comparison-note">
+      <strong>Why can't we compare directly?</strong>
+      The PAS UK figure is period-filtered (1300–700 BC, queried live).
+      The PAN figure reflects Bronze Age metalwork specifically but is drawn
+      from a 2020 published study, not a live query. The DIME figure is an
+      annual total across all periods. Making these numbers directly comparable
+      would require all three schemes to expose period-filtered public APIs —
+      which remains an open challenge in the field.
+    </div>
+  </section>
+
+  <!-- ── BACK LINK ───────────────────────────────────────────── -->
+  <div class="dm-back-link">
+    <a class="dm-cta" href="/projects.html">&larr; Back to Projects</a>
+  </div>
+
+</div>
+
+<script src="/assets/js/map.js"></script>
+<script src="/assets/js/pas_project.js" async defer></script>
+<script>
+// Auto-load UK layer on page open
+window.addEventListener('load', function () {
+  var cbox = document.getElementById('pas_uk_lba_eia');
+  if (cbox && typeof get_shapes === 'function') {
+    cbox.checked = true;
+    get_shapes();
+  }
+});
+</script>
+    
+
+    <script src="/assets/js/main.js"></script>
+    <footer class="dm-footer h-card">
+
+  <div class="dm-footer-inner">
+
+    <!-- Col 1: Identity -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-name p-name">J. E. de Medeiros</div>
+      <div class="dm-footer-tagline">
+        Archaeologist &amp; writer.<br>
+        Freiburg im Breisgau, Germany.
+      </div>
+      <a class="dm-footer-email u-email"
+         href="mailto:post@de-medeiros.com">
+        post@de-medeiros.com
+      </a>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Pages</div>
+      <ul class="dm-footer-nav">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/publications.html">Publications</a>
+        </li>
+        
+        <li>
+          <a href="/cv.html">CV</a>
+        </li>
+        
+        <li>
+          <a href="/projects.html">Projects</a>
+        </li>
+        
+        <li>
+          <a href="/blog.html">Blog</a>
+        </li>
+        
+        <li>
+          <a href="/support.html">Support</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Col 3: Social -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Elsewhere</div>
+      <div id="social-media" class="dm-social">
+  
+  <a href="https://github.com/jemedeiros"
+     title="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-github-square"></i>
+    <span class="dm-social-label">GitHub</span>
+  </a>
+  
+  <a href="https://de.linkedin.com/in/imdemedeiros"
+     title="Linkedin"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-linkedin"></i>
+    <span class="dm-social-label">Linkedin</span>
+  </a>
+  
+  <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros"
+     title="academia"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-solid fa-graduation-cap"></i>
+    <span class="dm-social-label">academia</span>
+  </a>
+  
+  <a href="https://www.instagram.com/imdemedeiros"
+     title="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-instagram"></i>
+    <span class="dm-social-label">Instagram</span>
+  </a>
+  
+  <a href="https://www.bsky.app/profile/imdemedeiros.bsky.social"
+     title="BlueSky"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-bluesky"></i>
+    <span class="dm-social-label">BlueSky</span>
+  </a>
+  
+</div>
+    </div>
+
+  </div>
+
+  <div class="dm-footer-bottom">
+    <span>
+      &copy; 2025 José Eduardo M. de Medeiros.
+      Built with Jekyll &amp; GitHub Pages.
+    </span>
+    <span class="dm-footer-bottom-links">
+      <a href="/publications.html">Publications</a>
+      &nbsp;·&nbsp;
+      <a href="/projects.html">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="/archaeosweeper.html">Archaeosweeper</a>
+      &nbsp;·&nbsp;
+      <a href="/support.html">Support</a>
+    </span>
+  </div>
+</footer>
+  </body>
+</html>

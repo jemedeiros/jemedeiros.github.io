@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+
+  <!-- Page-specific assets -->
+  
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Projects | J. E. de Medeiros</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Projects" />
+<meta name="author" content="José Eduardo M. de Medeiros" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<link rel="canonical" href="http://localhost:4000/projects.html" />
+<meta property="og:url" content="http://localhost:4000/projects.html" />
+<meta property="og:site_name" content="J. E. de Medeiros" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Projects","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/projects.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
+</head>
+  <body>
+    <nav class="dm-nav" id="myTopnav">
+  <a class="dm-nav-brand" href="/">
+    <span class="dm-nav-brand-name">de Medeiros</span>
+  </a>
+
+  <div class="dm-nav-links" id="dm-nav-links">
+    
+    <a href="/"
+       class="dm-nav-link">
+      Home
+    </a>
+    
+    <a href="/publications.html"
+       class="dm-nav-link">
+      Publications
+    </a>
+    
+    <a href="/cv.html"
+       class="dm-nav-link">
+      CV
+    </a>
+    
+    <a href="/projects.html"
+       class="dm-nav-link dm-nav-link--active">
+      Projects
+    </a>
+    
+    <a href="/blog.html"
+       class="dm-nav-link">
+      Blog
+    </a>
+    
+    <a href="/support.html"
+       class="dm-nav-link">
+      Support
+    </a>
+    
+  </div>
+
+  <button class="dm-nav-toggle"
+          onclick="(function(){var l=document.getElementById('dm-nav-links');if(l)l.classList.toggle('dm-nav-open');})()"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          id="dm-nav-toggle">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<script>
+// Inline — guaranteed available before any external scripts load
+(function () {
+  var toggle = document.getElementById('dm-nav-toggle');
+  var links  = document.getElementById('dm-nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('dm-nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close nav when a link is tapped on mobile
+  links.querySelectorAll('.dm-nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('dm-nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+    <div class="dm-page">
+
+  <!-- ── PAGE HEADER ─────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Projects</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      Work, experiments &amp; ideas
+    </h1>
+    <p class="dm-hero-sub">
+      A mix of research tools, games, community spaces, and ongoing experiments.
+      Some finished, some perpetually in progress.
+    </p>
+  </section>
+
+  <!-- ── FEATURED PROJECTS ───────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Digital projects</p>
+    <h2 class="dm-section-title">Interactive &amp; research work</h2>
+
+    <div class="dm-project-grid">
+
+      <!-- PAS Monitor -->
+      <a class="dm-project-card dm-project-card--featured" href="/pasproject.html">
+        <div class="dm-project-card-header">
+          <span class="dm-project-status dm-project-status--live">Live</span>
+          <span class="dm-project-tag">Research tool</span>
+        </div>
+        <div class="dm-project-glyph">🗺</div>
+        <h3 class="dm-project-title">PAS Schemes Monitor</h3>
+        <p class="dm-project-desc">
+          An interactive map and data dashboard tracking finds from the
+          Portable Antiquities Scheme (UK), PAN (Netherlands), and
+          DIME (Denmark). Live data, Bronze Age focus.
+        </p>
+        <span class="dm-project-cta">Explore the map &rarr;</span>
+      </a>
+
+      <!-- Archaeosweeper -->
+      <a class="dm-project-card dm-project-card--dark" href="/archaeosweeper.html">
+        <div class="dm-project-card-header">
+          <span class="dm-project-status dm-project-status--live"
+                style="border-color:#C8873A;color:#C8873A;">Live</span>
+          <span class="dm-project-tag" style="color:#8B7A6A;">Browser game</span>
+        </div>
+        <div class="dm-project-glyph">⛏</div>
+        <h3 class="dm-project-title" style="color:#E8D5A3;">
+          Archaeosweeper II
+        </h3>
+        <p class="dm-project-desc" style="color:#8B7A6A;">
+          A reversed minesweeper set on an excavation site. Dig for artifacts
+          before your budget runs dry. Three difficulty tiers, field journal,
+          Web Audio sound engine. Installable as a PWA.
+        </p>
+        <span class="dm-project-cta" style="color:#C8873A;border-color:#8B5B22;">
+          Play now &rarr;
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── COMMUNITY ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Community</p>
+    <h2 class="dm-section-title">Podcast &amp; language exchange</h2>
+
+    <div class="dm-embed-grid">
+
+      <!-- Podcast -->
+      <div class="dm-embed-card">
+        <div class="dm-embed-card-header">
+          <span class="dm-project-tag">Podcast · German</span>
+          <h3 class="dm-embed-title" id="Podcast">
+            Café Archäologie —<br>
+            <em>Ein Happen Wissen</em>
+          </h3>
+          <p class="dm-embed-desc">
+            A conversation about archaeology produced with Uni-Radio Freiburg.
+            In German — for curious non-specialists.
+          </p>
+        </div>
+        <iframe
+          style="border-radius:8px; display:block;"
+          src="https://open.spotify.com/embed/show/12wK9792U04DpMzgFEVbS6?utm_source=generator"
+          width="100%"
+          height="200"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Café Archäologie podcast on Spotify">
+        </iframe>
+      </div>
+
+      <!-- Discord Tandem -->
+      <div class="dm-embed-card">
+        <div class="dm-embed-card-header">
+          <span class="dm-project-tag">Community · PT &amp; DE</span>
+          <h3 class="dm-embed-title" id="Tandem">
+            O Chat do professor José
+          </h3>
+          <p class="dm-embed-desc">
+            A Discord server for Portuguese–German language exchange.
+            Learners of both directions welcome — Brazil, Portugal, and Germany.
+          </p>
+        </div>
+        <iframe
+          src="https://discord.com/widget?id=802193917784752159&theme=dark"
+          width="100%"
+          height="200"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          style="border-radius:8px; display:block;"
+          title="Discord language exchange server">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ELSEWHERE ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">Elsewhere</p>
+    <h2 class="dm-section-title">Other places to find the work</h2>
+
+    <ul class="dm-elsewhere-list">
+      <li>
+        <a class="dm-elsewhere-item" href="https://de.linkedin.com/in/imdemedeiros"
+           target="_blank" rel="noopener">
+          <span class="dm-elsewhere-icon">
+            <i class="fab fa-linkedin"></i>
+          </span>
+          <span class="dm-elsewhere-body">
+            <span class="dm-elsewhere-title">LinkedIn</span>
+            <span class="dm-elsewhere-sub">
+              Notes on digitalization in German higher education,
+              document management systems, and working at the intersection
+              of research and IT administration.
+            </span>
+          </span>
+          <span class="dm-elsewhere-arrow">&rarr;</span>
+        </a>
+      </li>
+      <li>
+        <a class="dm-elsewhere-item" href="https://www.instagram.com/imdemedeiros"
+           target="_blank" rel="noopener">
+          <span class="dm-elsewhere-icon">
+            <i class="fab fa-instagram"></i>
+          </span>
+          <span class="dm-elsewhere-body">
+            <span class="dm-elsewhere-title">Instagram</span>
+            <span class="dm-elsewhere-sub">
+              Visual notes on surfskate, skateboarding, and everyday life
+              between Brazil and Germany.
+            </span>
+          </span>
+          <span class="dm-elsewhere-arrow">&rarr;</span>
+        </a>
+      </li>
+      <li>
+        <a class="dm-elsewhere-item" href="/publications.html">
+          <span class="dm-elsewhere-icon">📄</span>
+          <span class="dm-elsewhere-body">
+            <span class="dm-elsewhere-title">Publications</span>
+            <span class="dm-elsewhere-sub">
+              Monograph, book chapters, conference papers, and lectures —
+              in German, English, and Portuguese.
+            </span>
+          </span>
+          <span class="dm-elsewhere-arrow">&rarr;</span>
+        </a>
+      </li>
+      <li>
+        <a class="dm-elsewhere-item" href="/blog.html">
+          <span class="dm-elsewhere-icon">✍</span>
+          <span class="dm-elsewhere-body">
+            <span class="dm-elsewhere-title">Blog</span>
+            <span class="dm-elsewhere-sub">
+              Essays and notes on skateboarding, digitalization, migration,
+              and the practice of writing across languages.
+            </span>
+          </span>
+          <span class="dm-elsewhere-arrow">&rarr;</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="dm-projects-note">
+      If you are a student and want to build on any of these ideas —
+      especially the PAS monitor — you are welcome to.
+    </p>
+
+  </section>
+
+</div>
+    
+
+    <script src="/assets/js/main.js"></script>
+    <footer class="dm-footer h-card">
+
+  <div class="dm-footer-inner">
+
+    <!-- Col 1: Identity -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-name p-name">J. E. de Medeiros</div>
+      <div class="dm-footer-tagline">
+        Archaeologist &amp; writer.<br>
+        Freiburg im Breisgau, Germany.
+      </div>
+      <a class="dm-footer-email u-email"
+         href="mailto:post@de-medeiros.com">
+        post@de-medeiros.com
+      </a>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Pages</div>
+      <ul class="dm-footer-nav">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/publications.html">Publications</a>
+        </li>
+        
+        <li>
+          <a href="/cv.html">CV</a>
+        </li>
+        
+        <li>
+          <a href="/projects.html">Projects</a>
+        </li>
+        
+        <li>
+          <a href="/blog.html">Blog</a>
+        </li>
+        
+        <li>
+          <a href="/support.html">Support</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Col 3: Social -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Elsewhere</div>
+      <div id="social-media" class="dm-social">
+  
+  <a href="https://github.com/jemedeiros"
+     title="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-github-square"></i>
+    <span class="dm-social-label">GitHub</span>
+  </a>
+  
+  <a href="https://de.linkedin.com/in/imdemedeiros"
+     title="Linkedin"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-linkedin"></i>
+    <span class="dm-social-label">Linkedin</span>
+  </a>
+  
+  <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros"
+     title="academia"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-solid fa-graduation-cap"></i>
+    <span class="dm-social-label">academia</span>
+  </a>
+  
+  <a href="https://www.instagram.com/imdemedeiros"
+     title="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-instagram"></i>
+    <span class="dm-social-label">Instagram</span>
+  </a>
+  
+  <a href="https://www.bsky.app/profile/imdemedeiros.bsky.social"
+     title="BlueSky"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-bluesky"></i>
+    <span class="dm-social-label">BlueSky</span>
+  </a>
+  
+</div>
+    </div>
+
+  </div>
+
+  <div class="dm-footer-bottom">
+    <span>
+      &copy; 2025 José Eduardo M. de Medeiros.
+      Built with Jekyll &amp; GitHub Pages.
+    </span>
+    <span class="dm-footer-bottom-links">
+      <a href="/publications.html">Publications</a>
+      &nbsp;·&nbsp;
+      <a href="/projects.html">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="/archaeosweeper.html">Archaeosweeper</a>
+      &nbsp;·&nbsp;
+      <a href="/support.html">Support</a>
+    </span>
+  </div>
+</footer>
+  </body>
+</html>
