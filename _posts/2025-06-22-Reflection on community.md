@@ -9,7 +9,7 @@ tags: Ethnography Sociology GünterDux HelmuthPlessner Community Society Values 
 
 
 # A Reflection on Community in the skatepark
-
+\
 Recently, I've been thinking a lot about different group dynamics—both at work and during my free time at the skatepark. The dynamics of working in digitalization are subject of a book of its own to be published in the next years. But the latest episodes at the skatepark are more intuitively graspable.<!--more-->
 
 There’s one German skater on Instagram [@sb_robby](https://www.instagram.com/sb_robby?igsh=eWFiOXVhOWZ0aGYz) who creates content inspired by his idea of a “skate bible.” The humorous tone of his posts plays with the idea of a corpus of ethical principles—principles that arise through the daily practice of skateboarding, shaped by the countercultural nature of the skateboarding community and its intrinsically playful character as both a sport and a form of play.

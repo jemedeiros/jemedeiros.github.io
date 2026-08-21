@@ -8,7 +8,7 @@ tags: Sensei
 ---
 
 # Fear ex post
-
+\
 They say Freud took inspiration from the  Catholic ritual of confession to develop the methods of psychoanalysis. Conversation as a tool to reveal insights, develop cognitive distance to psychic patterns that may be inflicting pain or anxiety on patients.
 
 As my first week after a long vacation began in the skatepark, I experienced a new kind of psychic state. <!--more--> Three weeks without training on the skateboard should be enough to forget one or the other trick. However, the comeback left a feeling of confidence, as my body proved able to retry most tricks I had been learning for almost a year now. As a beginner of middle-advanced age, this is a thrilling experience. Somehow, a middle-aged man got to keep his skills. The body knew what it had to do, and the field of vision focused on the quarter I train every weekend, free from anxiety or fear. With fearless and focused sight, I paddled in the direction of the quarter. The body relaxed, the mind calmly confident of leading the self to a joyful state. As soon as I got on top of the coping, I felt a nonchalant feeling of success up to the moment I dropped back out of the coping, riding the curve back in the direction of flat ground. At that instant, my heart started to race. An unusual feeling. Normally, after the trick comes exhilaration and excitement. This time, I felt fear. Without an object of apprehension as the trick was behind me, I asked myself what that feeling and accelerating heartbeat could mean. And I could not believe it was fear. I tried the tricks other times, and several times I was not afraid of trying the tricks, nor on the way to the curb did I feel that anything could go wrong. Just the opposite. My body was sure of success. It knew it could do a 5050 grind, an axle stall or a feeble. As I went through this very new feeling of confidence, it got more confusing to feel the heart racing afterwards. What was happening?
@@ -25,6 +25,7 @@ In a way, it did help a bit. Even if this phenomenon I will call "fear ex post" 
 <hr/>
 
 ### Brief summary of characters:
+\
 As I delve into these skateboarding and surfskate stories, I find myself walking a fine line between revealing too much and protecting the identities of those involved — especially minors or individuals who prefer to remain out of the public eye. Allow me, my imaginary reader, to introduce you to the key characters in this thrilling narrative:
 
 1. **Senpais**: These are the seasoned skaters, the ones who’ve mastered the art of gliding across concrete waves. I’ve affectionately dubbed them “Senpais.” When multiple Senpais appear in a story, I’ll distinguish them as Senpai1, Senpai2, and so forth.

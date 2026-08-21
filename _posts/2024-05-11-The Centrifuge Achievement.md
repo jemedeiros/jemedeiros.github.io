@@ -8,26 +8,26 @@ tags: Holidays Senpai-sensei
 ---
 
 # "Die Zentrifuge": The Day I Did a 50-50 Grind on a curve!
-
+\
 ## The Holidays
-
+\
 May was blessed with a couple of holidays, and I was blessed with a miracle and an extra day to skate. <!--more--> This Thursday was one of those Catholic holidays where most of us get some free time. According to religious tradition, Jesus ascended to heaven on that day. As a child, I remember trying to solve the problem of, at first, imagining how the Messiah would fly and, secondly, how he could survive in space. My solution was that the figure attached to the cross would rotate like a helicopter until he reached the heavens. The second part, surviving in space, was much harder. Neither my childhood brain nor my adult brain could solve that yet. But flying on a cross is not as exciting as flying on a skateboard. And fly I did this Thursday! 
-
+\
 ## The Centrifuge
-
+\
 I got to the skatepark early, only to discover another homie—a chef at a very famous Japanese restaurant in our city. This nice surprise was only the first one. As I started training and warming up with kickturns and some rounds in the bowl, my other homies arrived. Especially Senpai-Sensei, who was particularly inspired and inspiring that day. As we, astonished, mentioned his speed on his self-modified surfskate, he started explaining his methods, connecting with analogies of feelings. His speed at a certain curve is due to the "Centrifuge technique." - he said. He explained that being in this curve with such velocity made him feel like he was in one of those centrifuges we see in biological labs — those that turn at such velocity to separate different parts of a liquid substance. His blood reproduces the phenomenon, quickly rising to his brain—an exhilarating experience - he completed the analogy.
-
+\
 ## Flying
-
+\
 After witnessing his enthusiasm and hearing his explanations that the "centrifuge" promises complete heavenly freedom from the stigmas of gravity, I felt the courage of youth to try something new. I went back to basics and maneuvered a couple of times at a lower speed. After gaining confidence, I wanted to test the centrifuge speed. I gave it my all. Started pumping early before the slope down leading to the curve. Went down the first slope with a power I had not yet felt before. At that precise moment, I felt the skate completely free from my feet and yet still connected to them. I bent my knees as close to the floor as possible to lower the center of gravity on the plane preceding the curve. Then I focused on entering at the right angle. Once the curve started, I was not afraid of going up. In fact, I could never imagine I would go so far up as to end up in a 50-50 position of the trucks on the coping. All my attention was directed to making a nice curve with good velocity. It never came to my mind to even try to grind. However, the efforts to carry out a nicely executed curve had the inexplicable consequence of getting my board up to the coping and, better yet, at such the right angle to allow a 50-50 grind. That was awesome! Exhilarating indeed!
-
+\
 ## 2nd and 3rd Rounds
-
+\
 At the apex of my glory, Senpai-Sensei was so thrilled he asked me to repeat the feat. I was so emotionally engaged I hugged him and the other Senpais present at the skatepark. The Sensei was inside the bowl, as if it was his, and he laughed with joy too and congratulated me with only his head above the coping of the bowl. Everything felt like an Olympic feat. It was only my first clean trick. Running on adrenaline, I gladly accepted the challenge and went for the curve a second time. Again. Perfect! Now they even filmed with a GoPro camera from the side of the trucks and wheels. How cool was that? Me, after just a couple of months learning, seeing myself do such a cool trick on a pro-level video. The time came to reproduce the feat. If I could do it a third time, I could trust that the trick was unlocked and the body had internalized the lesson.
 I went for it. All went well until I tried to start the grind earlier and end it later. A longer grind led me to some difficulties. I fell. But it was the most sanctifying fall any human could experience. I fell happy and smiling. All the pads were in place to absorb the impact. I got some scratches and some burns. But they do not matter. What matters were those seconds on a 50-50 grind at such a big height for me. 
-
+\
 ## Conclusion
-
+\
 The holiday presented me with the opportunity to train and learn. I tried a couple of drop-ins. I got hurt trying. This frustration was a bit sad but was overturned by the joy of the beautifully executed high-speed curve with a 50-50 grind. I still want so much to learn the basics well. I need the kickturns, ollies, and the drop-ins. I have no explanation as to why I cannot yet do them. I get 1 out of 5 right. I am afraid that not really learning the most fundamental and simple moves first might cause trouble in the future. For example, the centrifuge curve. If something goes wrong on a more complex trick, only the competent knowledge of the basic moves, well executed at the right time, can help to avoid the worst disasters. Nonetheless, to learn the basics well, I also need to have fun: the fun of a holy day! 
 
 

@@ -10,26 +10,26 @@ tags: Surf Vacation Rio Socialmedia Instagram Goals Objectives
 *Images follow below*
 
 # New year, new motivation
-
+\
 2024 promises to be a year of change. It all started with me going oo vacation back home in Rio. A long needed vacation, as the last year was stressful and reserved some disappointments hard to cope with. 
 <!--more-->
-
+\
 ## Surf and the dream
-
+\
 Thus, on this vacation I finally learned to surf - a long due childhood dream. As a child I had some experience with a body board and always dreamed of the day where I would really surf with a shortboard. The real experience felt just like the childhood dream. There are dreams come true where the pleasure falls short of the expectations. This is not what happens with surf. The feeling on a wave is indelibly magnificent. A great peace washes away the the worries harbored in a heart and mind. The fulfillment of this one dream open up windows of opportunities to try new things. 
-
+\
 ## Surf and surfskate
-
+\
 The surf community and more specifically the teachers use instagram with some constancy. As a matter of fact, most Brazilians seem to be using it or are using some form of social media. In order to communicate and view videos of my teachers I created an Instagram account. But this gave me the idea to start being active on social media as a whole. Another idea introduced by the surf lessons was incorporated by the surfskate or "surf simulators". In order to practice the movements on board and on a wave people use these skates that are build to enforce the movements made to steer a surfboard. 
-
+\
 ## Social Media and works of fiction
-
+\
 In this context, I declared 2024 the year of social media and learn to surfskate. I plan to more actively use twitter, instagram and linkedin. On instagram I will be posting on my hobbies and non work related activities. The main themes are me learning to surf and skate after 36 years of age. Some of my poems and my literary non academic works. On linkedin I will be posting on the themes connected to my job at the computer center. Moreover, the activities and connections on linkedin and instagram could help me to market my books, as I am planing to publish independently the use of social media might be my only hope. 
 
 Finally, I am reengaging this blog. A publish rate of 2 to 7 posts a week is my set goal. This whole website is now allowing to be crawled so that it will be indexed by search engines.
-
+\
 ## 2024 objectives
-
+\
 In short, these are some of the objectives for 2024:
 
  - Use social media (act more "social")
@@ -37,9 +37,9 @@ In short, these are some of the objectives for 2024:
  - Prepare the publication of the fiction for 2025
 
 
-
+\
 ## Next post
-
+\
 Some points to continue on the next posts are:
  - The reasons for publishing independently
  - The content of my posts in LinkedIn

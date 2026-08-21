@@ -8,27 +8,28 @@ tags: Morning Friendship Friends Skatepark
 ---
 
 # Saturday Morning ...at the Skatepark
-
+\
 ## The arrival 
+\
 The sun shyly peeked between clouds when I woke up. The visit to the skatepark on weekends is now part of our weekly plan. We ate the frittata I made out of recipe by Gordon Ramsay and rode our way to the park. Today we took the path next to the river called Dreisam. The air was crispy and fresh. Next to the sounds of the Autobahn it was possible to discern chirping of birds. The park was already well visited when I got there but quiet enough to allow room for my exercises. 
 <!--more-->
-
+\
 ## Meeting friends
-
+\
 The friends we make in a skatepark - so I have recently learned - are called homies. Some homies are more experienced and I call them Senpais. Others are so well versed that I call them Senseis. One of the Senpais - he is at Senpai and at Sensei level to be honest - was already there having arrived early today. I will call him Senpai-Sensei. 
-
+\
 ## Learning kick turn and front-side curve
-
+\
  once there I dove into the practice of front-side curves and fell once. After a couple of tries and with the support with the Senpai-Sensei I unlocked the frontside curve. The Senpai-Sensei took the role of teacher today, guiding me on how to enter the curve, offering advice on how to tic-tac and finally giving valuable tips on how to train the kick turn. At the end of the day, I am confident the kick turn and the front-side curve are now part of my repertoire. Each successful turn was a small victory celebrated like a gigantic progress. 
-
+\
 ## The thrill and the end
-
+\
 By the end of the morning, I had made progress. The fun was monumental when the maneuvers landed as they should. Every new day and every new try I get more comfortable with the board. Sure, the ollie is not yet there. But just practicing it may have shown positive effects on the way I handle the kick-turn or the tic-tacs. I am very far away from the level I want to achieve, nevertheless, the sense of achievement was immense. This feeling summarizes skateboarding to me. A sentiment of success by small bits which contrasts with the big, long run goals and plans we often draft for life. 
 
 As the park started to buzz with more people and children, we divided to wrap up. Senpai-sensei and us left the park while Sensei stayed for the afternoon and evening shifts. We promised to meet again tomorrow. As we left the park tired but happy, the promise echoed of many more mornings like today. 
-
+\
 ## Conclusions
-
+\
 Spending a Saturday morning at the skatepark was more than just about learning to skateboard. It was about friendship, shared experiences, and creating memories. It was a reminder that the journey is just as important as the destination, and sometimes, it's not about being the best, but about enjoying the ride and the company along the way.
 
 

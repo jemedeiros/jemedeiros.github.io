@@ -8,7 +8,7 @@ tags: GünterDux
 ---
 
 # Note on Günter Dux † 9. Mai 2026
-
+\
 Günter Dux provoked one of the gravest changes in worldview I could have experienced in this lifetime. I remember reacting to the Historico-Genetic Theory of Culture (2000) with incredulity and thinking: "The Germans already know everything - there is nothing left for me to do." His work follows a logic that demands a follow-up. No part of human knowledge, no structure of understanding can be left unanalysed or unreviewed. Every paragraph requires another to follow. 
 
 <!--more-->
@@ -37,9 +37,9 @@ There was a large party for his ninetieth birthday, attended by scholars and fri
 
 As the pandemic set in, visits became harder to arrange. At their age we simply could not risk it. We visited again after vaccinations and prior tests. Still, I carry an immense regret for not going more often. 
 
- After receiving the news of his passing, I found myself wondering whether part of my absence - beyond the difficulties of COVID - came from a kind of shame. The fear of not being enough for someone one had come to regard as a guiding figure. I cannot say for certain. What I know is that roughly a year before his death, probably sometime after Rosemarie had passed, he forgot my name on the phone. I understood then, it was time to say goodbye. And in a way, we did, in that call.
+After receiving the news of his passing, I found myself wondering whether part of my absence - beyond the difficulties of COVID - came from a kind of shame. The fear of not being enough for someone one had come to regard as a guiding figure. I cannot say for certain. What I know is that roughly a year before his death, probably sometime after Rosemarie had passed, he forgot my name on the phone. I understood then, it was time to say goodbye. And in a way, we did, in that call.
 
-I feel the sadness of losing a friend. A figure who gave me hope and the feeling that I might find a way to an autonomous part of the world.
+I feel the sadness of losing a friend. A figure who gave me hope and the feeling that I might find a way to be an autonomous part of the world.
 
 I learned of his death weeks later, more than a month after the fact, through a social media post. The grief combined with the loneliness of not having been there for a friend and yet the knowledge that there had been real love and respect between us, with all these mixed feelings, this is a hard farewell to a friend and an inspiration.
 
