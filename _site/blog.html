@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9B4A2C">
+
+  <!-- Fonts — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J. E. de Medeiros">
+
+  <!-- Favicon — per page -->
+  
+  
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+
+  <!-- Page-specific assets -->
+  
+
+  <!-- SEO tag (generates title, description, og: tags) -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Blog | J. E. de Medeiros</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Blog" />
+<meta name="author" content="José Eduardo M. de Medeiros" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<meta name="twitter:description" property="og:description" content="The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas." />
+<link rel="canonical" href="http://localhost:4000/blog.html" />
+<meta property="og:url" content="http://localhost:4000/blog.html" />
+<meta property="og:site_name" content="J. E. de Medeiros" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"José Eduardo M. de Medeiros"},"description":"The personal website of José Eduardo M. de Medeiros introducing his works, publications, extra projects and other ideas.","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/presentationsfoto.jpg"},"name":"José Eduardo M. de Medeiros"},"url":"http://localhost:4000/blog.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- PWA service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {
+          // sw.js not present yet — silent fail
+        });
+      });
+    }
+  </script>
+
+  <!-- Archaeosweeper legacy styles — preserved, will be removed in Step 9 -->
+  
+
+</head>
+  <body>
+    <nav class="dm-nav" id="myTopnav">
+  <a class="dm-nav-brand" href="/">
+    <span class="dm-nav-brand-name">de Medeiros</span>
+  </a>
+
+  <div class="dm-nav-links" id="dm-nav-links">
+    
+    <a href="/"
+       class="dm-nav-link">
+      Home
+    </a>
+    
+    <a href="/publications.html"
+       class="dm-nav-link">
+      Publications
+    </a>
+    
+    <a href="/cv.html"
+       class="dm-nav-link">
+      CV
+    </a>
+    
+    <a href="/projects.html"
+       class="dm-nav-link">
+      Projects
+    </a>
+    
+    <a href="/blog.html"
+       class="dm-nav-link dm-nav-link--active">
+      Blog
+    </a>
+    
+    <a href="/support.html"
+       class="dm-nav-link">
+      Support
+    </a>
+    
+  </div>
+
+  <button class="dm-nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          id="dm-nav-toggle">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<script>
+// Inline — guaranteed available before any external scripts load
+(function () {
+  var toggle = document.getElementById('dm-nav-toggle');
+  var links  = document.getElementById('dm-nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('dm-nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close nav when a link is tapped on mobile
+  links.querySelectorAll('.dm-nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('dm-nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+    <div class="dm-page">
+
+  <!-- ── PAGE HEADER ─────────────────────────────────────────── -->
+  <section class="dm-hero dm-hero--slim">
+    <p class="dm-hero-eyebrow">Writing</p>
+    <h1 class="dm-hero-statement dm-hero-statement--sm">
+      Essays &amp; Notes
+    </h1>
+    <p class="dm-hero-sub">
+      On skateboarding and embodied practice, the digitalization of institutions,
+      migration between languages, and the slow work of becoming a writer.
+      In English, German, and Portuguese.
+    </p>
+    <div class="dm-blog-nav">
+      Browse by
+      <a href="/categories">category</a>
+      or by
+      <a href="/tags">tag</a>
+    </div>
+  </section>
+
+  <!-- ── FEATURED POST ───────────────────────────────────────── -->
+  
+  
+  <section class="dm-section dm-section--flush">
+    <p class="dm-section-eyebrow">Latest</p>
+    <article class="dm-post-featured">
+      <div class="dm-post-featured-meta">
+        <span class="dm-post-cat">Notes</span>
+        <span class="dm-post-date">15 Aug 2026</span>
+      </div>
+      <h2 class="dm-post-featured-title">
+        <a href="/notes/2026/08/15/Naturalisation.html">Naturalisation</a>
+      </h2>
+      <p class="dm-post-featured-excerpt">
+        Naturalisation
+
+This post took a while. This March, I became a German citizen. Since then, my mind has entered an almost paralysing reflexive loop.
+
+      </p>
+      <div class="dm-post-featured-footer">
+        <a class="dm-cta" href="/notes/2026/08/15/Naturalisation.html">
+          Read &rarr;
+        </a>
+        
+      </div>
+    </article>
+  </section>
+  
+
+  <!-- ── POST LIST ───────────────────────────────────────────── -->
+  <section class="dm-section">
+    <p class="dm-section-eyebrow">All posts</p>
+    <h2 class="dm-section-title">Archive</h2>
+
+    <ul class="dm-post-list">
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">09 May 2026</span>
+          <span class="dm-post-cat">Notes</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/notes/2026/05/09/Note-on-g%C3%BCnter-dux.html">Note on Günter Dux</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Note on Günter Dux † 9. Mai 2026 Günter Dux provoked one of the gravest changes in worldview I could have experienced in this lifetime....
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">15 Dec 2025</span>
+          <span class="dm-post-cat">Digitalisierung</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/digitalisierung/2025/12/15/A-G-D-M-S.html">A G   D M S</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            AG-DMS Dez 2025 in Freiburg Die Digitalisierung der Verwaltung ist eine komplexe Aufgabe, wie die jahrelange Arbeit der Arbeitsgruppe DMS Baden-Württemberg zeigt. Seit ihrer Gründung...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">18 Oct 2025</span>
+          <span class="dm-post-cat">Skateboard</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/skateboard/2025/10/18/Fear-ex-post.html">Fear Ex Post</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Fear ex post They say Freud took inspiration from the Catholic ritual of confession to develop the methods of psychoanalysis. Conversation as a tool to...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">13 Sep 2025</span>
+          <span class="dm-post-cat">Notes</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/notes/2025/09/13/Note-on-Hermeto-Pascoal's-Passing.html">Note on Hermeto Pascoal's Passing</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Hermeto Pascoal † 13. September 2025 Hermeto Pascoal has left us, and I feel an emptiness that words can barely hold. He was more than...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">22 Jun 2025</span>
+          <span class="dm-post-cat">Skateboard</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/skateboard/academic/2025/06/22/Reflection-on-community.html">Reflection on community</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            A Reflection on Community in the skatepark Recently, I’ve been thinking a lot about different group dynamics—both at work and during my free time at...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">14 Jun 2025</span>
+          <span class="dm-post-cat">Digitalisierung</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/digitalisierung/2025/06/14/d.velop-Summit-2025.html">D.velop summit 2025</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Hochschultag &amp; D.velop Summmit 2025 On June 3rd, I had the pleasure of representing the University of Freiburg, as well as the DMS working group...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">23 Nov 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/2024/11/23/Freeze.html">Freeze</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Freezing pause Apologies for the long pause in my skateboarding ethnography! I was on vacation, but that’s no excuse. A lot has happened in the...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">15 Jul 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/skateboard/2024/07/15/Ups-and-Downs.html">Ups and  Downs</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            Embracing the Ups and Downs of Skateboarding (Surf-)Skateboarding is a journey, not just a sport. Over the past few days, I’ve felt the exhilarating rush...
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">31 May 2024</span>
+          <span class="dm-post-cat">Digitalisierung</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/digitalisierung/2024/05/31/Insights-on-Document-Management-System.html">Insights on  Document Management System</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            New LinkedIn Post Recently, I made the decision to publish posts on LinkedIn as part of my plan to engage with social media this year....
+          </p>
+          
+        </div>
+      </li>
+      
+      <li class="dm-post-row">
+        <div class="dm-post-row-meta">
+          <span class="dm-post-date">13 May 2024</span>
+          <span class="dm-post-cat">Surfskate</span>
+        </div>
+        <div class="dm-post-row-body">
+          <h3 class="dm-post-row-title">
+            <a href="/surfskate/skateboard/2024/05/13/A-new-homie.html">A new homie</a>
+          </h3>
+          <p class="dm-post-row-excerpt">
+            A New Homie There are few feelings as gratifying as inspiring someone else to learn skateboarding. Today, the day unfolded like any typical Monday, mirroring...
+          </p>
+          
+        </div>
+      </li>
+      
+    </ul>
+
+    
+    <a class="dm-cta" href="/archive">
+      All 16 older posts &rarr;
+    </a>
+    
+  </section>
+
+</div>
+    
+
+    <script src="/assets/js/main.js"></script>
+    <footer class="dm-footer h-card">
+
+  <div class="dm-footer-inner">
+
+    <!-- Col 1: Identity -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-name p-name">J. E. de Medeiros</div>
+      <div class="dm-footer-tagline">
+        Archaeologist &amp; writer.<br>
+        Freiburg im Breisgau, Germany.
+      </div>
+      <a class="dm-footer-email u-email"
+         href="mailto:post@de-medeiros.com">
+        post@de-medeiros.com
+      </a>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Pages</div>
+      <ul class="dm-footer-nav">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/publications.html">Publications</a>
+        </li>
+        
+        <li>
+          <a href="/cv.html">CV</a>
+        </li>
+        
+        <li>
+          <a href="/projects.html">Projects</a>
+        </li>
+        
+        <li>
+          <a href="/blog.html">Blog</a>
+        </li>
+        
+        <li>
+          <a href="/support.html">Support</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Col 3: Social -->
+    <div class="dm-footer-col">
+      <div class="dm-footer-col-label">Elsewhere</div>
+      <div id="social-media" class="dm-social">
+  
+  <a href="https://github.com/jemedeiros"
+     title="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-github-square"></i>
+    <span class="dm-social-label">GitHub</span>
+  </a>
+  
+  <a href="https://de.linkedin.com/in/imdemedeiros"
+     title="Linkedin"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-linkedin"></i>
+    <span class="dm-social-label">Linkedin</span>
+  </a>
+  
+  <a href="https://uff.academia.edu/Jos%C3%A9EduardoMdeMedeiros"
+     title="academia"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-solid fa-graduation-cap"></i>
+    <span class="dm-social-label">academia</span>
+  </a>
+  
+  <a href="https://www.instagram.com/imdemedeiros"
+     title="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-instagram"></i>
+    <span class="dm-social-label">Instagram</span>
+  </a>
+  
+  <a href="https://www.bsky.app/profile/imdemedeiros.bsky.social"
+     title="BlueSky"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fa fa-brands fa-bluesky"></i>
+    <span class="dm-social-label">BlueSky</span>
+  </a>
+  
+</div>
+    </div>
+
+  </div>
+
+  <div class="dm-footer-bottom">
+    <span>
+      &copy; 2025 José Eduardo M. de Medeiros.
+      Built with Jekyll &amp; GitHub Pages.
+    </span>
+    <span class="dm-footer-bottom-links">
+      <a href="/publications.html">Publications</a>
+      &nbsp;·&nbsp;
+      <a href="/projects.html">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="/archaeosweeper.html">Archaeosweeper</a>
+      &nbsp;·&nbsp;
+      <a href="/support.html">Support</a>
+    </span>
+  </div>
+</footer>
+  </body>
+</html>

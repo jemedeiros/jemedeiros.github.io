@@ -501,13 +501,18 @@ title: Archaeosweeper
         <p class="as-install-note">Works offline after first load.</p>
       </div>
     </div>
-  </div>
-</div>
-
-<p class="dm-pwa-note">
+    <p class="dm-pwa-note">
   <span class="dm-pwa-icon">☕</span>
   <span>Enjoyed the game? <a href="/support.html">Support the work on Ko-fi</a> — it helps fund future research and writing.</span>
 </p>
+<p class="dm-pwa-note">
+  <span class="dm-pwa-icon">🎮</span>
+  <span>Also on <a href="https://archaeosweeper.itch.io/archaeosweeper" target="_blank" rel="noopener">itch.io</a> — rate it, share it, or just play it there.</span>
+</p>
+  </div>
+</div>
+
+
 
 <!-- ── BACK TO SITE ──────────────────────────────────────────── -->
 <div class="as-back">
@@ -732,7 +737,7 @@ function placeArtifacts(safeR,safeC){
   const artIndices=shuffleArr([...Array(ARTIFACTS.length).keys()]);
   let artPointer=0;
   for(let r=0;r<R;r++)for(let c=0;c<C;c++){
-    if(!safe.has(`${r},${c}`)&&Math.random()<0.13){
+    if(!safe.has(`${r},${c}`)&&Math.random()<0.20){
       G.artifactAt[r][c]=artIndices[artPointer%artIndices.length];
       artPointer++; artCount++;
     }
