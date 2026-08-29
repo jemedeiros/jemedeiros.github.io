@@ -4,7 +4,7 @@ author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
 categories: Skateboard
-tags: Sensei
+tags: Sensei Ethnography
 ---
 
 # Fear ex post

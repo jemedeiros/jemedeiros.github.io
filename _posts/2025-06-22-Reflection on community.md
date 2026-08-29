@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Skateboard Academic
-tags: Ethnography Sociology GünterDux HelmuthPlessner Community Society Values SkateBible
+categories: Skateboard 
+tags: Ethnography Sociology GünterDux HelmuthPlessner Community Society Values Academic SkateBible
 ---
 
 

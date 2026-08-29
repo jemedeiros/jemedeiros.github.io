@@ -3,8 +3,8 @@ layout: post
 author: de Medeiros, J. E. M.
 download: false
 excerpt_separator: <!--more-->
-categories: Surfskate Skateboard
-tags: Community Friends Skatepark
+categories: Surfskate 
+tags: Community Friends Skatepark Skateboard
 ---
 
 # Embracing the Ups and Downs of Skateboarding
